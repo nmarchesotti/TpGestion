@@ -22,6 +22,8 @@ namespace FrbaCrucero.LoginYSeguridad
             Login log = new Login();
 
             log.Show();
+
+            this.Dispose();
         }
 
         private void button2_Click(object sender, EventArgs e)

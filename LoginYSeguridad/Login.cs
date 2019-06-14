@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
+using(SqlConnection cn = new SqlConnection("connection string"));
+using Program.cs;
 
 namespace FrbaCrucero.LoginYSeguridad
 {
@@ -25,7 +28,8 @@ namespace FrbaCrucero.LoginYSeguridad
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (Validacion(txtusuario.Text, txtcontraseña.Text))
+            SqlCommand cmd = new SqlCommand("ValidarAdministrador",Conexion);
+            if (GD1C2019.DATASET(txtusuario.Text, txtcontraseña.Text))
             {
                 menuAdmin menu = new menuAdmin();
                 menu.Show();
