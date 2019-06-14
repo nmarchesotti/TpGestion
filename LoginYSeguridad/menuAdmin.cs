@@ -10,23 +10,11 @@ using System.Windows.Forms;
 
 namespace FrbaCrucero.LoginYSeguridad
 {
-    public partial class Form1 : Form
+    public partial class menuAdmin : Form
     {
-        public Form1()
+        public menuAdmin()
         {
             InitializeComponent();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Login log = new Login();
-
-            log.Show();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
