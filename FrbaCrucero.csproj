@@ -50,11 +50,11 @@
     <Compile Include="AbmCrucero\ABMCrucero.Designer.cs">
       <DependentUpon>ABMCrucero.cs</DependentUpon>
     </Compile>
-    <Compile Include="AbmCrucero\BorrarCrucero.cs">
+    <Compile Include="AbmCrucero\DarDeBaja.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AbmCrucero\BorrarCrucero.Designer.cs">
-      <DependentUpon>BorrarCrucero.cs</DependentUpon>
+    <Compile Include="AbmCrucero\DarDeBaja.Designer.cs">
+      <DependentUpon>DarDeBaja.cs</DependentUpon>
     </Compile>
     <Compile Include="AbmCrucero\AltaCrucero.cs">
       <SubType>Form</SubType>
@@ -86,11 +86,11 @@
     <Compile Include="AbmPuerto\ModificarPuerto.Designer.cs">
       <DependentUpon>ModificarPuerto.cs</DependentUpon>
     </Compile>
-    <Compile Include="AbmPuerto\Form4.cs">
+    <Compile Include="AbmPuerto\ABMPuerto.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AbmPuerto\Form4.Designer.cs">
-      <DependentUpon>Form4.cs</DependentUpon>
+    <Compile Include="AbmPuerto\ABMPuerto.Designer.cs">
+      <DependentUpon>ABMPuerto.cs</DependentUpon>
     </Compile>
     <Compile Include="AbmRecorrido\BajaRecorrido.cs">
       <SubType>Form</SubType>
@@ -197,8 +197,8 @@
     <EmbeddedResource Include="AbmCrucero\AltaCrucero.resx">
       <DependentUpon>AltaCrucero.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AbmCrucero\BorrarCrucero.resx">
-      <DependentUpon>BorrarCrucero.cs</DependentUpon>
+    <EmbeddedResource Include="AbmCrucero\DarDeBaja.resx">
+      <DependentUpon>DarDeBaja.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AbmCrucero\modificarCrucero.resx">
       <DependentUpon>modificarCrucero.cs</DependentUpon>
@@ -209,8 +209,8 @@
     <EmbeddedResource Include="AbmPuerto\BajaPuerto.resx">
       <DependentUpon>BajaPuerto.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AbmPuerto\Form4.resx">
-      <DependentUpon>Form4.cs</DependentUpon>
+    <EmbeddedResource Include="AbmPuerto\ABMPuerto.resx">
+      <DependentUpon>ABMPuerto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AbmPuerto\ModificarPuerto.resx">
       <DependentUpon>ModificarPuerto.cs</DependentUpon>

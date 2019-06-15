@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace FrbaCrucero.AbmPuerto
 {
-    public partial class Form4 : Form
+    public partial class ABMPuerto : Form
     {
-        public Form4()
+        public ABMPuerto()
         {
             InitializeComponent();
         }

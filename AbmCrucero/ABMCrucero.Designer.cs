@@ -28,58 +28,74 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btnABMModificarCrucero = new System.Windows.Forms.Button();
+            this.btnABMBajaCrucero = new System.Windows.Forms.Button();
+            this.btnABMAltaCrucero = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // button1
+            // label3
             // 
-            this.button1.Location = new System.Drawing.Point(98, 40);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Alta";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(264, 40);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(119, 29);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Cruceros";
             // 
-            // button2
+            // btnABMModificarCrucero
             // 
-            this.button2.Location = new System.Drawing.Point(98, 88);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Baja Crucero";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnABMModificarCrucero.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnABMModificarCrucero.Location = new System.Drawing.Point(167, 340);
+            this.btnABMModificarCrucero.Name = "btnABMModificarCrucero";
+            this.btnABMModificarCrucero.Size = new System.Drawing.Size(321, 49);
+            this.btnABMModificarCrucero.TabIndex = 8;
+            this.btnABMModificarCrucero.Text = "Modificar crucero";
+            this.btnABMModificarCrucero.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btnABMBajaCrucero
             // 
-            this.button3.Location = new System.Drawing.Point(98, 126);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Modificacion Crucero";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnABMBajaCrucero.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnABMBajaCrucero.Location = new System.Drawing.Point(167, 246);
+            this.btnABMBajaCrucero.Name = "btnABMBajaCrucero";
+            this.btnABMBajaCrucero.Size = new System.Drawing.Size(321, 49);
+            this.btnABMBajaCrucero.TabIndex = 9;
+            this.btnABMBajaCrucero.Text = "Baja crucero";
+            this.btnABMBajaCrucero.UseVisualStyleBackColor = true;
+            // 
+            // btnABMAltaCrucero
+            // 
+            this.btnABMAltaCrucero.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnABMAltaCrucero.Location = new System.Drawing.Point(167, 155);
+            this.btnABMAltaCrucero.Name = "btnABMAltaCrucero";
+            this.btnABMAltaCrucero.Size = new System.Drawing.Size(321, 49);
+            this.btnABMAltaCrucero.TabIndex = 10;
+            this.btnABMAltaCrucero.Text = "Alta crucero";
+            this.btnABMAltaCrucero.UseVisualStyleBackColor = true;
             // 
             // ABMCrucero
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 261);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(678, 486);
+            this.Controls.Add(this.btnABMAltaCrucero);
+            this.Controls.Add(this.btnABMBajaCrucero);
+            this.Controls.Add(this.btnABMModificarCrucero);
+            this.Controls.Add(this.label3);
             this.Name = "ABMCrucero";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnABMModificarCrucero;
+        private System.Windows.Forms.Button btnABMBajaCrucero;
+        private System.Windows.Forms.Button btnABMAltaCrucero;
     }
 }

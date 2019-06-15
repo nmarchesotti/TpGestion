@@ -1,6 +1,6 @@
 ﻿namespace FrbaCrucero.AbmPuerto
 {
-    partial class Form4
+    partial class ABMPuerto
     {
         /// <summary>
         /// Required designer variable.
