@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnBajaPuerto = new System.Windows.Forms.Button();
             this.comboBoxPuertos = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -44,15 +44,15 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Puerto";
             // 
-            // button1
+            // btnBajaPuerto
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(177, 259);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(158, 93);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Dar de baja";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnBajaPuerto.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBajaPuerto.Location = new System.Drawing.Point(177, 259);
+            this.btnBajaPuerto.Name = "btnBajaPuerto";
+            this.btnBajaPuerto.Size = new System.Drawing.Size(158, 93);
+            this.btnBajaPuerto.TabIndex = 2;
+            this.btnBajaPuerto.Text = "Dar de baja";
+            this.btnBajaPuerto.UseVisualStyleBackColor = true;
             // 
             // comboBoxPuertos
             // 
@@ -79,7 +79,7 @@
             this.ClientSize = new System.Drawing.Size(571, 397);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.comboBoxPuertos);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnBajaPuerto);
             this.Controls.Add(this.label1);
             this.Name = "BajaPuerto";
             this.Text = "l";
@@ -91,7 +91,7 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnBajaPuerto;
         private System.Windows.Forms.ComboBox comboBoxPuertos;
         private System.Windows.Forms.Label label3;
     }

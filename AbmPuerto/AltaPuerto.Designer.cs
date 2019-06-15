@@ -32,7 +32,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnAltaPuerto = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -71,15 +71,15 @@
             this.textBox2.Size = new System.Drawing.Size(133, 20);
             this.textBox2.TabIndex = 3;
             // 
-            // button1
+            // btnAltaPuerto
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(137, 208);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(163, 72);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Dar de alta";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnAltaPuerto.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAltaPuerto.Location = new System.Drawing.Point(137, 208);
+            this.btnAltaPuerto.Name = "btnAltaPuerto";
+            this.btnAltaPuerto.Size = new System.Drawing.Size(163, 72);
+            this.btnAltaPuerto.TabIndex = 4;
+            this.btnAltaPuerto.Text = "Dar de alta";
+            this.btnAltaPuerto.UseVisualStyleBackColor = true;
             // 
             // label3
             // 
@@ -97,7 +97,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(475, 344);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnAltaPuerto);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label2);
@@ -116,7 +116,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnAltaPuerto;
         private System.Windows.Forms.Label label3;
     }
 }

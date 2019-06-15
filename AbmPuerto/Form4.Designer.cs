@@ -28,42 +28,42 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnABMModificarPuerto = new System.Windows.Forms.Button();
+            this.btnABMBajaPuerto = new System.Windows.Forms.Button();
+            this.btnABMAltaPuerto = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // button3
+            // btnABMModificarPuerto
             // 
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(239, 292);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(321, 49);
-            this.button3.TabIndex = 5;
-            this.button3.Text = "Modificacion Crucero";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnABMModificarPuerto.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnABMModificarPuerto.Location = new System.Drawing.Point(239, 292);
+            this.btnABMModificarPuerto.Name = "btnABMModificarPuerto";
+            this.btnABMModificarPuerto.Size = new System.Drawing.Size(321, 49);
+            this.btnABMModificarPuerto.TabIndex = 5;
+            this.btnABMModificarPuerto.Text = "Modificar puerto";
+            this.btnABMModificarPuerto.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnABMBajaPuerto
             // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(239, 212);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(321, 49);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Baja Crucero";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnABMBajaPuerto.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnABMBajaPuerto.Location = new System.Drawing.Point(239, 212);
+            this.btnABMBajaPuerto.Name = "btnABMBajaPuerto";
+            this.btnABMBajaPuerto.Size = new System.Drawing.Size(321, 49);
+            this.btnABMBajaPuerto.TabIndex = 4;
+            this.btnABMBajaPuerto.Text = "Baja puerto";
+            this.btnABMBajaPuerto.UseVisualStyleBackColor = true;
+            this.btnABMBajaPuerto.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button1
+            // btnABMAltaPuerto
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(239, 129);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(321, 49);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Alta";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnABMAltaPuerto.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnABMAltaPuerto.Location = new System.Drawing.Point(239, 129);
+            this.btnABMAltaPuerto.Name = "btnABMAltaPuerto";
+            this.btnABMAltaPuerto.Size = new System.Drawing.Size(321, 49);
+            this.btnABMAltaPuerto.TabIndex = 3;
+            this.btnABMAltaPuerto.Text = "Alta puerto";
+            this.btnABMAltaPuerto.UseVisualStyleBackColor = true;
             // 
             // label3
             // 
@@ -81,9 +81,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnABMModificarPuerto);
+            this.Controls.Add(this.btnABMBajaPuerto);
+            this.Controls.Add(this.btnABMAltaPuerto);
             this.Name = "Form4";
             this.Text = "Form4";
             this.ResumeLayout(false);
@@ -93,9 +93,9 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnABMModificarPuerto;
+        private System.Windows.Forms.Button btnABMBajaPuerto;
+        private System.Windows.Forms.Button btnABMAltaPuerto;
         private System.Windows.Forms.Label label3;
     }
 }
