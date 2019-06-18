@@ -33,7 +33,8 @@ namespace FrbaCrucero.AbmCrucero
 
         }
 
-        private void InicializarComboBoxTiposBaja(){
+        private void InicializarComboBoxTiposBaja()
+        {
             var dataSource = new List<String>();
             dataSource.Add("Vida util finalizada");
             dataSource.Add("Fuera de servicio");
@@ -42,5 +43,6 @@ namespace FrbaCrucero.AbmCrucero
             this.comboBoxTipoBaja.DisplayMember = "Name";
 
             this.comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
+        }
     }
 }

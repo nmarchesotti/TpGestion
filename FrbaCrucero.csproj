@@ -190,7 +190,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SqlConnection.cs" />
     <EmbeddedResource Include="AbmCrucero\ABMCrucero.resx">
       <DependentUpon>ABMCrucero.cs</DependentUpon>
     </EmbeddedResource>

@@ -8,12 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-using(SqlConnection cn = new SqlConnection("connection string"));
-using Program.cs;
 
 namespace FrbaCrucero.LoginYSeguridad
 {
-    List<string> res = new List<string>();
     public partial class Login : Form
     {
         public Login()
@@ -28,39 +25,21 @@ namespace FrbaCrucero.LoginYSeguridad
 
         private void button1_Click(object sender, EventArgs e)
         {
-            SqlCommand cmd = new SqlCommand("ValidarAdministrador",Conexion);
-            if (GD1C2019.DATASET(txtusuario.Text, txtcontraseña.Text))
+            String conexion = @"Data Source=FELIPE\SQLSERVER2012;Initial Catalog=GD1C2019;User ID=gdCruceros2019;Password=gd2019";
+            SqlConnection conn = new SqlConnection(conexion);
+            SqlCommand cmd = new SqlCommand("ValidarAdministrador", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add(new SqlParameter(txtusuario.Text, txtcontraseña.Text));
+            SqlDataReader reader = cmd.ExecuteReader();
+            if (reader.Read())
             {
-                menuAdmin menu = new menuAdmin();
-                menu.Show();
-                this.Dispose();
+                System.Windows.Forms.MessageBox.Show("Login valido");
             }
-            else { 
-           tirarError()
+            else
+            {
+                System.Windows.Forms.MessageBox.Show("Login inválido");
             }
         }
     }
 }
 
-static public tipoDato EjecutarSP(string sp, SqlParameter[] parametros)
-    {
-        try
-        {
-            SqlCommand command = new SqlCommand(sp, ConexionBD.con);
-            command.CommandType = CommandType.StoredProcedure;
-            command.Parameters.AddRange(parametros);
-            ConexionBD.Conectar();
-            SqlDataReader reader = command.ExecuteReader();
-            while (reader.Read())
-            {
-            string aux = reader.GetString(0) 
-            res.Add(aux);   
-            }
-            ConexionBD.Desconectar();
-            return resultado;
-        }
-        catch (Exception ex)
-        {
-            throw new Exception(" Error al ejecutar procedimiento almacenado ", ex);
-        }
-    }

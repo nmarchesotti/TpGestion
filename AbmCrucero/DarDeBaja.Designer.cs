@@ -107,7 +107,6 @@
             this.Controls.Add(this.label1);
             this.Name = "DarDeBaja";
             this.Text = "BorrarCrusero";
-            this.Load += new System.EventHandler(this.BorrarCrusero_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
