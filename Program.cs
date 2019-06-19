@@ -17,11 +17,13 @@ namespace FrbaCrucero
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            LoginYSeguridad.Form1 login = new LoginYSeguridad.Form1();
+            Application.Run(new LoginYSeguridad.Login());
+
+            /*LoginYSeguridad.Form1 login = new LoginYSeguridad.Form1();
             while (true)
             {
                 login.Show();
-            }
+            }*/
         }
     }
 }

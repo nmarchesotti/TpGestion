@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Configuration;
 
 namespace FrbaCrucero.LoginYSeguridad
 {
@@ -25,7 +26,18 @@ namespace FrbaCrucero.LoginYSeguridad
 
         private void button1_Click(object sender, EventArgs e)
         {
-            String conexion = @"Data Source=FELIPE\SQLSERVER2012;Initial Catalog=GD1C2019;User ID=gdCruceros2019;Password=gd2019";
+
+
+            //INSTANCIO LA CLASE SQL CONNECTION
+            SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["GD_CRUCEROS"].ConnectionString);
+
+            cn.Open();
+
+            MessageBox.Show("Conexion existosa");
+
+            cn.Close();
+
+            /*String conexion = @"Data Source=FELIPE\SQLSERVER2012;Initial Catalog=GD1C2019;User ID=gdCruceros2019;Password=gd2019";
             SqlConnection conn = new SqlConnection(conexion);
             SqlCommand cmd = new SqlCommand("ValidarAdministrador", conn);
             cmd.CommandType = CommandType.StoredProcedure;
@@ -38,7 +50,7 @@ namespace FrbaCrucero.LoginYSeguridad
             else
             {
                 System.Windows.Forms.MessageBox.Show("Login inválido");
-            }
+            }*/
         }
     }
 }
