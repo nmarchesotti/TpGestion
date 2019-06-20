@@ -64,6 +64,7 @@
             this.btnABMAltaPuerto.TabIndex = 3;
             this.btnABMAltaPuerto.Text = "Alta puerto";
             this.btnABMAltaPuerto.UseVisualStyleBackColor = true;
+            this.btnABMAltaPuerto.Click += new System.EventHandler(this.btnABMAltaPuerto_Click);
             // 
             // label3
             // 
@@ -75,7 +76,7 @@
             this.label3.TabIndex = 6;
             this.label3.Text = "Puertos";
             // 
-            // Form4
+            // ABMPuerto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -84,7 +85,7 @@
             this.Controls.Add(this.btnABMModificarPuerto);
             this.Controls.Add(this.btnABMBajaPuerto);
             this.Controls.Add(this.btnABMAltaPuerto);
-            this.Name = "Form4";
+            this.Name = "ABMPuerto";
             this.Text = "Form4";
             this.ResumeLayout(false);
             this.PerformLayout();

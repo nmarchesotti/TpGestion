@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -22,7 +24,42 @@ namespace FrbaCrucero.AbmPuerto
 
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void NombreDelPuerto(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAltaPuerto_Click(object sender, EventArgs e)
+        {
+            SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["GD_CRUCEROS"].ConnectionString);
+            SqlCommand cmd = new SqlCommand("LOS_QUE_VAN_A_APROBAR.CrearPuerto", cn);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.Add("@NombrePuerto", SqlDbType.NVarChar, 255).Value = NombrePuerto.Text.ToString();
+            cmd.Parameters.Add("@Descripcion", SqlDbType.VarChar, 50).Value = Descripcion.Text.ToString();
+
+            try
+            {
+
+                cn.Open();
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Exitosa");
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                cn.Close();
+                cn.Dispose();
+
+            }
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
         {
 
         }

@@ -30,8 +30,8 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.NombrePuerto = new System.Windows.Forms.TextBox();
+            this.Descripcion = new System.Windows.Forms.TextBox();
             this.btnAltaPuerto = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -56,20 +56,21 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Descripción";
             // 
-            // textBox1
+            // NombrePuerto
             // 
-            this.textBox1.Location = new System.Drawing.Point(253, 93);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(133, 20);
-            this.textBox1.TabIndex = 2;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.NombrePuerto.Location = new System.Drawing.Point(253, 93);
+            this.NombrePuerto.Name = "NombrePuerto";
+            this.NombrePuerto.Size = new System.Drawing.Size(133, 20);
+            this.NombrePuerto.TabIndex = 2;
+            this.NombrePuerto.TextChanged += new System.EventHandler(this.NombreDelPuerto);
             // 
-            // textBox2
+            // Descripcion
             // 
-            this.textBox2.Location = new System.Drawing.Point(253, 138);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(133, 20);
-            this.textBox2.TabIndex = 3;
+            this.Descripcion.Location = new System.Drawing.Point(253, 138);
+            this.Descripcion.Name = "Descripcion";
+            this.Descripcion.Size = new System.Drawing.Size(133, 20);
+            this.Descripcion.TabIndex = 3;
+            this.Descripcion.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // btnAltaPuerto
             // 
@@ -80,6 +81,7 @@
             this.btnAltaPuerto.TabIndex = 4;
             this.btnAltaPuerto.Text = "Dar de alta";
             this.btnAltaPuerto.UseVisualStyleBackColor = true;
+            this.btnAltaPuerto.Click += new System.EventHandler(this.btnAltaPuerto_Click);
             // 
             // label3
             // 
@@ -98,8 +100,8 @@
             this.ClientSize = new System.Drawing.Size(475, 344);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnAltaPuerto);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.Descripcion);
+            this.Controls.Add(this.NombrePuerto);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "AltaPuerto";
@@ -114,8 +116,8 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox NombrePuerto;
+        private System.Windows.Forms.TextBox Descripcion;
         private System.Windows.Forms.Button btnAltaPuerto;
         private System.Windows.Forms.Label label3;
     }
