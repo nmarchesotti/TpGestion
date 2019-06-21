@@ -1,6 +1,6 @@
 ﻿namespace FrbaCrucero.AbmRol
 {
-    partial class Form1
+    partial class MenuRol
     {
         /// <summary>
         /// Required designer variable.

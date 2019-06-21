@@ -17,7 +17,7 @@ namespace FrbaCrucero
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new AbmPuerto.AltaPuerto());
+            Application.Run(new AbmRol.BajaRol());
 
         }
     }
