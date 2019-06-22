@@ -17,7 +17,14 @@ namespace FrbaCrucero
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new AbmRol.BajaRol());
+            
+            
+            AbmCrucero.ABMCrucero var = new AbmCrucero.ABMCrucero();
+            var.Show();
+            Application.Run();  // Para probar varios forms en una sola ejecucion
+
+
+            //Application.Run(new AbmCrucero.BajaCrucero());  // Para probar un solo FORM
 
         }
     }

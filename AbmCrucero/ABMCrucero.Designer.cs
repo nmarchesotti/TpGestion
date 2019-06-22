@@ -53,6 +53,7 @@
             this.btnABMModificarCrucero.TabIndex = 8;
             this.btnABMModificarCrucero.Text = "Modificar crucero";
             this.btnABMModificarCrucero.UseVisualStyleBackColor = true;
+            this.btnABMModificarCrucero.Click += new System.EventHandler(this.btnABMModificarCrucero_Click);
             // 
             // btnABMBajaCrucero
             // 
@@ -63,6 +64,7 @@
             this.btnABMBajaCrucero.TabIndex = 9;
             this.btnABMBajaCrucero.Text = "Baja crucero";
             this.btnABMBajaCrucero.UseVisualStyleBackColor = true;
+            this.btnABMBajaCrucero.Click += new System.EventHandler(this.btnABMBajaCrucero_Click);
             // 
             // btnABMAltaCrucero
             // 
@@ -73,6 +75,7 @@
             this.btnABMAltaCrucero.TabIndex = 10;
             this.btnABMAltaCrucero.Text = "Alta crucero";
             this.btnABMAltaCrucero.UseVisualStyleBackColor = true;
+            this.btnABMAltaCrucero.Click += new System.EventHandler(this.btnABMAltaCrucero_Click);
             // 
             // ABMCrucero
             // 
@@ -85,7 +88,6 @@
             this.Controls.Add(this.label3);
             this.Name = "ABMCrucero";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

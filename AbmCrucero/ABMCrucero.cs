@@ -17,29 +17,26 @@ namespace FrbaCrucero.AbmCrucero
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
 
+        private void btnABMAltaCrucero_Click(object sender, EventArgs e)
+        {
+            AbmCrucero.AltaCrucero form = new AltaCrucero();
+            form.Show();
+            this.Dispose();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnABMBajaCrucero_Click(object sender, EventArgs e)
         {
-
+            AbmCrucero.BajaCrucero form = new BajaCrucero();
+            form.Show();
+            this.Dispose();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void btnABMModificarCrucero_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
+            AbmCrucero.modificarCrucero form = new modificarCrucero();
+            form.Show();
+            this.Dispose();
         }
     }
 }
