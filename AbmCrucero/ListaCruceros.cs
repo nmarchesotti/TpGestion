@@ -22,32 +22,23 @@ namespace FrbaCrucero.AbmCrucero
         
         private void inicializarLista()
         {
-            lista.Columns.Add("IdCrucero", -2, HorizontalAlignment.Center);
-            lista.Columns.Add("Marca", -2, HorizontalAlignment.Center);
-            lista.Columns.Add("Modelo", -2, HorizontalAlignment.Center);
-            lista.Columns.Add("Cantidad de cabinas", -2, HorizontalAlignment.Center);
+            var select = "SELECT * FROM LOS_QUE_VAN_A_APROBAR.ListarCruceros";
+            var c = new SqlConnection(ConfigurationManager.ConnectionStrings["GD_CRUCEROS"].ConnectionString); // Your Connection String here
+            var dataAdapter = new SqlDataAdapter(select, c); 
 
-            SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["GD_CRUCEROS"].ConnectionString);
-            cn.Open();
-
-            SqlCommand sc = new SqlCommand("select IdModelo, Descripcion from LOS_QUE_VAN_A_APROBAR.Modelo", cn);
-            SqlDataReader dr = sc.ExecuteReader();
-            while (dr.Read())
-            {
-                ListViewItem lstItem = new ListViewItem();
-                lista.SubItems.Add(dr["IdCrucero"].ToString());
-                lista.SubItems.Add(dr["Marca"].ToString());
-                lista.SubItems.Add(dr["Modelo"].ToString());
-                lista.SubItems.Add(dr["CantidadCabinas"].ToString());
-                lista.SubItems.Add(lstItem);
+            var commandBuilder = new SqlCommandBuilder(dataAdapter);
+            var ds = new DataSet();
+            dataAdapter.Fill(ds);
+            dataGridView1.ReadOnly = true; 
+            dataGridView1.DataSource = ds.Tables[0];
 
             }
-        }
 
-
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
-
+            ABMCrucero form = new ABMCrucero();
+            form.Show();
+            this.Dispose();
+        }
         }
     }
-}

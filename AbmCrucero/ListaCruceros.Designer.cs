@@ -28,32 +28,61 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lista = new System.Windows.Forms.ListView();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
-            // lista
+            // dataGridView1
             // 
-            this.lista.Location = new System.Drawing.Point(17, 75);
-            this.lista.Name = "lista";
-            this.lista.Size = new System.Drawing.Size(638, 337);
-            this.lista.TabIndex = 0;
-            this.lista.UseCompatibleStateImageBehavior = false;
-            this.lista.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(50, 208);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(458, 386);
+            this.dataGridView1.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(45, 100);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(201, 25);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Listado de cruceros";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(12, 12);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(102, 54);
+            this.button2.TabIndex = 18;
+            this.button2.Text = "Menu crucero";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // ListaCruceros
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(670, 428);
-            this.Controls.Add(this.lista);
+            this.ClientSize = new System.Drawing.Size(865, 630);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.dataGridView1);
             this.Name = "ListaCruceros";
             this.Text = "ListaCruceros";
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.ListView lista;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button2;
+
     }
 }
