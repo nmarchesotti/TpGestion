@@ -41,7 +41,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(35, 88);
+            this.label1.Location = new System.Drawing.Point(78, 101);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(189, 25);
             this.label1.TabIndex = 0;
@@ -51,7 +51,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(35, 138);
+            this.label2.Location = new System.Drawing.Point(78, 216);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(125, 25);
             this.label2.TabIndex = 1;
@@ -59,24 +59,24 @@
             // 
             // NombrePuerto
             // 
-            this.NombrePuerto.Location = new System.Drawing.Point(253, 93);
+            this.NombrePuerto.Location = new System.Drawing.Point(349, 107);
             this.NombrePuerto.Name = "NombrePuerto";
-            this.NombrePuerto.Size = new System.Drawing.Size(133, 20);
+            this.NombrePuerto.Size = new System.Drawing.Size(237, 20);
             this.NombrePuerto.TabIndex = 2;
             this.NombrePuerto.TextChanged += new System.EventHandler(this.NombreDelPuerto);
             // 
             // DescripcionPuerto
             // 
-            this.DescripcionPuerto.Location = new System.Drawing.Point(253, 138);
+            this.DescripcionPuerto.Location = new System.Drawing.Point(349, 222);
             this.DescripcionPuerto.Name = "DescripcionPuerto";
-            this.DescripcionPuerto.Size = new System.Drawing.Size(133, 20);
+            this.DescripcionPuerto.Size = new System.Drawing.Size(237, 20);
             this.DescripcionPuerto.TabIndex = 3;
             this.DescripcionPuerto.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // btnAltaPuerto
             // 
             this.btnAltaPuerto.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAltaPuerto.Location = new System.Drawing.Point(137, 208);
+            this.btnAltaPuerto.Location = new System.Drawing.Point(232, 321);
             this.btnAltaPuerto.Name = "btnAltaPuerto";
             this.btnAltaPuerto.Size = new System.Drawing.Size(163, 72);
             this.btnAltaPuerto.TabIndex = 4;
@@ -88,7 +88,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(78, 22);
+            this.label3.Location = new System.Drawing.Point(154, 26);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(308, 29);
             this.label3.TabIndex = 5;
@@ -96,11 +96,11 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(12, 288);
+            this.button2.Location = new System.Drawing.Point(528, 442);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(102, 54);
             this.button2.TabIndex = 24;
-            this.button2.Text = "Menu Crucero";
+            this.button2.Text = "Menu puerto";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -108,7 +108,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(475, 344);
+            this.ClientSize = new System.Drawing.Size(642, 508);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnAltaPuerto);
