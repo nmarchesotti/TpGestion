@@ -32,6 +32,7 @@
             this.btnABMModificarCrucero = new System.Windows.Forms.Button();
             this.btnABMBajaCrucero = new System.Windows.Forms.Button();
             this.btnABMAltaCrucero = new System.Windows.Forms.Button();
+            this.btnListaCruceros = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label3
@@ -47,7 +48,7 @@
             // btnABMModificarCrucero
             // 
             this.btnABMModificarCrucero.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnABMModificarCrucero.Location = new System.Drawing.Point(167, 340);
+            this.btnABMModificarCrucero.Location = new System.Drawing.Point(167, 273);
             this.btnABMModificarCrucero.Name = "btnABMModificarCrucero";
             this.btnABMModificarCrucero.Size = new System.Drawing.Size(321, 49);
             this.btnABMModificarCrucero.TabIndex = 8;
@@ -58,7 +59,7 @@
             // btnABMBajaCrucero
             // 
             this.btnABMBajaCrucero.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnABMBajaCrucero.Location = new System.Drawing.Point(167, 246);
+            this.btnABMBajaCrucero.Location = new System.Drawing.Point(167, 191);
             this.btnABMBajaCrucero.Name = "btnABMBajaCrucero";
             this.btnABMBajaCrucero.Size = new System.Drawing.Size(321, 49);
             this.btnABMBajaCrucero.TabIndex = 9;
@@ -69,7 +70,7 @@
             // btnABMAltaCrucero
             // 
             this.btnABMAltaCrucero.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnABMAltaCrucero.Location = new System.Drawing.Point(167, 155);
+            this.btnABMAltaCrucero.Location = new System.Drawing.Point(167, 111);
             this.btnABMAltaCrucero.Name = "btnABMAltaCrucero";
             this.btnABMAltaCrucero.Size = new System.Drawing.Size(321, 49);
             this.btnABMAltaCrucero.TabIndex = 10;
@@ -77,11 +78,23 @@
             this.btnABMAltaCrucero.UseVisualStyleBackColor = true;
             this.btnABMAltaCrucero.Click += new System.EventHandler(this.btnABMAltaCrucero_Click);
             // 
+            // btnListaCruceros
+            // 
+            this.btnListaCruceros.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnListaCruceros.Location = new System.Drawing.Point(167, 355);
+            this.btnListaCruceros.Name = "btnListaCruceros";
+            this.btnListaCruceros.Size = new System.Drawing.Size(321, 49);
+            this.btnListaCruceros.TabIndex = 11;
+            this.btnListaCruceros.Text = "Lista de cruceros";
+            this.btnListaCruceros.UseVisualStyleBackColor = true;
+            this.btnListaCruceros.Click += new System.EventHandler(this.btnListaCruceros_Click);
+            // 
             // ABMCrucero
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(678, 486);
+            this.Controls.Add(this.btnListaCruceros);
             this.Controls.Add(this.btnABMAltaCrucero);
             this.Controls.Add(this.btnABMBajaCrucero);
             this.Controls.Add(this.btnABMModificarCrucero);
@@ -99,5 +112,6 @@
         private System.Windows.Forms.Button btnABMModificarCrucero;
         private System.Windows.Forms.Button btnABMBajaCrucero;
         private System.Windows.Forms.Button btnABMAltaCrucero;
+        private System.Windows.Forms.Button btnListaCruceros;
     }
 }

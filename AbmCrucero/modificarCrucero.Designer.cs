@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.button1 = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBoxCabinas = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -44,32 +42,14 @@
             // button1
             // 
             this.button1.AccessibleRole = System.Windows.Forms.AccessibleRole.TitleBar;
-            this.button1.Location = new System.Drawing.Point(153, 298);
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(134, 287);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(197, 42);
             this.button1.TabIndex = 19;
             this.button1.Text = "Modificar";
             this.button1.UseVisualStyleBackColor = true;
-            // 
-            // label3
-            // 
-            this.label3.AccessibleRole = System.Windows.Forms.AccessibleRole.TitleBar;
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(52, 242);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(213, 25);
-            this.label3.TabIndex = 18;
-            this.label3.Text = "Cantidad de Cabinas";
-            // 
-            // textBoxCabinas
-            // 
-            this.textBoxCabinas.AccessibleRole = System.Windows.Forms.AccessibleRole.TitleBar;
-            this.textBoxCabinas.Location = new System.Drawing.Point(328, 242);
-            this.textBoxCabinas.Name = "textBoxCabinas";
-            this.textBoxCabinas.Size = new System.Drawing.Size(87, 20);
-            this.textBoxCabinas.TabIndex = 17;
-
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // label2
             // 
@@ -160,8 +140,6 @@
             this.Controls.Add(this.comboBoxIdCrucero);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBoxCabinas);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "modificarCrucero";
@@ -174,8 +152,6 @@
         #endregion
 
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBoxCabinas;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label4;

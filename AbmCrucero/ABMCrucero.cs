@@ -38,5 +38,12 @@ namespace FrbaCrucero.AbmCrucero
             form.Show();
             this.Dispose();
         }
+
+        private void btnListaCruceros_Click(object sender, EventArgs e)
+        {
+            ListaCruceros form = new ListaCruceros();
+            form.Show();
+            this.Dispose();
+        }
     }
 }

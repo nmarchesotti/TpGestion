@@ -63,6 +63,12 @@
     <Compile Include="AbmCrucero\AltaCrucero.Designer.cs">
       <DependentUpon>AltaCrucero.cs</DependentUpon>
     </Compile>
+    <Compile Include="AbmCrucero\ListaCruceros.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AbmCrucero\ListaCruceros.Designer.cs">
+      <DependentUpon>ListaCruceros.cs</DependentUpon>
+    </Compile>
     <Compile Include="AbmCrucero\modificarCrucero.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -147,12 +153,6 @@
     <Compile Include="CompraReservaPasaje\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="GeneracionViaje\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -199,6 +199,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AbmCrucero\BajaCrucero.resx">
       <DependentUpon>BajaCrucero.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AbmCrucero\ListaCruceros.resx">
+      <DependentUpon>ListaCruceros.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AbmCrucero\modificarCrucero.resx">
       <DependentUpon>modificarCrucero.cs</DependentUpon>

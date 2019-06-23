@@ -42,7 +42,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(159, 255);
+            this.button1.Location = new System.Drawing.Point(289, 255);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(206, 80);
             this.button1.TabIndex = 6;
@@ -102,9 +102,9 @@
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(57, 204);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(229, 24);
+            this.label3.Size = new System.Drawing.Size(234, 24);
             this.label3.TabIndex = 20;
-            this.label3.Text = "Fecha de reincorporacion";
+            this.label3.Text = "Fecha de reincorporacion ";
             // 
             // calendarioBajaCrucero
             // 

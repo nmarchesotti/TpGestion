@@ -105,5 +105,6 @@ namespace FrbaCrucero.AbmCrucero
             form.Show();
             this.Dispose();
         }
+
     }
 }
