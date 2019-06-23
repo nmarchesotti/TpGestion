@@ -1,6 +1,6 @@
-﻿namespace FrbaCrucero.LoginYSeguridad
+﻿namespace FrbaCrucero.PantallaInicial
 {
-    partial class Form1
+    partial class Inicio
     {
         /// <summary>
         /// Required designer variable.
@@ -34,32 +34,32 @@
             // 
             // btnAdmin
             // 
-            this.btnAdmin.Location = new System.Drawing.Point(62, 71);
+            this.btnAdmin.Location = new System.Drawing.Point(97, 72);
             this.btnAdmin.Name = "btnAdmin";
             this.btnAdmin.Size = new System.Drawing.Size(152, 107);
-            this.btnAdmin.TabIndex = 0;
+            this.btnAdmin.TabIndex = 1;
             this.btnAdmin.Text = "Administrador";
             this.btnAdmin.UseVisualStyleBackColor = true;
-            this.btnAdmin.Click += new System.EventHandler(this.button1_Click);
+            this.btnAdmin.Click += new System.EventHandler(this.btnAdmin_Click);
             // 
             // btnClie
             // 
-            this.btnClie.Location = new System.Drawing.Point(253, 71);
+            this.btnClie.Location = new System.Drawing.Point(330, 72);
             this.btnClie.Name = "btnClie";
             this.btnClie.Size = new System.Drawing.Size(170, 107);
-            this.btnClie.TabIndex = 1;
+            this.btnClie.TabIndex = 2;
             this.btnClie.Text = "Cliente";
             this.btnClie.UseVisualStyleBackColor = true;
-            this.btnClie.Click += new System.EventHandler(this.button2_Click);
+            this.btnClie.Click += new System.EventHandler(this.btnClie_Click);
             // 
-            // Form1
+            // Inicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(501, 269);
+            this.ClientSize = new System.Drawing.Size(573, 261);
             this.Controls.Add(this.btnClie);
             this.Controls.Add(this.btnAdmin);
-            this.Name = "Form1";
+            this.Name = "Inicio";
             this.Text = "Form1";
             this.ResumeLayout(false);
 

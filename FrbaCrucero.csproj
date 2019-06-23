@@ -147,11 +147,11 @@
     <Compile Include="AbmRol\ModificarRol.Designer.cs">
       <DependentUpon>ModificarRol.cs</DependentUpon>
     </Compile>
-    <Compile Include="CompraReservaPasaje\Form1.cs">
+    <Compile Include="CompraReservaPasaje\CompraReserva.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CompraReservaPasaje\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="CompraReservaPasaje\CompraReserva.Designer.cs">
+      <DependentUpon>CompraReserva.cs</DependentUpon>
     </Compile>
     <Compile Include="GeneracionViaje\Form1.cs">
       <SubType>Form</SubType>
@@ -163,12 +163,6 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ListadoEstadistico\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="LoginYSeguridad\Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="LoginYSeguridad\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="LoginYSeguridad\Login.cs">
@@ -188,6 +182,12 @@
     </Compile>
     <Compile Include="PagoReserva\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PantallaInicial\Inicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PantallaInicial\Inicio.Designer.cs">
+      <DependentUpon>Inicio.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -233,13 +233,10 @@
     <EmbeddedResource Include="AbmRol\ModificarRol.resx">
       <DependentUpon>ModificarRol.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CompraReservaPasaje\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="CompraReservaPasaje\CompraReserva.resx">
+      <DependentUpon>CompraReserva.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ListadoEstadistico\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="LoginYSeguridad\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginYSeguridad\Login.resx">
@@ -250,6 +247,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PagoReserva\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PantallaInicial\Inicio.resx">
+      <DependentUpon>Inicio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -8,23 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace FrbaCrucero.CompraPasaje
+namespace FrbaCrucero.CompraReservaPasaje
 {
-    public partial class Form1 : Form
+    public partial class CompraReserva : Form
     {
-        public Form1()
+        public CompraReserva()
         {
             InitializeComponent();
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
