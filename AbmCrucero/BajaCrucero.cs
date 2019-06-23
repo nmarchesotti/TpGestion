@@ -106,5 +106,10 @@ namespace FrbaCrucero.AbmCrucero
             this.Dispose();
         }
 
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

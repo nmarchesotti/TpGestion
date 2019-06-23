@@ -21,12 +21,23 @@ namespace FrbaCrucero.AbmPuerto
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            BajaPuerto form = new BajaPuerto();
+            form.Show();
+            this.Dispose();
         }
 
         private void btnABMAltaPuerto_Click(object sender, EventArgs e)
         {
-            
+            AltaPuerto form = new AltaPuerto();
+            form.Show();
+            this.Dispose();
+        }
+
+        private void btnABMModificarPuerto_Click(object sender, EventArgs e)
+        {
+            ModificarPuerto form = new ModificarPuerto();
+            form.Show();
+            this.Dispose();
         }
     }
 }

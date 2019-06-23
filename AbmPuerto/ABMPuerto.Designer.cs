@@ -43,6 +43,7 @@
             this.btnABMModificarPuerto.TabIndex = 5;
             this.btnABMModificarPuerto.Text = "Modificar puerto";
             this.btnABMModificarPuerto.UseVisualStyleBackColor = true;
+            this.btnABMModificarPuerto.Click += new System.EventHandler(this.btnABMModificarPuerto_Click);
             // 
             // btnABMBajaPuerto
             // 

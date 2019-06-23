@@ -31,9 +31,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.NombrePuerto = new System.Windows.Forms.TextBox();
-            this.Descripcion = new System.Windows.Forms.TextBox();
+            this.DescripcionPuerto = new System.Windows.Forms.TextBox();
             this.btnAltaPuerto = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -64,13 +65,13 @@
             this.NombrePuerto.TabIndex = 2;
             this.NombrePuerto.TextChanged += new System.EventHandler(this.NombreDelPuerto);
             // 
-            // Descripcion
+            // DescripcionPuerto
             // 
-            this.Descripcion.Location = new System.Drawing.Point(253, 138);
-            this.Descripcion.Name = "Descripcion";
-            this.Descripcion.Size = new System.Drawing.Size(133, 20);
-            this.Descripcion.TabIndex = 3;
-            this.Descripcion.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            this.DescripcionPuerto.Location = new System.Drawing.Point(253, 138);
+            this.DescripcionPuerto.Name = "DescripcionPuerto";
+            this.DescripcionPuerto.Size = new System.Drawing.Size(133, 20);
+            this.DescripcionPuerto.TabIndex = 3;
+            this.DescripcionPuerto.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // btnAltaPuerto
             // 
@@ -93,14 +94,25 @@
             this.label3.TabIndex = 5;
             this.label3.Text = "Registro de nuevo puerto";
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(12, 288);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(102, 54);
+            this.button2.TabIndex = 24;
+            this.button2.Text = "Menu Crucero";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // AltaPuerto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(475, 344);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnAltaPuerto);
-            this.Controls.Add(this.Descripcion);
+            this.Controls.Add(this.DescripcionPuerto);
             this.Controls.Add(this.NombrePuerto);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -117,8 +129,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox NombrePuerto;
-        private System.Windows.Forms.TextBox Descripcion;
+        private System.Windows.Forms.TextBox DescripcionPuerto;
         private System.Windows.Forms.Button btnAltaPuerto;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button button2;
     }
 }

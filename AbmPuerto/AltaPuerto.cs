@@ -31,7 +31,28 @@ namespace FrbaCrucero.AbmPuerto
 
         private void btnAltaPuerto_Click(object sender, EventArgs e)
         {
-            SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["GD_CRUCEROS"].ConnectionString);
+
+
+            using (SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["GD_CRUCEROS"].ConnectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand("LOS_QUE_VAN_A_APROBAR.CrearPuerto", cn))
+                {
+                    cn.Open();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@NombrePuerto", SqlDbType.NVarChar, 255).Value = NombrePuerto.Text;
+                    cmd.Parameters.Add("@Descripcion", SqlDbType.VarChar, 50).Value = DescripcionPuerto.Text;
+
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Exitosa");
+                    cn.Close();
+                    cn.Dispose();
+                }
+            }
+            
+            
+            
+            
+            /*SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["GD_CRUCEROS"].ConnectionString);
             SqlCommand cmd = new SqlCommand("LOS_QUE_VAN_A_APROBAR.CrearPuerto", cn);
             cmd.CommandType = CommandType.StoredProcedure;
 
@@ -55,13 +76,20 @@ namespace FrbaCrucero.AbmPuerto
                 cn.Close();
                 cn.Dispose();
 
-            }
+            }*/
 
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            ABMPuerto form = new ABMPuerto();
+            form.Show();
+            this.Dispose();
         }
     }
 }
