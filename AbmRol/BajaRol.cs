@@ -46,9 +46,6 @@ namespace FrbaCrucero.AbmRol
             comboBox1.DataSource = dt;
             cn.Close();
 
-
-            {
-            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -62,7 +59,6 @@ namespace FrbaCrucero.AbmRol
                     DataRowView drv = (DataRowView)comboBox1.SelectedItem;
                     String valueOfItem = drv["Nombre"].ToString();
                     cmd.Parameters.Add("@NombreRol", SqlDbType.NVarChar, 20).Value = valueOfItem;
-                    MessageBox.Show(valueOfItem);
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Exitosa");
                     cn.Close();
@@ -70,6 +66,13 @@ namespace FrbaCrucero.AbmRol
                 }
 
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            MenuRol form = new MenuRol();
+            form.Show();
+            this.Dispose();
         }
      }
 }

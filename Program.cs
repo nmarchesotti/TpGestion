@@ -19,15 +19,15 @@ namespace FrbaCrucero
             Application.SetCompatibleTextRenderingDefault(false);
             
             
-            /*AbmCrucero.ABMCrucero var = new AbmCrucero.ABMCrucero();
+            /*AbmRol.MenuRol var = new AbmRol.MenuRol();
             var.Show();
-            Application.Run(); */ // Para probar varios forms en una sola ejecucion
+            Application.Run();  // Para probar varios forms en una sola ejecucion*/
 
-            AbmPuerto.ABMPuerto var1 = new AbmPuerto.ABMPuerto();
+            /*AbmPuerto.ABMPuerto var1 = new AbmPuerto.ABMPuerto();
             var1.Show();
-            Application.Run();
+            Application.Run();*/
 
-            //Application.Run(new AbmCrucero.ListaCruceros());  // Para probar un solo FORM
+            Application.Run(new AbmRol.AltaRol());  // Para probar un solo FORM
 
         }
     }
