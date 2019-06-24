@@ -33,7 +33,27 @@ namespace FrbaCrucero.AbmRol
                 SqlCommand cmd2 = new SqlCommand("select LOS_QUE_VAN_A_APROBAR.ObtenerNuevoRolInsertado()", cn);
                 cmd2.CommandType = CommandType.Text;
                 int IdRolNuevo = Convert.ToInt32(cmd2.ExecuteScalar());
-                MessageBox.Show(IdRolNuevo.ToString());
+
+                SqlCommand cmd3 = new SqlCommand("LOS_QUE_VAN_A_APROBAR.FuncionalidadParaRol", cn);
+                cmd3.CommandType = CommandType.StoredProcedure;
+                cmd3.Parameters.Add("@IdRol", SqlDbType.Int).Value = IdRolNuevo;
+                cmd3.Parameters.Add("@IdFuncionalidad", SqlDbType.Int);
+                DataRow row;
+
+                    for (int i = 0; i < checkedListBox1.CheckedItems.Count; i++)
+                    {
+                        row = ((((DataRowView)checkedListBox1.CheckedItems[i]))).Row;
+                        int valor = Convert.ToInt32(row[checkedListBox1.ValueMember]);
+                        cmd3.Parameters["@IdFuncionalidad"].Value = valor;
+                        cmd3.ExecuteNonQuery();
+                        
+                    }
+
+                    MessageBox.Show("Rol creado");
+                    MenuRol form = new MenuRol();
+                    form.Show();
+                    this.Dispose();
+                
 
 
             }
@@ -65,5 +85,18 @@ namespace FrbaCrucero.AbmRol
                 }
             }
         }
+    }
+}
+
+
+public class ListItem
+{
+    public string Descripcion;
+    public int IdFuncionalidad;
+
+    public ListItem(string text, int value)
+    {
+        this.Descripcion = text;
+        this.IdFuncionalidad = value;
     }
 }
