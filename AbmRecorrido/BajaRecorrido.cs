@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -15,6 +17,50 @@ namespace FrbaCrucero.AbmRecorrido
         public BajaRecorrido()
         {
             InitializeComponent();
+            comboBoxReco_Load();
         }
+        private void comboBoxReco_Load()
+        {
+            SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["GD_CRUCEROS"].ConnectionString);
+            cn.Open();
+            SqlCommand sc = new SqlCommand("select IdRecorrido, Codigo_Recorrido from LOS_QUE_VAN_A_APROBAR.Recorrido", cn);
+            SqlDataReader reader;
+            reader = sc.ExecuteReader();
+            DataTable dt = new DataTable();
+            dt.Columns.Add("IdRecorrido", typeof(int));
+            dt.Columns.Add("Codigo_Recorrido", typeof(string));
+            dt.Load(reader);
+
+            comboBoxReco.SelectedValue = "Codigo_Recorrido";
+            comboBoxReco.DisplayMember = "Codigo_Recorrido";
+            comboBoxReco.DataSource = dt;
+            cn.Close();
+        }
+
+        private void btnBajaRecorrido_Click(object sender, EventArgs e)
+        {
+             using (SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["GD_CRUCEROS"].ConnectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand("LOS_QUE_VAN_A_APROBAR.BajaRecorrido", cn))
+                {
+                    cn.Open();
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    DataRowView drv2 = (DataRowView)comboBoxReco.SelectedItem;
+                    string reco = Convert.ToString(drv2["IdRecorrido"]);
+                    cmd.Parameters.Add("@IdRecorrido", SqlDbType.Decimal, 18).Value = reco;
+
+
+                    // ver como hacer cuando hay un viaje con ese recorrido
+
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Exitosa");
+                    cn.Close();
+                    cn.Dispose(); 
+                }
+            }
+        }
+
+
     }
 }

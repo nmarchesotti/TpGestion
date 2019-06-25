@@ -40,7 +40,7 @@ namespace FrbaCrucero.LoginYSeguridad
 
         private void button3_Click(object sender, EventArgs e)
         {
-            AbmRecorrido.Form1 Form = new AbmRecorrido.Form1();
+            AbmRecorrido.ABMRecorrido Form = new AbmRecorrido.ABMRecorrido();
             Form.Show();
             this.Dispose();
         }
