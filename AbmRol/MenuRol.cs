@@ -12,6 +12,7 @@ namespace FrbaCrucero.AbmRol
 {
     public partial class MenuRol : Form
     {
+
         public MenuRol()
         {
             InitializeComponent();
@@ -19,8 +20,6 @@ namespace FrbaCrucero.AbmRol
 
         private void button3_Click(object sender, EventArgs e)
         {
-            LoginYSeguridad.menuAdmin form = new LoginYSeguridad.menuAdmin();
-            form.Show();
             this.Dispose();
 
         }

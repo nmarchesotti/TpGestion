@@ -33,6 +33,7 @@
             this.btnABMAltaPuerto = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.btnListado = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnABMModificarPuerto
@@ -89,11 +90,22 @@
             this.btnListado.UseVisualStyleBackColor = true;
             this.btnListado.Click += new System.EventHandler(this.btnListado_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(688, 400);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(110, 50);
+            this.button1.TabIndex = 8;
+            this.button1.Text = "Menu principal";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // ABMPuerto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnListado);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnABMModificarPuerto);
@@ -113,5 +125,6 @@
         private System.Windows.Forms.Button btnABMAltaPuerto;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnListado;
+        private System.Windows.Forms.Button button1;
     }
 }

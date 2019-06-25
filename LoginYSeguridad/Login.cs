@@ -35,7 +35,26 @@ namespace FrbaCrucero.LoginYSeguridad
                     if (resultado == 1)
                     {
                         MessageBox.Show("Conexion exitosa");
-                        menuAdmin form = new menuAdmin();
+                        SqlCommand cmd2 = new SqlCommand("select LOS_QUE_VAN_A_APROBAR.IdDeRol(@Username,@Password)", cn);
+                        cmd2.CommandType = CommandType.Text;
+                        cmd2.Parameters.Add("@Username", SqlDbType.NVarChar, 100).Value = txtusuario.Text;
+                        cmd2.Parameters.Add("@Password", SqlDbType.NVarChar, 255).Value = txtcontraseña.Text;
+                        int idRol = Convert.ToInt32(cmd2.ExecuteScalar());
+
+                        List<String> funcionalidades = new List<String>();
+                        string query = "select F.Descripcion from LOS_QUE_VAN_A_APROBAR.FuncionalidadPorRol as FPR join LOS_QUE_VAN_A_APROBAR.Funcionalidad F on F.IdFuncionalidad = FPR.IdFuncionalidad where FPR.IdRol = " + idRol;
+                        using (SqlCommand cmd3 = new SqlCommand(query, cn))
+                            {
+                                using (SqlDataReader reader = cmd3.ExecuteReader())
+                                {
+                                    while (reader.Read())
+                                    {
+                                        funcionalidades.Add(reader.GetString(0));
+                                    }
+                                }
+                            }
+                        
+                        menuAdmin form = new menuAdmin(funcionalidades);
                         form.Show();
                         this.Dispose();
                     }

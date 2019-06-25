@@ -12,58 +12,104 @@ namespace FrbaCrucero.LoginYSeguridad
 {
     public partial class menuAdmin : Form
     {
-        public menuAdmin()
+        public List<String> funcionalidades;
+
+        public menuAdmin(List<String> list)
         {
+            this.funcionalidades = list;
             InitializeComponent();
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void btnCompra_Click(object sender, EventArgs e)
         {
-            CompraReservaPasaje.CompraReserva Form = new CompraReservaPasaje.CompraReserva();
-            Form.Show();
-            this.Dispose();
+            if (funcionalidades.Contains("Menu CyR"))
+            {
+                // Falta menu de compra
+            }
+            else
+            {
+                MessageBox.Show("No tenes los permisos correspondientes");
+            }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnPuerto_Click(object sender, EventArgs e)
         {
-            AbmCrucero.ABMCrucero Form = new AbmCrucero.ABMCrucero();
-            Form.Show();
-            this.Dispose();
+            if (funcionalidades.Contains("Menu puerto"))
+            {
+                AbmPuerto.ABMPuerto form = new AbmPuerto.ABMPuerto();
+                form.Show();
+            }
+            else
+            {
+                MessageBox.Show("No tenes los permisos correspondientes");
+            }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btnViaje_Click(object sender, EventArgs e)
         {
-            AbmPuerto.ABMPuerto Form = new AbmPuerto.ABMPuerto();
-            Form.Show();
-            this.Dispose();
+            if (funcionalidades.Contains("Menu viajes"))
+            {
+                // Falta menu de viajes
+            }
+            else
+            {
+                MessageBox.Show("No tenes los permisos correspondientes");
+            }
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void btnRol_Click(object sender, EventArgs e)
         {
-            AbmRecorrido.ABMRecorrido Form = new AbmRecorrido.ABMRecorrido();
-            Form.Show();
-            this.Dispose();
+            if (funcionalidades.Contains("Menu rol"))
+            {
+                AbmRol.MenuRol form = new AbmRol.MenuRol();
+                form.Show();
+            }
+            else
+            {
+                MessageBox.Show("No tenes los permisos correspondientes");
+            }
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void btnCrucero_Click(object sender, EventArgs e)
         {
-            AbmRol.MenuRol Form = new AbmRol.MenuRol();
-            Form.Show();
-            this.Dispose();
+            if (funcionalidades.Contains("Menu crucero"))
+            {
+                AbmCrucero.ABMCrucero form = new AbmCrucero.ABMCrucero();
+                form.Show();
+            }
+            else
+            {
+                MessageBox.Show("No tenes los permisos correspondientes");
+            }
         }
 
-        private void button6_Click(object sender, EventArgs e)
+        private void btnRecorrido_Click(object sender, EventArgs e)
         {
-            GeneracionViaje.Form1 Form = new GeneracionViaje.Form1();
-            Form.Show();
-            this.Dispose();
+            if (funcionalidades.Contains("Menu recorrido"))
+            {
+                AbmRecorrido.ABMRecorrido form = new AbmRecorrido.ABMRecorrido();
+                form.Show();
+            }
+            else
+            {
+                MessageBox.Show("No tenes los permisos correspondientes");
+            }
         }
 
-        private void button7_Click(object sender, EventArgs e)
+        private void btnEstadistica_Click(object sender, EventArgs e)
         {
-            ListadoEstadistico.Form1 Form = new ListadoEstadistico.Form1();
-            Form.Show();
-            this.Dispose();
+            if (funcionalidades.Contains("Menu estadistico"))
+            {
+                // Falta abm de estadistica
+            }
+             else
+            {
+                MessageBox.Show("No tenes los permisos correspondientes");
+            }
         }
+
+
+
+
     }
 }

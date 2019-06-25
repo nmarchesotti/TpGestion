@@ -19,7 +19,7 @@ namespace FrbaCrucero
             Application.SetCompatibleTextRenderingDefault(false);
             
             
-           LoginYSeguridad.Login var = new LoginYSeguridad.Login();
+            LoginYSeguridad.Login var = new LoginYSeguridad.Login();
             var.Show();
             Application.Run();  // Para probar varios forms en una sola ejecucion
 

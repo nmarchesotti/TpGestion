@@ -28,86 +28,92 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnEstadistica = new System.Windows.Forms.Button();
+            this.btnRol = new System.Windows.Forms.Button();
+            this.btnViaje = new System.Windows.Forms.Button();
+            this.btnRecorrido = new System.Windows.Forms.Button();
+            this.btnPuerto = new System.Windows.Forms.Button();
+            this.btnCrucero = new System.Windows.Forms.Button();
+            this.btnCompra = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // button7
+            // btnEstadistica
             // 
-            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.Location = new System.Drawing.Point(438, 545);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(291, 53);
-            this.button7.TabIndex = 6;
-            this.button7.Text = "Menu estadístico";
-            this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
+            this.btnEstadistica.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEstadistica.Location = new System.Drawing.Point(438, 545);
+            this.btnEstadistica.Name = "btnEstadistica";
+            this.btnEstadistica.Size = new System.Drawing.Size(291, 53);
+            this.btnEstadistica.TabIndex = 6;
+            this.btnEstadistica.Text = "Menu estadístico";
+            this.btnEstadistica.UseVisualStyleBackColor = true;
+            this.btnEstadistica.Click += new System.EventHandler(this.btnEstadistica_Click);
             // 
-            // button8
+            // btnRol
             // 
-            this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.Location = new System.Drawing.Point(99, 545);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(291, 53);
-            this.button8.TabIndex = 7;
-            this.button8.Text = "Menu rol";
-            this.button8.UseVisualStyleBackColor = true;
+            this.btnRol.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRol.Location = new System.Drawing.Point(99, 545);
+            this.btnRol.Name = "btnRol";
+            this.btnRol.Size = new System.Drawing.Size(291, 53);
+            this.btnRol.TabIndex = 7;
+            this.btnRol.Text = "Menu rol";
+            this.btnRol.UseVisualStyleBackColor = true;
+            this.btnRol.Click += new System.EventHandler(this.btnRol_Click);
             // 
-            // button9
+            // btnViaje
             // 
-            this.button9.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button9.Location = new System.Drawing.Point(99, 443);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(291, 53);
-            this.button9.TabIndex = 8;
-            this.button9.Text = "Menu Viajes";
-            this.button9.UseVisualStyleBackColor = true;
+            this.btnViaje.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnViaje.Location = new System.Drawing.Point(99, 443);
+            this.btnViaje.Name = "btnViaje";
+            this.btnViaje.Size = new System.Drawing.Size(291, 53);
+            this.btnViaje.TabIndex = 8;
+            this.btnViaje.Text = "Menu Viajes";
+            this.btnViaje.UseVisualStyleBackColor = true;
+            this.btnViaje.Click += new System.EventHandler(this.btnViaje_Click);
             // 
-            // button10
+            // btnRecorrido
             // 
-            this.button10.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button10.Location = new System.Drawing.Point(438, 443);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(291, 53);
-            this.button10.TabIndex = 9;
-            this.button10.Text = "Menu recorridos";
-            this.button10.UseVisualStyleBackColor = true;
+            this.btnRecorrido.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRecorrido.Location = new System.Drawing.Point(438, 443);
+            this.btnRecorrido.Name = "btnRecorrido";
+            this.btnRecorrido.Size = new System.Drawing.Size(291, 53);
+            this.btnRecorrido.TabIndex = 9;
+            this.btnRecorrido.Text = "Menu recorridos";
+            this.btnRecorrido.UseVisualStyleBackColor = true;
+            this.btnRecorrido.Click += new System.EventHandler(this.btnRecorrido_Click);
             // 
-            // button3
+            // btnPuerto
             // 
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(99, 332);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(291, 53);
-            this.button3.TabIndex = 10;
-            this.button3.Text = "Menu Puertos";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnPuerto.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPuerto.Location = new System.Drawing.Point(99, 332);
+            this.btnPuerto.Name = "btnPuerto";
+            this.btnPuerto.Size = new System.Drawing.Size(291, 53);
+            this.btnPuerto.TabIndex = 10;
+            this.btnPuerto.Text = "Menu Puertos";
+            this.btnPuerto.UseVisualStyleBackColor = true;
+            this.btnPuerto.Click += new System.EventHandler(this.btnPuerto_Click);
             // 
-            // button2
+            // btnCrucero
             // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(438, 332);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(291, 53);
-            this.button2.TabIndex = 11;
-            this.button2.Text = "Menu Cruceros";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnCrucero.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCrucero.Location = new System.Drawing.Point(438, 332);
+            this.btnCrucero.Name = "btnCrucero";
+            this.btnCrucero.Size = new System.Drawing.Size(291, 53);
+            this.btnCrucero.TabIndex = 11;
+            this.btnCrucero.Text = "Menu Cruceros";
+            this.btnCrucero.UseVisualStyleBackColor = true;
+            this.btnCrucero.Click += new System.EventHandler(this.btnCrucero_Click);
             // 
-            // button1
+            // btnCompra
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(203, 228);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(436, 53);
-            this.button1.TabIndex = 12;
-            this.button1.Text = "Menu Compra / Reserva";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnCompra.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCompra.Location = new System.Drawing.Point(203, 228);
+            this.btnCompra.Name = "btnCompra";
+            this.btnCompra.Size = new System.Drawing.Size(436, 53);
+            this.btnCompra.TabIndex = 12;
+            this.btnCompra.Text = "Menu Compra / Reserva";
+            this.btnCompra.UseVisualStyleBackColor = true;
+            this.btnCompra.Click += new System.EventHandler(this.btnCompra_Click);
             // 
             // label1
             // 
@@ -125,13 +131,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(757, 622);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button10);
-            this.Controls.Add(this.button9);
-            this.Controls.Add(this.button8);
-            this.Controls.Add(this.button7);
+            this.Controls.Add(this.btnCompra);
+            this.Controls.Add(this.btnCrucero);
+            this.Controls.Add(this.btnPuerto);
+            this.Controls.Add(this.btnRecorrido);
+            this.Controls.Add(this.btnViaje);
+            this.Controls.Add(this.btnRol);
+            this.Controls.Add(this.btnEstadistica);
             this.Name = "menuAdmin";
             this.Text = "menuAdmin";
             this.ResumeLayout(false);
@@ -141,13 +147,13 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnEstadistica;
+        private System.Windows.Forms.Button btnRol;
+        private System.Windows.Forms.Button btnViaje;
+        private System.Windows.Forms.Button btnRecorrido;
+        private System.Windows.Forms.Button btnPuerto;
+        private System.Windows.Forms.Button btnCrucero;
+        private System.Windows.Forms.Button btnCompra;
         private System.Windows.Forms.Label label1;
     }
 }
