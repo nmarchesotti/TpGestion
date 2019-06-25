@@ -26,21 +26,21 @@ namespace FrbaCrucero.AbmRecorrido
         {
             AltaRecorrido form = new AltaRecorrido();
             form.Show();
-            //this.Dispose();
+            this.Dispose();
         }
 
         private void btnBajaRecorrido_Click(object sender, EventArgs e)
         {
             BajaRecorrido form = new BajaRecorrido();
             form.Show();
-            //this.Dispose();
+            this.Dispose();
         }
 
         private void btnModificarRecorrido_Click(object sender, EventArgs e)
         {
             ModificarRecorrido form = new ModificarRecorrido();
             form.Show();
-            //this.Dispose();
+            this.Dispose();
         }
 
 
