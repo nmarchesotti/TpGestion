@@ -32,6 +32,7 @@
             this.btnABMBajaPuerto = new System.Windows.Forms.Button();
             this.btnABMAltaPuerto = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
+            this.btnListado = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnABMModificarPuerto
@@ -77,11 +78,23 @@
             this.label3.TabIndex = 6;
             this.label3.Text = "Puertos";
             // 
+            // btnListado
+            // 
+            this.btnListado.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnListado.Location = new System.Drawing.Point(239, 372);
+            this.btnListado.Name = "btnListado";
+            this.btnListado.Size = new System.Drawing.Size(321, 49);
+            this.btnListado.TabIndex = 7;
+            this.btnListado.Text = "Listado de puertos";
+            this.btnListado.UseVisualStyleBackColor = true;
+            this.btnListado.Click += new System.EventHandler(this.btnListado_Click);
+            // 
             // ABMPuerto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnListado);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnABMModificarPuerto);
             this.Controls.Add(this.btnABMBajaPuerto);
@@ -99,5 +112,6 @@
         private System.Windows.Forms.Button btnABMBajaPuerto;
         private System.Windows.Forms.Button btnABMAltaPuerto;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnListado;
     }
 }

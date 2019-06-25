@@ -28,13 +28,13 @@ namespace FrbaCrucero.AbmRecorrido
                     cn.Open();
                     cmd.CommandType = CommandType.StoredProcedure;
 
-                    cmd.Parameters.Add("@CodigoRecorrido", SqlDbType.Decimal, 18).Value = CodigoRecorrido.Text;
+                    cmd.Parameters.Add("@CodigoRecorrido", SqlDbType.Decimal).Value = Decimal.Parse(CodigoRecorrido.Text);
                     cmd.Parameters["@CodigoRecorrido"].Precision = 18;
                     cmd.Parameters["@CodigoRecorrido"].Scale = 2;
 
                     cmd.Parameters.Add("@Descripcion", SqlDbType.VarChar, 50).Value = DescripcionRecorrido.Text;
 
-                    cmd.Parameters.Add("@Precio", SqlDbType.Decimal, 18).Value = PrecioRecorrido.Text;
+                    cmd.Parameters.Add("@Precio", SqlDbType.Decimal).Value = Decimal.Parse(PrecioRecorrido.Text);
                     cmd.Parameters["@Precio"].Precision = 18;
                     cmd.Parameters["@Precio"].Scale = 2;
 

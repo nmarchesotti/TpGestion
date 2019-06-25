@@ -20,11 +20,6 @@ namespace FrbaCrucero.AbmPuerto
             comboBox1_Load();
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnModificarPuerto_Click(object sender, EventArgs e)
         {
 
@@ -66,10 +61,6 @@ namespace FrbaCrucero.AbmPuerto
             comboBox1.DataSource = dt;
             cn.Close();
         }
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
        
 
         private void button2_Click(object sender, EventArgs e)
@@ -79,9 +70,5 @@ namespace FrbaCrucero.AbmPuerto
             this.Dispose();
         }
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

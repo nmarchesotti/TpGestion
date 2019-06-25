@@ -35,7 +35,7 @@ namespace FrbaCrucero.AbmRecorrido
             dt.Columns.Add("Nombre", typeof(String));
             dt.Load(reader);
 
-            comboBoxPuertoS.ValueMember = "Nombre";
+            comboBoxPuertoS.ValueMember = "NombreSalida";
             comboBoxPuertoS.DisplayMember = "Nombre";
             comboBoxPuertoS.DataSource = dt;
 
@@ -53,7 +53,7 @@ namespace FrbaCrucero.AbmRecorrido
             dt.Columns.Add("Nombre", typeof(String));
             dt.Load(reader);
 
-            comboBoxPuertoL.ValueMember = "Nombre";
+            comboBoxPuertoL.ValueMember = "NombreLlegada";
             comboBoxPuertoL.DisplayMember = "Nombre";
             comboBoxPuertoL.DataSource = dt;
 
@@ -70,11 +70,13 @@ namespace FrbaCrucero.AbmRecorrido
                     SqlCommand cmd2 = new SqlCommand("select top 1 IdRecorrido from LOS_QUE_VAN_A_APROBAR.Recorrido ORDER BY IdRecorrido Desc", cn);
                     cmd2.CommandType = CommandType.Text;
                     int IdRecorrido = Convert.ToInt32(cmd2.ExecuteScalar());
+                    MessageBox.Show(IdRecorrido.ToString());
+
+                    //int IdTramo = Convert.ToInt32(cmd3.ExecuteScalar());
                     
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@CodigoRecorrido", IdRecorrido);
-                    cmd.Parameters.AddWithValue("@Puerto_Salida", comboBoxPuertoS.Text);
-                    cmd.Parameters.AddWithValue("@Puerto_Llegada", comboBoxPuertoL.Text);
+
 
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Exitosa");

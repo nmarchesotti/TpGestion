@@ -19,7 +19,7 @@ namespace FrbaCrucero
             Application.SetCompatibleTextRenderingDefault(false);
             
             
-            AbmRecorrido.ABMRecorrido var = new AbmRecorrido.ABMRecorrido();
+           LoginYSeguridad.Login var = new LoginYSeguridad.Login();
             var.Show();
             Application.Run();  // Para probar varios forms en una sola ejecucion
 

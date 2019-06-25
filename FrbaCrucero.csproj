@@ -87,6 +87,12 @@
     <Compile Include="AbmPuerto\AltaPuerto.Designer.cs">
       <DependentUpon>AltaPuerto.cs</DependentUpon>
     </Compile>
+    <Compile Include="AbmPuerto\ListadoPuertos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AbmPuerto\ListadoPuertos.Designer.cs">
+      <DependentUpon>ListadoPuertos.cs</DependentUpon>
+    </Compile>
     <Compile Include="AbmPuerto\ModificarPuerto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -220,6 +226,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AbmPuerto\ABMPuerto.resx">
       <DependentUpon>ABMPuerto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AbmPuerto\ListadoPuertos.resx">
+      <DependentUpon>ListadoPuertos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AbmPuerto\ModificarPuerto.resx">
       <DependentUpon>ModificarPuerto.cs</DependentUpon>

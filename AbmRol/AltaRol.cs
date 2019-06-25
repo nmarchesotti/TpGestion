@@ -52,6 +52,7 @@ namespace FrbaCrucero.AbmRol
                     MessageBox.Show("Rol creado");
                     MenuRol form = new MenuRol();
                     form.Show();
+                    cn.Close();
                     this.Dispose();
                 
 

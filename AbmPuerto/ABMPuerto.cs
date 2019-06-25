@@ -39,5 +39,12 @@ namespace FrbaCrucero.AbmPuerto
             form.Show();
             this.Dispose();
         }
+
+        private void btnListado_Click(object sender, EventArgs e)
+        {
+            ListadoPuertos form = new ListadoPuertos();
+            form.Show();
+            this.Dispose();
+        }
     }
 }
