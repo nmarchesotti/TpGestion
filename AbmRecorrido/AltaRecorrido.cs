@@ -44,6 +44,10 @@ namespace FrbaCrucero.AbmRecorrido
                     cn.Dispose();
                 }
             }
+
+            AgregarTramo form = new AgregarTramo();
+            form.Show();
+            //this.Dispose();
         }
 
         private void btnMenuRecorrido_Click(object sender, EventArgs e)

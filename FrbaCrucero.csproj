@@ -99,6 +99,12 @@
     <Compile Include="AbmPuerto\ABMPuerto.Designer.cs">
       <DependentUpon>ABMPuerto.cs</DependentUpon>
     </Compile>
+    <Compile Include="AbmRecorrido\AgregarTramo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AbmRecorrido\AgregarTramo.Designer.cs">
+      <DependentUpon>AgregarTramo.cs</DependentUpon>
+    </Compile>
     <Compile Include="AbmRecorrido\BajaRecorrido.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -220,6 +226,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AbmRecorrido\ABMRecorrido.resx">
       <DependentUpon>ABMRecorrido.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AbmRecorrido\AgregarTramo.resx">
+      <DependentUpon>AgregarTramo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AbmRecorrido\AltaRecorrido.resx">
       <DependentUpon>AltaRecorrido.cs</DependentUpon>
