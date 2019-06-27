@@ -12,25 +12,15 @@ using System.Windows.Forms;
 
 namespace FrbaCrucero.AbmRol
 {
-    public partial class BajaRol : Form
+    public partial class CambiarNombreRol : Form
     {
-        public BajaRol()
+        public CambiarNombreRol()
         {
             InitializeComponent();
-            comboBox1_Load();
+            cargarComboBox();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox1_Load()
+        private void cargarComboBox()
         {
             SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["GD_CRUCEROS"].ConnectionString);
             cn.Open();
@@ -46,34 +36,39 @@ namespace FrbaCrucero.AbmRol
             comboBox1.DisplayMember = "Nombre";
             comboBox1.DataSource = dt;
             cn.Close();
-
         }
+
+
+         
 
         private void button1_Click(object sender, EventArgs e)
         {
+            EleccionDeModificacion form = new EleccionDeModificacion();
+            form.Show();
+            this.Dispose();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
             using (SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["GD_CRUCEROS"].ConnectionString))
             {
-                using (SqlCommand cmd = new SqlCommand("LOS_QUE_VAN_A_APROBAR.BajaRol", cn))
+                using (SqlCommand cmd = new SqlCommand("LOS_QUE_VAN_A_APROBAR.ModificarRol", cn))
                 {
                     cn.Open();
                     cmd.CommandType = CommandType.StoredProcedure;
+
                     DataRowView drv = (DataRowView)comboBox1.SelectedItem;
-                    Int32 valueOfItem = Convert.ToInt32(drv["IdRol"]);
-                    cmd.Parameters.Add("@IdRol", SqlDbType.Int).Value = valueOfItem;
+                    int idRol = Convert.ToInt32(drv["IdRol"]);
+                    cmd.Parameters.Add("@IdRol", SqlDbType.Int).Value = idRol;
+                    cmd.Parameters.Add("@Nombre", SqlDbType.NVarChar, 20).Value = textBox1.Text;
+
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Exitosa");
                     cn.Close();
                     cn.Dispose();
                 }
-
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            MenuRol form = new MenuRol();
-            form.Show();
-            this.Dispose();
-        }
-     }
+    }
 }

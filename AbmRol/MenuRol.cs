@@ -26,7 +26,7 @@ namespace FrbaCrucero.AbmRol
 
         private void button5_Click(object sender, EventArgs e)
         {
-            AltaRol form = new AltaRol();
+            CrearRol form = new CrearRol();
             form.Show();
             this.Dispose();
         }
@@ -40,7 +40,14 @@ namespace FrbaCrucero.AbmRol
 
         private void button2_Click(object sender, EventArgs e)
         {
-            ModificarRol form = new ModificarRol();
+            EleccionDeModificacion form = new EleccionDeModificacion();
+            form.Show();
+            this.Dispose();
+        }
+
+        private void btnAltaRol_Click(object sender, EventArgs e)
+        {
+            AltaRol form = new AltaRol();
             form.Show();
             this.Dispose();
         }

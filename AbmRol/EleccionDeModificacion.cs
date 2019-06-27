@@ -1,0 +1,48 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace FrbaCrucero.AbmRol
+{
+    public partial class EleccionDeModificacion : Form
+    {
+        public EleccionDeModificacion()
+        {
+            InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MenuRol form = new MenuRol();
+            form.Show();
+            this.Dispose();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            AgregarFuncionalidades form = new AgregarFuncionalidades();
+            form.Show();
+            this.Dispose();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            QuitarFuncionalidades form = new QuitarFuncionalidades();
+            form.Show();
+            this.Dispose();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            CambiarNombreRol form = new CambiarNombreRol();
+            form.Show();
+            this.Dispose();
+        }
+    }
+}

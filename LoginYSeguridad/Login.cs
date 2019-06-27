@@ -42,7 +42,7 @@ namespace FrbaCrucero.LoginYSeguridad
                         int idRol = Convert.ToInt32(cmd2.ExecuteScalar());
 
                         List<String> funcionalidades = new List<String>();
-                        string query = "select F.Descripcion from LOS_QUE_VAN_A_APROBAR.FuncionalidadPorRol as FPR join LOS_QUE_VAN_A_APROBAR.Funcionalidad F on F.IdFuncionalidad = FPR.IdFuncionalidad where FPR.IdRol = " + idRol;
+                        string query = "select F.Descripcion from LOS_QUE_VAN_A_APROBAR.FuncionalidadPorRol as FPR join LOS_QUE_VAN_A_APROBAR.Funcionalidad F on F.IdFuncionalidad = FPR.IdFuncionalidad where FPR.IdRol = " + idRol + " and FPR.Estado = 'Habilitado'";
                         using (SqlCommand cmd3 = new SqlCommand(query, cn))
                             {
                                 using (SqlDataReader reader = cmd3.ExecuteReader())

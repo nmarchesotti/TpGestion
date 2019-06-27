@@ -17,83 +17,52 @@ namespace FrbaCrucero.AbmRol
         public AltaRol()
         {
             InitializeComponent();
-            checkedListBox1_Load();
+            cargarComboBox();
+        }
+
+        private void cargarComboBox()
+        {
+
+            SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["GD_CRUCEROS"].ConnectionString);
+            cn.Open();
+            SqlCommand sc = new SqlCommand("select Nombre from LOS_QUE_VAN_A_APROBAR.Rol where Estado = 'Inhabilitado'", cn);
+            SqlDataReader reader;
+            reader = sc.ExecuteReader();
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Nombre", typeof(string));
+            dt.Load(reader);
+
+            comboBox1.ValueMember = "Nombre";
+            comboBox1.DisplayMember = "Nombre";
+            comboBox1.DataSource = dt;
+            cn.Close();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             using (SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["GD_CRUCEROS"].ConnectionString))
             {
-                SqlCommand cmd = new SqlCommand("LOS_QUE_VAN_A_APROBAR.NuevoRol", cn);
-                cn.Open();
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.Add("@NuevoNombre", SqlDbType.NVarChar, 255).Value = textBox1.Text;
-                cmd.ExecuteNonQuery();
-
-                SqlCommand cmd2 = new SqlCommand("select LOS_QUE_VAN_A_APROBAR.ObtenerNuevoRolInsertado()", cn);
-                cmd2.CommandType = CommandType.Text;
-                int IdRolNuevo = Convert.ToInt32(cmd2.ExecuteScalar());
-
-                SqlCommand cmd3 = new SqlCommand("LOS_QUE_VAN_A_APROBAR.FuncionalidadParaRol", cn);
-                cmd3.CommandType = CommandType.StoredProcedure;
-                cmd3.Parameters.Add("@IdRol", SqlDbType.Int).Value = IdRolNuevo;
-                cmd3.Parameters.Add("@IdFuncionalidad", SqlDbType.Int);
-                DataRow row;
-
-                    for (int i = 0; i < checkedListBox1.CheckedItems.Count; i++)
-                    {
-                        row = ((((DataRowView)checkedListBox1.CheckedItems[i]))).Row;
-                        int valor = Convert.ToInt32(row[checkedListBox1.ValueMember]);
-                        cmd3.Parameters["@IdFuncionalidad"].Value = valor;
-                        cmd3.ExecuteNonQuery();
-                        
-                    }
-
-                    MessageBox.Show("Rol creado");
+                using (SqlCommand cmd = new SqlCommand("LOS_QUE_VAN_A_APROBAR.AltaRol", cn))
+                {
+                    cn.Open();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    DataRowView drv = (DataRowView)comboBox1.SelectedItem;
+                    String valueOfItem = drv["Nombre"].ToString();
+                    cmd.Parameters.Add("@NombreRol", SqlDbType.NVarChar, 20).Value = valueOfItem;
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Exitosa");
                     cn.Close();
-                    this.Dispose();
-                
-
+                    cn.Dispose();
+                }
 
             }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+            MenuRol form = new MenuRol();
+            form.Show();
             this.Dispose();
         }
-
-        private void checkedListBox1_Load()
-        {
-            using (SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["GD_CRUCEROS"].ConnectionString))
-            {
-               
-                using (SqlCommand cmd = new SqlCommand("select IdFuncionalidad, Descripcion from LOS_QUE_VAN_A_APROBAR.Funcionalidad", cn))
-                {
-                    cmd.CommandType = CommandType.Text;
-                    using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
-                    {
-                        DataTable dt = new DataTable();
-                        sda.Fill(dt);
-                        ((ListBox)checkedListBox1).DataSource = dt;
-                        ((ListBox)checkedListBox1).DisplayMember = "Descripcion";
-                        ((ListBox)checkedListBox1).ValueMember = "IdFuncionalidad";
-                    }
-                }
-            }
-        }
-    }
-}
-
-
-public class ListItem
-{
-    public string Descripcion;
-    public int IdFuncionalidad;
-
-    public ListItem(string text, int value)
-    {
-        this.Descripcion = text;
-        this.IdFuncionalidad = value;
     }
 }

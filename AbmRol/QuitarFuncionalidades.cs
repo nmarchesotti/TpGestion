@@ -10,26 +10,23 @@ using System.Windows.Forms;
 
 namespace FrbaCrucero.AbmRol
 {
-    public partial class ModificarRol : Form
+    public partial class QuitarFuncionalidades : Form
     {
-        public ModificarRol()
+        public QuitarFuncionalidades()
         {
             InitializeComponent();
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void button3_Click(object sender, EventArgs e)
         {
+            EleccionDeModificacion form = new EleccionDeModificacion();
+            form.Show();
             this.Dispose();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
