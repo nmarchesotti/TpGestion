@@ -61,6 +61,13 @@ namespace FrbaCrucero.AbmRecorrido
             }
         }
 
+        private void button3_Click(object sender, EventArgs e)
+        {
+            ABMRecorrido form = new ABMRecorrido();
+            form.Show();
+            this.Dispose();
+        }
+
 
     }
 }

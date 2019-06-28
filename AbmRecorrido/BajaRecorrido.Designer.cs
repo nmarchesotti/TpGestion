@@ -32,6 +32,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnBajaRecorrido = new System.Windows.Forms.Button();
             this.comboBoxReco = new System.Windows.Forms.ComboBox();
+            this.button3 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label5
@@ -73,11 +74,22 @@
             this.comboBoxReco.Size = new System.Drawing.Size(212, 21);
             this.comboBoxReco.TabIndex = 22;
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(691, 385);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(97, 53);
+            this.button3.TabIndex = 23;
+            this.button3.Text = "Menu recorrido";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // BajaRecorrido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.comboBoxReco);
             this.Controls.Add(this.btnBajaRecorrido);
             this.Controls.Add(this.label1);
@@ -95,5 +107,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnBajaRecorrido;
         private System.Windows.Forms.ComboBox comboBoxReco;
+        private System.Windows.Forms.Button button3;
     }
 }

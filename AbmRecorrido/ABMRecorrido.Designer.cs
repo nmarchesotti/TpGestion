@@ -32,6 +32,7 @@
             this.btnAltaRecorrido = new System.Windows.Forms.Button();
             this.btnBajaRecorrido = new System.Windows.Forms.Button();
             this.btnModificarRecorrido = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label3
@@ -79,11 +80,22 @@
             this.btnModificarRecorrido.UseVisualStyleBackColor = true;
             this.btnModificarRecorrido.Click += new System.EventHandler(this.btnModificarRecorrido_Click);
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(557, 324);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(97, 53);
+            this.button3.TabIndex = 15;
+            this.button3.Text = "Menu principal";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // ABMRecorrido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(666, 389);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.btnModificarRecorrido);
             this.Controls.Add(this.btnBajaRecorrido);
             this.Controls.Add(this.btnAltaRecorrido);
@@ -102,6 +114,7 @@
         private System.Windows.Forms.Button btnAltaRecorrido;
         private System.Windows.Forms.Button btnBajaRecorrido;
         private System.Windows.Forms.Button btnModificarRecorrido;
+        private System.Windows.Forms.Button button3;
 
     }
 }

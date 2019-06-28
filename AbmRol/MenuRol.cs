@@ -51,5 +51,12 @@ namespace FrbaCrucero.AbmRol
             form.Show();
             this.Dispose();
         }
+
+        private void btnListados_Click(object sender, EventArgs e)
+        {
+            ListadoRol form = new ListadoRol();
+            form.Show();
+            this.Dispose();
+        }
     }
 }

@@ -49,7 +49,8 @@ namespace FrbaCrucero.LoginYSeguridad
         {
             if (funcionalidades.Contains("Menu viajes"))
             {
-                // Falta menu de viajes
+                GeneracionViaje.MenuViaje form = new GeneracionViaje.MenuViaje();
+                form.Show();
             }
             else
             {

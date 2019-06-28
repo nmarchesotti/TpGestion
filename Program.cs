@@ -47,7 +47,7 @@ namespace FrbaCrucero
             Application.SetCompatibleTextRenderingDefault(false);
             
             
-            AbmRol.MenuRol var = new AbmRol.MenuRol();
+            PantallaInicial.Inicio var = new PantallaInicial.Inicio();
             var.Show();
             Application.Run();  // Para probar varios forms en una sola ejecucion
 

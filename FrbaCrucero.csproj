@@ -171,6 +171,12 @@
     <Compile Include="AbmRol\EleccionDeModificacion.Designer.cs">
       <DependentUpon>EleccionDeModificacion.cs</DependentUpon>
     </Compile>
+    <Compile Include="AbmRol\ListadoRol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AbmRol\ListadoRol.Designer.cs">
+      <DependentUpon>ListadoRol.cs</DependentUpon>
+    </Compile>
     <Compile Include="AbmRol\MenuRol.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -189,11 +195,11 @@
     <Compile Include="CompraReservaPasaje\CompraReserva.Designer.cs">
       <DependentUpon>CompraReserva.cs</DependentUpon>
     </Compile>
-    <Compile Include="GeneracionViaje\Form1.cs">
+    <Compile Include="GeneracionViaje\MenuViaje.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GeneracionViaje\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="GeneracionViaje\MenuViaje.Designer.cs">
+      <DependentUpon>MenuViaje.cs</DependentUpon>
     </Compile>
     <Compile Include="ListadoEstadistico\Form1.cs">
       <SubType>Form</SubType>
@@ -290,6 +296,9 @@
     <EmbeddedResource Include="AbmRol\EleccionDeModificacion.resx">
       <DependentUpon>EleccionDeModificacion.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AbmRol\ListadoRol.resx">
+      <DependentUpon>ListadoRol.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AbmRol\MenuRol.resx">
       <DependentUpon>MenuRol.cs</DependentUpon>
     </EmbeddedResource>
@@ -298,6 +307,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CompraReservaPasaje\CompraReserva.resx">
       <DependentUpon>CompraReserva.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GeneracionViaje\MenuViaje.resx">
+      <DependentUpon>MenuViaje.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ListadoEstadistico\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
