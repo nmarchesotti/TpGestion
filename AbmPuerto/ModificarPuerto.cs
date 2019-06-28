@@ -66,6 +66,7 @@ namespace FrbaCrucero.AbmPuerto
         private void button2_Click(object sender, EventArgs e)
         {
             ABMPuerto form = new ABMPuerto();
+            form.StartPosition = FormStartPosition.CenterScreen;
             form.Show();
             this.Dispose();
         }

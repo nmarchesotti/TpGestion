@@ -20,6 +20,7 @@ namespace FrbaCrucero.AbmRol
         private void button1_Click(object sender, EventArgs e)
         {
             MenuRol form = new MenuRol();
+            form.StartPosition = FormStartPosition.CenterScreen;
             form.Show();
             this.Dispose();
         }
@@ -27,6 +28,7 @@ namespace FrbaCrucero.AbmRol
         private void button2_Click(object sender, EventArgs e)
         {
             AgregarFuncionalidades form = new AgregarFuncionalidades();
+            form.StartPosition = FormStartPosition.CenterScreen;
             form.Show();
             this.Dispose();
         }
@@ -34,6 +36,7 @@ namespace FrbaCrucero.AbmRol
         private void button3_Click(object sender, EventArgs e)
         {
             QuitarFuncionalidades form = new QuitarFuncionalidades();
+            form.StartPosition = FormStartPosition.CenterScreen;
             form.Show();
             this.Dispose();
         }
@@ -41,6 +44,7 @@ namespace FrbaCrucero.AbmRol
         private void button4_Click(object sender, EventArgs e)
         {
             CambiarNombreRol form = new CambiarNombreRol();
+            form.StartPosition = FormStartPosition.CenterScreen;
             form.Show();
             this.Dispose();
         }

@@ -55,6 +55,7 @@ namespace FrbaCrucero.LoginYSeguridad
                             }
                         
                         menuAdmin form = new menuAdmin(funcionalidades);
+                        form.StartPosition = FormStartPosition.CenterScreen;
                         form.Show();
                         this.Dispose();
                     }
@@ -74,6 +75,7 @@ namespace FrbaCrucero.LoginYSeguridad
         private void button2_Click(object sender, EventArgs e)
         {
             PantallaInicial.Inicio form = new PantallaInicial.Inicio();
+            form.StartPosition = FormStartPosition.CenterScreen;
             form.Show();
             this.Dispose();
         }

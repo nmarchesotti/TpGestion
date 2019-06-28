@@ -26,6 +26,7 @@ namespace FrbaCrucero.AbmCrucero
         private void button2_Click(object sender, EventArgs e)
         {
             ABMCrucero form = new ABMCrucero();
+            form.StartPosition = FormStartPosition.CenterScreen;
             form.Show();
             this.Dispose();
         }

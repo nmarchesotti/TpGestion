@@ -37,6 +37,7 @@ namespace FrbaCrucero.LoginYSeguridad
             if (funcionalidades.Contains("Menu puerto"))
             {
                 AbmPuerto.ABMPuerto form = new AbmPuerto.ABMPuerto();
+                form.StartPosition = FormStartPosition.CenterScreen;
                 form.Show();
             }
             else
@@ -50,6 +51,7 @@ namespace FrbaCrucero.LoginYSeguridad
             if (funcionalidades.Contains("Menu viajes"))
             {
                 GeneracionViaje.MenuViaje form = new GeneracionViaje.MenuViaje();
+                form.StartPosition = FormStartPosition.CenterScreen;
                 form.Show();
             }
             else
@@ -63,6 +65,7 @@ namespace FrbaCrucero.LoginYSeguridad
             if (funcionalidades.Contains("Menu rol"))
             {
                 AbmRol.MenuRol form = new AbmRol.MenuRol();
+                form.StartPosition = FormStartPosition.CenterScreen;
                 form.Show();
             }
             else
@@ -76,6 +79,7 @@ namespace FrbaCrucero.LoginYSeguridad
             if (funcionalidades.Contains("Menu crucero"))
             {
                 AbmCrucero.ABMCrucero form = new AbmCrucero.ABMCrucero();
+                form.StartPosition = FormStartPosition.CenterScreen;
                 form.Show();
             }
             else
@@ -89,6 +93,7 @@ namespace FrbaCrucero.LoginYSeguridad
             if (funcionalidades.Contains("Menu recorrido"))
             {
                 AbmRecorrido.ABMRecorrido form = new AbmRecorrido.ABMRecorrido();
+                form.StartPosition = FormStartPosition.CenterScreen;
                 form.Show();
             }
             else

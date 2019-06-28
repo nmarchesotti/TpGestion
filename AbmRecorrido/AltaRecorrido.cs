@@ -47,12 +47,14 @@ namespace FrbaCrucero.AbmRecorrido
 
             AgregarTramo form = new AgregarTramo();
             form.Show();
-            //this.Dispose();
+            form.StartPosition = FormStartPosition.CenterScreen;
+            this.Dispose();
         }
 
         private void btnMenuRecorrido_Click(object sender, EventArgs e)
         {
             ABMRecorrido form = new ABMRecorrido();
+            form.StartPosition = FormStartPosition.CenterScreen;
             form.Show();
             this.Dispose();
         }

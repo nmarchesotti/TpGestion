@@ -59,14 +59,11 @@ namespace FrbaCrucero.AbmPuerto
             cn.Close();
         }
 
-        private void comboBoxPuertos_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void button2_Click(object sender, EventArgs e)
         {
             ABMPuerto form = new ABMPuerto();
+            form.StartPosition = FormStartPosition.CenterScreen;
             form.Show();
             this.Dispose();
         }

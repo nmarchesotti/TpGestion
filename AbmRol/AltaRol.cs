@@ -61,6 +61,7 @@ namespace FrbaCrucero.AbmRol
         private void button2_Click(object sender, EventArgs e)
         {
             MenuRol form = new MenuRol();
+            form.StartPosition = FormStartPosition.CenterScreen;
             form.Show();
             this.Dispose();
         }

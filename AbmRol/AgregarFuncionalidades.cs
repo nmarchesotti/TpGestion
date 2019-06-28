@@ -24,6 +24,7 @@ namespace FrbaCrucero.AbmRol
         private void button3_Click(object sender, EventArgs e)
         {
             EleccionDeModificacion form = new EleccionDeModificacion();
+            form.StartPosition = FormStartPosition.CenterScreen;
             form.Show();
             this.Dispose();
 

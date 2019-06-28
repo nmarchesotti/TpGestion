@@ -22,6 +22,7 @@ namespace FrbaCrucero.AbmPuerto
         private void button2_Click(object sender, EventArgs e)
         {
             BajaPuerto form = new BajaPuerto();
+            form.StartPosition = FormStartPosition.CenterScreen;
             form.Show();
             this.Dispose();
         }
@@ -29,6 +30,7 @@ namespace FrbaCrucero.AbmPuerto
         private void btnABMAltaPuerto_Click(object sender, EventArgs e)
         {
             AltaPuerto form = new AltaPuerto();
+            form.StartPosition = FormStartPosition.CenterScreen;
             form.Show();
             this.Dispose();
         }
@@ -36,6 +38,7 @@ namespace FrbaCrucero.AbmPuerto
         private void btnABMModificarPuerto_Click(object sender, EventArgs e)
         {
             ModificarPuerto form = new ModificarPuerto();
+            form.StartPosition = FormStartPosition.CenterScreen;
             form.Show();
             this.Dispose();
         }
@@ -43,6 +46,7 @@ namespace FrbaCrucero.AbmPuerto
         private void btnListado_Click(object sender, EventArgs e)
         {
             ListadoPuertos form = new ListadoPuertos();
+            form.StartPosition = FormStartPosition.CenterScreen;
             form.Show();
             this.Dispose();
         }

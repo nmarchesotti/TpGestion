@@ -63,7 +63,6 @@
             this.NombrePuerto.Name = "NombrePuerto";
             this.NombrePuerto.Size = new System.Drawing.Size(237, 20);
             this.NombrePuerto.TabIndex = 2;
-            this.NombrePuerto.TextChanged += new System.EventHandler(this.NombreDelPuerto);
             // 
             // DescripcionPuerto
             // 
@@ -71,7 +70,6 @@
             this.DescripcionPuerto.Name = "DescripcionPuerto";
             this.DescripcionPuerto.Size = new System.Drawing.Size(237, 20);
             this.DescripcionPuerto.TabIndex = 3;
-            this.DescripcionPuerto.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // btnAltaPuerto
             // 
@@ -118,7 +116,6 @@
             this.Controls.Add(this.label1);
             this.Name = "AltaPuerto";
             this.Text = "Form2";
-            this.Load += new System.EventHandler(this.AltaPuerto_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

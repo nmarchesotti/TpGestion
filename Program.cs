@@ -47,8 +47,9 @@ namespace FrbaCrucero
             Application.SetCompatibleTextRenderingDefault(false);
 
 
-            using (AbmRecorrido.ABMRecorrido form = new AbmRecorrido.ABMRecorrido())
+            using (PantallaInicial.Inicio form = new PantallaInicial.Inicio())
             {
+                form.StartPosition = FormStartPosition.CenterScreen;
                 form.Show();
                 Application.Run();
             }

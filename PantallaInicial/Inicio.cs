@@ -20,6 +20,7 @@ namespace FrbaCrucero.PantallaInicial
         private void btnClie_Click(object sender, EventArgs e)
         {
             CompraReservaPasaje.CompraReserva Form = new CompraReservaPasaje.CompraReserva();
+            Form.StartPosition = FormStartPosition.CenterScreen;
             Form.Show();
             this.Dispose();
         }
@@ -27,6 +28,7 @@ namespace FrbaCrucero.PantallaInicial
         private void btnAdmin_Click(object sender, EventArgs e)
         {
             LoginYSeguridad.Login Login = new LoginYSeguridad.Login();
+            Login.StartPosition = FormStartPosition.CenterScreen;
             Login.Show();
             this.Dispose();
         }

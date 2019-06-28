@@ -21,6 +21,7 @@ namespace FrbaCrucero.AbmCrucero
         private void btnABMAltaCrucero_Click(object sender, EventArgs e)
         {
             AbmCrucero.AltaCrucero form = new AltaCrucero();
+            form.StartPosition = FormStartPosition.CenterScreen;
             form.Show();
             this.Dispose();
         }
@@ -28,6 +29,7 @@ namespace FrbaCrucero.AbmCrucero
         private void btnABMBajaCrucero_Click(object sender, EventArgs e)
         {
             AbmCrucero.BajaCrucero form = new BajaCrucero();
+            form.StartPosition = FormStartPosition.CenterScreen;
             form.Show();
             this.Dispose();
         }
@@ -35,6 +37,7 @@ namespace FrbaCrucero.AbmCrucero
         private void btnABMModificarCrucero_Click(object sender, EventArgs e)
         {
             AbmCrucero.modificarCrucero form = new modificarCrucero();
+            form.StartPosition = FormStartPosition.CenterScreen;
             form.Show();
             this.Dispose();
         }
@@ -42,6 +45,7 @@ namespace FrbaCrucero.AbmCrucero
         private void btnListaCruceros_Click(object sender, EventArgs e)
         {
             ListaCruceros form = new ListaCruceros();
+            form.StartPosition = FormStartPosition.CenterScreen;
             form.Show();
             this.Dispose();
         }

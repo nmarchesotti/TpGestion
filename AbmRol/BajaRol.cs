@@ -20,15 +20,6 @@ namespace FrbaCrucero.AbmRol
             comboBox1_Load();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void comboBox1_Load()
         {
@@ -72,6 +63,7 @@ namespace FrbaCrucero.AbmRol
         private void button2_Click(object sender, EventArgs e)
         {
             MenuRol form = new MenuRol();
+            form.StartPosition = FormStartPosition.CenterScreen;
             form.Show();
             this.Dispose();
         }

@@ -63,7 +63,6 @@
             this.comboBoxPuertos.Name = "comboBoxPuertos";
             this.comboBoxPuertos.Size = new System.Drawing.Size(247, 21);
             this.comboBoxPuertos.TabIndex = 3;
-            this.comboBoxPuertos.SelectedIndexChanged += new System.EventHandler(this.comboBoxPuertos_SelectedIndexChanged);
             // 
             // label3
             // 
