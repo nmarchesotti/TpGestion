@@ -48,6 +48,13 @@ namespace FrbaCrucero.AbmRecorrido
             this.Dispose();
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ListadoRecorridos form = new ListadoRecorridos();
+            form.Show();
+            this.Dispose();
+        }
+
 
     }
 }

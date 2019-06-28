@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.label5 = new System.Windows.Forms.Label();
-            this.btnCambiarTramo = new System.Windows.Forms.Button();
             this.comboBoxModifReco = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBoxTramos = new System.Windows.Forms.ComboBox();
@@ -52,18 +51,6 @@
             this.label5.TabIndex = 19;
             this.label5.Text = "Modificar recorrido";
             // 
-            // btnCambiarTramo
-            // 
-            this.btnCambiarTramo.AccessibleRole = System.Windows.Forms.AccessibleRole.TitleBar;
-            this.btnCambiarTramo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCambiarTramo.Location = new System.Drawing.Point(176, 156);
-            this.btnCambiarTramo.Name = "btnCambiarTramo";
-            this.btnCambiarTramo.Size = new System.Drawing.Size(197, 42);
-            this.btnCambiarTramo.TabIndex = 21;
-            this.btnCambiarTramo.Text = "Listar tramos";
-            this.btnCambiarTramo.UseVisualStyleBackColor = true;
-            this.btnCambiarTramo.Click += new System.EventHandler(this.btnCambiarTramo_Click);
-            // 
             // comboBoxModifReco
             // 
             this.comboBoxModifReco.FormattingEnabled = true;
@@ -85,7 +72,7 @@
             // comboBoxTramos
             // 
             this.comboBoxTramos.FormattingEnabled = true;
-            this.comboBoxTramos.Location = new System.Drawing.Point(275, 230);
+            this.comboBoxTramos.Location = new System.Drawing.Point(275, 185);
             this.comboBoxTramos.Name = "comboBoxTramos";
             this.comboBoxTramos.Size = new System.Drawing.Size(212, 21);
             this.comboBoxTramos.TabIndex = 26;
@@ -95,7 +82,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(26, 226);
+            this.label2.Location = new System.Drawing.Point(26, 179);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(184, 25);
             this.label2.TabIndex = 25;
@@ -104,7 +91,7 @@
             // comboBoxPuertoS
             // 
             this.comboBoxPuertoS.FormattingEnabled = true;
-            this.comboBoxPuertoS.Location = new System.Drawing.Point(58, 308);
+            this.comboBoxPuertoS.Location = new System.Drawing.Point(58, 284);
             this.comboBoxPuertoS.Name = "comboBoxPuertoS";
             this.comboBoxPuertoS.Size = new System.Drawing.Size(128, 21);
             this.comboBoxPuertoS.TabIndex = 28;
@@ -112,7 +99,7 @@
             // comboBoxPuertoL
             // 
             this.comboBoxPuertoL.FormattingEnabled = true;
-            this.comboBoxPuertoL.Location = new System.Drawing.Point(359, 308);
+            this.comboBoxPuertoL.Location = new System.Drawing.Point(359, 284);
             this.comboBoxPuertoL.Name = "comboBoxPuertoL";
             this.comboBoxPuertoL.Size = new System.Drawing.Size(128, 21);
             this.comboBoxPuertoL.TabIndex = 29;
@@ -133,7 +120,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(67, 292);
+            this.label4.Location = new System.Drawing.Point(55, 268);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(105, 13);
             this.label4.TabIndex = 32;
@@ -143,7 +130,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(369, 292);
+            this.label3.Location = new System.Drawing.Point(375, 268);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(112, 13);
             this.label3.TabIndex = 33;
@@ -174,7 +161,6 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.comboBoxModifReco);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnCambiarTramo);
             this.Controls.Add(this.label5);
             this.Name = "ModificarRecorrido";
             this.Text = "ModificarRecorrido";
@@ -186,7 +172,6 @@
         #endregion
 
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button btnCambiarTramo;
         private System.Windows.Forms.ComboBox comboBoxModifReco;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboBoxTramos;

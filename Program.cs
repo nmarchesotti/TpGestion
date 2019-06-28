@@ -45,11 +45,16 @@ namespace FrbaCrucero
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+
+            using (AbmRecorrido.ABMRecorrido form = new AbmRecorrido.ABMRecorrido())
+            {
+                form.Show();
+                Application.Run();
+            }
             
             
-            PantallaInicial.Inicio var = new PantallaInicial.Inicio();
-            var.Show();
-            Application.Run();  // Para probar varios forms en una sola ejecucion
+            // Para probar varios forms en una sola ejecucion
 
             /*AbmPuerto.ABMPuerto var1 = new AbmPuerto.ABMPuerto();
             var1.Show();

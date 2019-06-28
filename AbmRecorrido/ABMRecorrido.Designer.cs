@@ -33,6 +33,7 @@
             this.btnBajaRecorrido = new System.Windows.Forms.Button();
             this.btnModificarRecorrido = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label3
@@ -90,11 +91,24 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button1.Location = new System.Drawing.Point(224, 311);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(238, 36);
+            this.button1.TabIndex = 16;
+            this.button1.Text = "Listado de tramos";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // ABMRecorrido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(666, 389);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.btnModificarRecorrido);
             this.Controls.Add(this.btnBajaRecorrido);
@@ -115,6 +129,7 @@
         private System.Windows.Forms.Button btnBajaRecorrido;
         private System.Windows.Forms.Button btnModificarRecorrido;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button1;
 
     }
 }
