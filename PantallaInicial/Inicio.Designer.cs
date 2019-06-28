@@ -34,7 +34,7 @@
             // 
             // btnAdmin
             // 
-            this.btnAdmin.Location = new System.Drawing.Point(97, 72);
+            this.btnAdmin.Location = new System.Drawing.Point(185, 97);
             this.btnAdmin.Name = "btnAdmin";
             this.btnAdmin.Size = new System.Drawing.Size(152, 107);
             this.btnAdmin.TabIndex = 1;
@@ -44,7 +44,7 @@
             // 
             // btnClie
             // 
-            this.btnClie.Location = new System.Drawing.Point(330, 72);
+            this.btnClie.Location = new System.Drawing.Point(446, 97);
             this.btnClie.Name = "btnClie";
             this.btnClie.Size = new System.Drawing.Size(170, 107);
             this.btnClie.TabIndex = 2;
@@ -56,7 +56,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(573, 261);
+            this.ClientSize = new System.Drawing.Size(779, 330);
             this.Controls.Add(this.btnClie);
             this.Controls.Add(this.btnAdmin);
             this.Name = "Inicio";

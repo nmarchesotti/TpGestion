@@ -48,9 +48,9 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(94, 325);
+            this.button2.Location = new System.Drawing.Point(94, 317);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(278, 35);
+            this.button2.Size = new System.Drawing.Size(278, 43);
             this.button2.TabIndex = 20;
             this.button2.Text = "Cambiar nombre";
             this.button2.UseVisualStyleBackColor = true;

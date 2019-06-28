@@ -40,7 +40,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(28, 268);
+            this.button1.Location = new System.Drawing.Point(87, 239);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(224, 47);
             this.button1.TabIndex = 0;
@@ -50,14 +50,14 @@
             // 
             // txtcontraseña
             // 
-            this.txtcontraseña.Location = new System.Drawing.Point(203, 194);
+            this.txtcontraseña.Location = new System.Drawing.Point(203, 175);
             this.txtcontraseña.Name = "txtcontraseña";
             this.txtcontraseña.Size = new System.Drawing.Size(157, 20);
             this.txtcontraseña.TabIndex = 1;
             // 
             // txtusuario
             // 
-            this.txtusuario.Location = new System.Drawing.Point(203, 128);
+            this.txtusuario.Location = new System.Drawing.Point(203, 110);
             this.txtusuario.Name = "txtusuario";
             this.txtusuario.Size = new System.Drawing.Size(157, 20);
             this.txtusuario.TabIndex = 2;
@@ -66,7 +66,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(23, 194);
+            this.label1.Location = new System.Drawing.Point(23, 169);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(123, 25);
             this.label1.TabIndex = 3;
@@ -76,7 +76,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(23, 123);
+            this.label2.Location = new System.Drawing.Point(23, 104);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(86, 25);
             this.label2.TabIndex = 4;
@@ -95,9 +95,9 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(314, 314);
+            this.button2.Location = new System.Drawing.Point(294, 314);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(81, 47);
+            this.button2.Size = new System.Drawing.Size(101, 47);
             this.button2.TabIndex = 6;
             this.button2.Text = "Menu principal";
             this.button2.UseVisualStyleBackColor = true;
@@ -107,7 +107,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(407, 373);
+            this.ClientSize = new System.Drawing.Size(455, 373);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);

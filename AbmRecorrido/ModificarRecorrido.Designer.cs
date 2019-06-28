@@ -108,9 +108,9 @@
             // 
             this.button1.AccessibleRole = System.Windows.Forms.AccessibleRole.TitleBar;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(199, 363);
+            this.button1.Location = new System.Drawing.Point(199, 347);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(197, 42);
+            this.button1.Size = new System.Drawing.Size(216, 58);
             this.button1.TabIndex = 30;
             this.button1.Text = "Cambiar tramo";
             this.button1.UseVisualStyleBackColor = true;

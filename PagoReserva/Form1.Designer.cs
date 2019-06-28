@@ -36,7 +36,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(53, 31);
+            this.label1.Location = new System.Drawing.Point(33, 61);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(93, 13);
             this.label1.TabIndex = 0;
@@ -44,16 +44,16 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(153, 31);
+            this.textBox1.Location = new System.Drawing.Point(159, 54);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 1;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(72, 106);
+            this.button1.Location = new System.Drawing.Point(72, 137);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(164, 23);
+            this.button1.Size = new System.Drawing.Size(164, 66);
             this.button1.TabIndex = 2;
             this.button1.Text = "Cargar reserva";
             this.button1.UseVisualStyleBackColor = true;
