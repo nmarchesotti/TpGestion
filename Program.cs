@@ -47,12 +47,16 @@ namespace FrbaCrucero
             Application.SetCompatibleTextRenderingDefault(false);
 
 
-            using (PantallaInicial.Inicio form = new PantallaInicial.Inicio())
+            PantallaInicial.Inicio form = new PantallaInicial.Inicio();
+            
+            form.StartPosition = FormStartPosition.CenterScreen;
+            form.Show();
+            while (true)
             {
-                form.StartPosition = FormStartPosition.CenterScreen;
-                form.Show();
                 Application.Run();
             }
+            
+            
             
             
             // Para probar varios forms en una sola ejecucion

@@ -17,6 +17,7 @@ namespace FrbaCrucero.LoginYSeguridad
         public Login()
         {
             InitializeComponent();
+            txtcontraseña.PasswordChar = '*';
         }
 
 

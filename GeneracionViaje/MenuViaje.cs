@@ -21,5 +21,13 @@ namespace FrbaCrucero.GeneracionViaje
         {
             this.Dispose();
         }
+
+        private void btnCompra_Click(object sender, EventArgs e)
+        {
+            AltaViaje form = new AltaViaje();
+            form.StartPosition = FormStartPosition.CenterScreen;
+            form.Show();
+            this.Dispose();
+        }
     }
 }

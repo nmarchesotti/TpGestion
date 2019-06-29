@@ -14,11 +14,14 @@ namespace FrbaCrucero.AbmRecorrido
 {
     public partial class AgregarTramo : Form
     {
-        public AgregarTramo()
+        public Decimal Precio;
+        public AgregarTramo(Decimal precio)
         {
             InitializeComponent();
+            this.Precio = precio;
             comboBoxPuertoS_Load();
             comboBoxPuertoL_Load();
+            
         }
 
         private void AgregarTramo_Load(object sender, EventArgs e)
@@ -35,7 +38,7 @@ namespace FrbaCrucero.AbmRecorrido
             dt.Columns.Add("Nombre", typeof(String));
             dt.Load(reader);
 
-            comboBoxPuertoS.ValueMember = "NombreSalida";
+            comboBoxPuertoS.ValueMember = "Nombre";
             comboBoxPuertoS.DisplayMember = "Nombre";
             comboBoxPuertoS.DataSource = dt;
 
@@ -53,7 +56,7 @@ namespace FrbaCrucero.AbmRecorrido
             dt.Columns.Add("Nombre", typeof(String));
             dt.Load(reader);
 
-            comboBoxPuertoL.ValueMember = "NombreLlegada";
+            comboBoxPuertoL.ValueMember = "Nombre";
             comboBoxPuertoL.DisplayMember = "Nombre";
             comboBoxPuertoL.DataSource = dt;
 
@@ -70,12 +73,20 @@ namespace FrbaCrucero.AbmRecorrido
                     SqlCommand cmd2 = new SqlCommand("select top 1 IdRecorrido from LOS_QUE_VAN_A_APROBAR.Recorrido ORDER BY IdRecorrido Desc", cn);
                     cmd2.CommandType = CommandType.Text;
                     int IdRecorrido = Convert.ToInt32(cmd2.ExecuteScalar());
-                    MessageBox.Show(IdRecorrido.ToString());
 
-                    //int IdTramo = Convert.ToInt32(cmd3.ExecuteScalar());
-                    
+                    DataRowView drv2 = (DataRowView)comboBoxPuertoS.SelectedItem;
+                    string PuertoSalida = Convert.ToString(drv2["Nombre"]);
+                    MessageBox.Show(PuertoSalida);
+
+                    DataRowView drv3 = (DataRowView)comboBoxPuertoL.SelectedItem;
+                    string PuertoLlegada = Convert.ToString(drv3["Nombre"]);
+                    MessageBox.Show(PuertoLlegada);
+                
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@CodigoRecorrido", IdRecorrido);
+                    cmd.Parameters.Add("@CodigoRecorrido", SqlDbType.Int).Value = IdRecorrido;
+                    cmd.Parameters.Add("@PuertoSalida", SqlDbType.NVarChar,255).Value = PuertoSalida;
+                    cmd.Parameters.Add("@PuertoLlegada", SqlDbType.NVarChar,255).Value = PuertoLlegada;
+                    cmd.Parameters.Add("@Precio", SqlDbType.Decimal).Value = this.Precio;
 
 
                     cmd.ExecuteNonQuery();
@@ -84,6 +95,14 @@ namespace FrbaCrucero.AbmRecorrido
                     cn.Dispose();
                 }
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            ABMRecorrido form = new ABMRecorrido();
+            form.StartPosition = FormStartPosition.CenterScreen;
+            form.Show();
+            this.Dispose();
         }
         }
 

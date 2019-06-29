@@ -45,7 +45,7 @@ namespace FrbaCrucero.AbmRecorrido
                 }
             }
 
-            AgregarTramo form = new AgregarTramo();
+            AgregarTramo form = new AgregarTramo((Decimal.Parse(PrecioRecorrido.Text)));
             form.Show();
             form.StartPosition = FormStartPosition.CenterScreen;
             this.Dispose();

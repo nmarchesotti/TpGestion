@@ -55,6 +55,7 @@
             this.btnCompra.TabIndex = 15;
             this.btnCompra.Text = "Alta de viaje";
             this.btnCompra.UseVisualStyleBackColor = true;
+            this.btnCompra.Click += new System.EventHandler(this.btnCompra_Click);
             // 
             // button1
             // 

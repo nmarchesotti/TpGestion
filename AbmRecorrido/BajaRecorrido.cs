@@ -23,16 +23,15 @@ namespace FrbaCrucero.AbmRecorrido
         {
             SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["GD_CRUCEROS"].ConnectionString);
             cn.Open();
-            SqlCommand sc = new SqlCommand("select IdRecorrido, Codigo_Recorrido from LOS_QUE_VAN_A_APROBAR.Recorrido", cn);
+            SqlCommand sc = new SqlCommand("select IdRecorrido from LOS_QUE_VAN_A_APROBAR.Recorrido", cn);
             SqlDataReader reader;
             reader = sc.ExecuteReader();
             DataTable dt = new DataTable();
             dt.Columns.Add("IdRecorrido", typeof(int));
-            dt.Columns.Add("Codigo_Recorrido", typeof(string));
             dt.Load(reader);
 
-            comboBoxReco.SelectedValue = "Codigo_Recorrido";
-            comboBoxReco.DisplayMember = "Codigo_Recorrido";
+            comboBoxReco.SelectedValue = "IdRecorrido";
+            comboBoxReco.DisplayMember = "IdRecorrido";
             comboBoxReco.DataSource = dt;
             cn.Close();
         }

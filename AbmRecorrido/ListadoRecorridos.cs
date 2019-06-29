@@ -18,6 +18,7 @@ namespace FrbaCrucero.AbmRecorrido
         {
             InitializeComponent();
             inicializarGrilla();
+            
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -30,7 +31,7 @@ namespace FrbaCrucero.AbmRecorrido
 
         private void inicializarGrilla()
         {
-            var select = "SELECT PuertoSalida, PuertoLlegada, CantidadDeTramos, PrecioDeRecorrido FROM LOS_QUE_VAN_A_APROBAR.ListarRecorridos";
+            var select = "SELECT CodigoRecorrido, PuertoSalida, PuertoLlegada, CantidadDeTramos, PrecioDeRecorrido FROM LOS_QUE_VAN_A_APROBAR.ListarRecorridos";
             var c = new SqlConnection(ConfigurationManager.ConnectionStrings["GD_CRUCEROS"].ConnectionString);
             var dataAdapter = new SqlDataAdapter(select, c);
 
@@ -39,6 +40,7 @@ namespace FrbaCrucero.AbmRecorrido
             dataAdapter.Fill(ds);
             dataGridView1.ReadOnly = true;
             dataGridView1.DataSource = ds.Tables[0];
+            
 
         }
 
@@ -94,5 +96,6 @@ namespace FrbaCrucero.AbmRecorrido
                 dataGridView1.DataSource = ds.Tables[0];
             }
         }
+
     }
 }

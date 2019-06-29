@@ -34,6 +34,7 @@
             this.btnModificarRecorrido = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label3
@@ -50,7 +51,7 @@
             // 
             this.btnAltaRecorrido.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAltaRecorrido.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnAltaRecorrido.Location = new System.Drawing.Point(224, 97);
+            this.btnAltaRecorrido.Location = new System.Drawing.Point(224, 62);
             this.btnAltaRecorrido.Name = "btnAltaRecorrido";
             this.btnAltaRecorrido.Size = new System.Drawing.Size(238, 36);
             this.btnAltaRecorrido.TabIndex = 8;
@@ -61,7 +62,7 @@
             // btnBajaRecorrido
             // 
             this.btnBajaRecorrido.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBajaRecorrido.Location = new System.Drawing.Point(224, 173);
+            this.btnBajaRecorrido.Location = new System.Drawing.Point(224, 122);
             this.btnBajaRecorrido.Name = "btnBajaRecorrido";
             this.btnBajaRecorrido.Size = new System.Drawing.Size(238, 32);
             this.btnBajaRecorrido.TabIndex = 9;
@@ -73,7 +74,7 @@
             // 
             this.btnModificarRecorrido.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModificarRecorrido.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnModificarRecorrido.Location = new System.Drawing.Point(224, 248);
+            this.btnModificarRecorrido.Location = new System.Drawing.Point(224, 179);
             this.btnModificarRecorrido.Name = "btnModificarRecorrido";
             this.btnModificarRecorrido.Size = new System.Drawing.Size(238, 36);
             this.btnModificarRecorrido.TabIndex = 11;
@@ -93,21 +94,34 @@
             // 
             // button1
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button1.Location = new System.Drawing.Point(224, 311);
+            this.button1.Location = new System.Drawing.Point(224, 239);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(238, 36);
             this.button1.TabIndex = 16;
-            this.button1.Text = "Listado de tramos";
+            this.button1.Text = "Listado de recorridos";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button2.Location = new System.Drawing.Point(224, 300);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(238, 36);
+            this.button2.TabIndex = 17;
+            this.button2.Text = "Información de recorridos";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // ABMRecorrido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(666, 389);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.btnModificarRecorrido);
@@ -130,6 +144,7 @@
         private System.Windows.Forms.Button btnModificarRecorrido;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
 
     }
 }
