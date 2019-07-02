@@ -90,7 +90,7 @@ namespace FrbaCrucero.AbmRecorrido
 
 
                     cmd.ExecuteNonQuery();
-                    MessageBox.Show("Exitosa");
+                    MessageBox.Show("Tramo agregado al recorrido");
                     cn.Close();
                     cn.Dispose();
                 }

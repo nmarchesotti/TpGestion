@@ -39,7 +39,7 @@ namespace FrbaCrucero.AbmRecorrido
                     cmd.Parameters["@Precio"].Scale = 2;
 
                     cmd.ExecuteNonQuery();
-                    MessageBox.Show("Exitosa");
+                    MessageBox.Show("Nuevo recorrido satisfactorio");
                     cn.Close();
                     cn.Dispose();
                 }

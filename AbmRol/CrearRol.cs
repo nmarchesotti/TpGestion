@@ -49,7 +49,7 @@ namespace FrbaCrucero.AbmRol
                         
                     }
 
-                    MessageBox.Show("Rol creado");
+                    MessageBox.Show("Rol creado exitosamente");
                     cn.Close();
                     this.Dispose();
                 

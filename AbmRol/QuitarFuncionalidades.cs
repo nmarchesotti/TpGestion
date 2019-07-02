@@ -51,7 +51,7 @@ namespace FrbaCrucero.AbmRol
                         cmd.Parameters["@IdFuncionalidad"].Value = valor;
                         cmd.ExecuteNonQuery();
                     }
-                    MessageBox.Show("Exitosa");
+                    MessageBox.Show("Funcionalidades removidas");
                 }
                 cn.Close();
                 cn.Dispose();

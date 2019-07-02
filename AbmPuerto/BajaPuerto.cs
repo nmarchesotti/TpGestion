@@ -35,7 +35,7 @@ namespace FrbaCrucero.AbmPuerto
                     MessageBox.Show(puerto);
 
                     cmd.ExecuteNonQuery();
-                    MessageBox.Show("Exitosa");
+                    MessageBox.Show("Puerto eliminado");
                     cn.Close();
                     cn.Dispose();
                 }

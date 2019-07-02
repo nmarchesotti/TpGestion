@@ -52,7 +52,7 @@ namespace FrbaCrucero.AbmRol
                     Int32 valueOfItem = Convert.ToInt32(drv["IdRol"]);
                     cmd.Parameters.Add("@IdRol", SqlDbType.Int).Value = valueOfItem;
                     cmd.ExecuteNonQuery();
-                    MessageBox.Show("Exitosa");
+                    MessageBox.Show("Rol dado de baja exitosamente");
                     cn.Close();
                     cn.Dispose();
                 }

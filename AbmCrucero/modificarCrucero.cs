@@ -111,7 +111,7 @@ namespace FrbaCrucero.AbmCrucero
                     cmd.Parameters.Add("@IdModelo", SqlDbType.Int).Value = modelo;
 
                     cmd.ExecuteNonQuery();
-                    MessageBox.Show("Exitosa");
+                    MessageBox.Show("Crucero modificado correctamente");
                     cn.Close();
                     cn.Dispose();
                 }

@@ -131,7 +131,7 @@ namespace FrbaCrucero.AbmRecorrido
                     
 
                     cmd.ExecuteNonQuery();
-                    MessageBox.Show("Exitosa");
+                    MessageBox.Show("Tramo de recorrido modificado exitosamente");
                     cn.Close();
                     cn.Dispose();
                 }

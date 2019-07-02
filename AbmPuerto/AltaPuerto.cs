@@ -34,7 +34,7 @@ namespace FrbaCrucero.AbmPuerto
                     cmd.Parameters.Add("@Descripcion", SqlDbType.VarChar, 50).Value = DescripcionPuerto.Text;
 
                     cmd.ExecuteNonQuery();
-                    MessageBox.Show("Exitosa");
+                    MessageBox.Show("Puerto creado satisfactoriamente");
                     cn.Close();
                     cn.Dispose();
                 }

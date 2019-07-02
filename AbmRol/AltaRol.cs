@@ -50,7 +50,7 @@ namespace FrbaCrucero.AbmRol
                     String valueOfItem = drv["Nombre"].ToString();
                     cmd.Parameters.Add("@NombreRol", SqlDbType.NVarChar, 20).Value = valueOfItem;
                     cmd.ExecuteNonQuery();
-                    MessageBox.Show("Exitosa");
+                    MessageBox.Show("Rol activado exitosamente");
                     cn.Close();
                     cn.Dispose();
                 }

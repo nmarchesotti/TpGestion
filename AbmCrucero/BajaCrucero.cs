@@ -67,7 +67,7 @@ namespace FrbaCrucero.AbmCrucero
                         MessageBox.Show(crucero);
 
                         cmd.ExecuteNonQuery();
-                        MessageBox.Show("Exitosa");
+                        MessageBox.Show("Crucero dado de baja satisfactoriamente");
                         cn.Close();
                         cn.Dispose();
                     }
@@ -89,7 +89,7 @@ namespace FrbaCrucero.AbmCrucero
                         cmd.Parameters.Add("@FechaDeAlta", SqlDbType.DateTime2, 3).Value = fecha;
 
                         cmd.ExecuteNonQuery();
-                        MessageBox.Show("Exitosa");
+                        MessageBox.Show("Crucero en reparación satisfactorio");
                         cn.Close();
                         cn.Dispose();
                     }

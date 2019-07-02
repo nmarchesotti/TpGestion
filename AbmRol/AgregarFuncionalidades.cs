@@ -83,6 +83,7 @@ namespace FrbaCrucero.AbmRol
 
                 }
 
+                MessageBox.Show("Funcionalidades añadidas correctamente");
                 cn.Close();
                 cn.Dispose();
 

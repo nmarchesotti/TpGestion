@@ -96,7 +96,7 @@ namespace FrbaCrucero.GeneracionViaje
                     cmd.Parameters.Add("@Fecha_Llegada", SqlDbType.DateTime2, 3).Value = fechaL;
 
                     cmd.ExecuteNonQuery();
-
+                    MessageBox.Show("Viaje creado satisfactoriamente");
                     cn.Close();
                     cn.Dispose();
 

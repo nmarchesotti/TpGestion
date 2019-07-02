@@ -53,7 +53,7 @@ namespace FrbaCrucero.AbmRecorrido
                     // ver como hacer cuando hay un viaje con ese recorrido
 
                     cmd.ExecuteNonQuery();
-                    MessageBox.Show("Exitosa");
+                    MessageBox.Show("Recorrido eliminado correctamente");
                     cn.Close();
                     cn.Dispose(); 
                 }

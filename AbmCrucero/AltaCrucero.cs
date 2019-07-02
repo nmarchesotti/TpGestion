@@ -89,7 +89,7 @@ namespace FrbaCrucero.AbmCrucero
                     cmd.Parameters.Add("@CantidadCabinas", SqlDbType.Int).Value = txtCantidadCabinas.Text;
 
                     cmd.ExecuteNonQuery();
-                    MessageBox.Show("Exitosa");
+                    MessageBox.Show("Crucero creado correctamente");
                     cn.Close();
                     cn.Dispose();
                 }

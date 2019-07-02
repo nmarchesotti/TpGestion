@@ -64,7 +64,7 @@ namespace FrbaCrucero.AbmRol
                     cmd.Parameters.Add("@Nombre", SqlDbType.NVarChar, 20).Value = textBox1.Text;
 
                     cmd.ExecuteNonQuery();
-                    MessageBox.Show("Exitosa");
+                    MessageBox.Show("Nombre de rol modificado");
                     cn.Close();
                     cn.Dispose();
                 }
