@@ -99,6 +99,11 @@ namespace FrbaCrucero.GeneracionViaje
                     MessageBox.Show("Viaje creado satisfactoriamente");
                     cn.Close();
                     cn.Dispose();
+                    MenuViaje form = new MenuViaje();
+                    form.StartPosition = FormStartPosition.CenterScreen;
+                    form.Show();
+                    this.Dispose();
+                    
 
                 }
             }

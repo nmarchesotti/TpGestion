@@ -46,6 +46,20 @@ namespace FrbaCrucero
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
+            SqlConnection cn1 = new SqlConnection(ConfigurationManager.ConnectionStrings["GD_CRUCEROS"].ConnectionString);
+
+            using (SqlCommand cmd = new SqlCommand("select LOS_QUE_VAN_A_APROBAR.PuertosExtremos(@IdReco)", cn1))
+            {
+                cn1.Open();
+                cmd.CommandType = CommandType.Text;
+                cmd.Parameters.Add("@IdReco", SqlDbType.Int).Value = 89;
+                string resultado;
+                resultado = Convert.ToString(cmd.ExecuteScalar());
+                MessageBox.Show(resultado);
+            }
+            cn.Close();
+            cn.Dispose();
+
 
             PantallaInicial.Inicio form = new PantallaInicial.Inicio();
             
