@@ -34,6 +34,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtNombreCrucero = new System.Windows.Forms.TextBox();
             this.comboBoxMarca = new System.Windows.Forms.ComboBox();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -92,18 +93,29 @@
             this.comboBoxMarca.Size = new System.Drawing.Size(175, 21);
             this.comboBoxMarca.TabIndex = 23;
             // 
-            // RecorridosCabinasLibrescs
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(12, 8);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(102, 54);
+            this.button2.TabIndex = 29;
+            this.button2.Text = "Menu Listado";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // RecorridosCabinasLibres
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(754, 332);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtNombreCrucero);
             this.Controls.Add(this.comboBoxMarca);
-            this.Name = "RecorridosCabinasLibrescs";
+            this.Name = "RecorridosCabinasLibres";
             this.Text = "RecorridosCabinasLibrescs";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
@@ -119,5 +131,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtNombreCrucero;
         private System.Windows.Forms.ComboBox comboBoxMarca;
+        private System.Windows.Forms.Button button2;
     }
 }

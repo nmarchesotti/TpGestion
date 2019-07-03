@@ -16,5 +16,13 @@ namespace FrbaCrucero.ListadoEstadistico
         {
             InitializeComponent();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            ListadoEstadistico.MenuListadoEstadistico form = new MenuListadoEstadistico();
+            form.StartPosition = FormStartPosition.CenterScreen;
+            form.Show();
+            this.Dispose();
+        }
     }
 }
