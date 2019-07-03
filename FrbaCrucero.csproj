@@ -219,11 +219,29 @@
     <Compile Include="GeneracionViaje\MenuViaje.Designer.cs">
       <DependentUpon>MenuViaje.cs</DependentUpon>
     </Compile>
-    <Compile Include="ListadoEstadistico\Form1.cs">
+    <Compile Include="ListadoEstadistico\CrucerosConMasFueraDeServicio.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ListadoEstadistico\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="ListadoEstadistico\CrucerosConMasFueraDeServicio.Designer.cs">
+      <DependentUpon>CrucerosConMasFueraDeServicio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ListadoEstadistico\MenuListadoEstadistico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListadoEstadistico\MenuListadoEstadistico.Designer.cs">
+      <DependentUpon>MenuListadoEstadistico.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ListadoEstadistico\RecorridosCabinasLibres.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListadoEstadistico\RecorridosCabinasLibres.Designer.cs">
+      <DependentUpon>RecorridosCabinasLibres.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ListadoEstadistico\RecorridosConMasPasajes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListadoEstadistico\RecorridosConMasPasajes.Designer.cs">
+      <DependentUpon>RecorridosConMasPasajes.cs</DependentUpon>
     </Compile>
     <Compile Include="LoginYSeguridad\Login.cs">
       <SubType>Form</SubType>
@@ -338,8 +356,17 @@
     <EmbeddedResource Include="GeneracionViaje\MenuViaje.resx">
       <DependentUpon>MenuViaje.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ListadoEstadistico\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="ListadoEstadistico\CrucerosConMasFueraDeServicio.resx">
+      <DependentUpon>CrucerosConMasFueraDeServicio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListadoEstadistico\MenuListadoEstadistico.resx">
+      <DependentUpon>MenuListadoEstadistico.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListadoEstadistico\RecorridosCabinasLibres.resx">
+      <DependentUpon>RecorridosCabinasLibres.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListadoEstadistico\RecorridosConMasPasajes.resx">
+      <DependentUpon>RecorridosConMasPasajes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginYSeguridad\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

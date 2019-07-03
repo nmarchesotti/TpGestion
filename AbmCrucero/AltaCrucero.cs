@@ -102,5 +102,15 @@ namespace FrbaCrucero.AbmCrucero
             txtNombreCrucero.Clear();
             txtCantidadCabinas.Clear();
         }
+
+        private void txtNombreCrucero_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBoxMarca_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

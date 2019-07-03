@@ -76,6 +76,7 @@
             this.txtNombreCrucero.Name = "txtNombreCrucero";
             this.txtNombreCrucero.Size = new System.Drawing.Size(179, 20);
             this.txtNombreCrucero.TabIndex = 6;
+            this.txtNombreCrucero.TextChanged += new System.EventHandler(this.txtNombreCrucero_TextChanged);
             // 
             // label3
             // 
@@ -115,6 +116,7 @@
             this.comboBoxMarca.Name = "comboBoxMarca";
             this.comboBoxMarca.Size = new System.Drawing.Size(175, 21);
             this.comboBoxMarca.TabIndex = 14;
+            this.comboBoxMarca.SelectedIndexChanged += new System.EventHandler(this.comboBoxMarca_SelectedIndexChanged);
             // 
             // comboBoxModelo
             // 
