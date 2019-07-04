@@ -88,6 +88,8 @@ namespace FrbaCrucero.AbmCrucero
                         string fecha = calendarioBajaCrucero.Text;
                         cmd.Parameters.Add("@FechaDeAlta", SqlDbType.DateTime2, 3).Value = fecha;
 
+                      
+
                         cmd.ExecuteNonQuery();
                         MessageBox.Show("Crucero en reparación satisfactorio");
                         cn.Close();
