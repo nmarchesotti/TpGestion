@@ -54,5 +54,10 @@ namespace FrbaCrucero.AbmPuerto
             dataGridView1.DataSource = ds.Tables[0];
         }
 
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

@@ -106,7 +106,9 @@ namespace FrbaCrucero.LoginYSeguridad
         {
             if (funcionalidades.Contains("Menu estadistico"))
             {
-                // Falta abm de estadistica
+                ListadoEstadistico.MenuListadoEstadistico form = new ListadoEstadistico.MenuListadoEstadistico();
+                form.StartPosition = FormStartPosition.CenterScreen;
+                form.Show();
             }
              else
             {
