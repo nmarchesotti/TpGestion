@@ -40,5 +40,10 @@ namespace FrbaCrucero.ListadoEstadistico
             form.Show();
             this.Dispose();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
     }
 }
