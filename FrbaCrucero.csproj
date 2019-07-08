@@ -213,6 +213,24 @@
     <Compile Include="CompraReservaPasaje\FormularioCliente.Designer.cs">
       <DependentUpon>FormularioCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="CompraReservaPasaje\InformacionPago.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CompraReservaPasaje\InformacionPago.Designer.cs">
+      <DependentUpon>InformacionPago.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CompraReservaPasaje\InformacionReserva.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CompraReservaPasaje\InformacionReserva.Designer.cs">
+      <DependentUpon>InformacionReserva.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CompraReservaPasaje\Pago.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CompraReservaPasaje\Pago.Designer.cs">
+      <DependentUpon>Pago.cs</DependentUpon>
+    </Compile>
     <Compile Include="GeneracionViaje\AltaViaje.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -358,6 +376,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CompraReservaPasaje\FormularioCliente.resx">
       <DependentUpon>FormularioCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CompraReservaPasaje\InformacionPago.resx">
+      <DependentUpon>InformacionPago.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CompraReservaPasaje\InformacionReserva.resx">
+      <DependentUpon>InformacionReserva.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CompraReservaPasaje\Pago.resx">
+      <DependentUpon>Pago.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GeneracionViaje\AltaViaje.resx">
       <DependentUpon>AltaViaje.cs</DependentUpon>
