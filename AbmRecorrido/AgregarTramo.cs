@@ -14,6 +14,7 @@ namespace FrbaCrucero.AbmRecorrido
 {
     public partial class AgregarTramo : Form
     {
+        string puerto_llegada;
         public Decimal Precio;
         public AgregarTramo(Decimal precio)
         {
@@ -83,6 +84,7 @@ namespace FrbaCrucero.AbmRecorrido
                     MessageBox.Show(PuertoLlegada);
                 
                     cmd.CommandType = CommandType.StoredProcedure;
+
                     cmd.Parameters.Add("@CodigoRecorrido", SqlDbType.Int).Value = IdRecorrido;
                     cmd.Parameters.Add("@PuertoSalida", SqlDbType.NVarChar,255).Value = PuertoSalida;
                     cmd.Parameters.Add("@PuertoLlegada", SqlDbType.NVarChar,255).Value = PuertoLlegada;
@@ -91,10 +93,15 @@ namespace FrbaCrucero.AbmRecorrido
 
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Tramo agregado al recorrido");
+                    puerto_llegada = PuertoLlegada;
+
                     cn.Close();
                     cn.Dispose();
                 }
             }
+
+            comboBoxPuertoS.SelectedValue = puerto_llegada;
+            comboBoxPuertoS.Enabled = false;
         }
 
         private void button2_Click(object sender, EventArgs e)

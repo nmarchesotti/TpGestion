@@ -14,15 +14,13 @@ namespace FrbaCrucero.AbmRecorrido
 {
     public partial class ModificarRecorrido : Form
     {
-        
-
         public ModificarRecorrido()
         {
             
             InitializeComponent();
             comboBoxReco_Load();
-            comboBoxPuertoS_Load();
             comboBoxPuertoL_Load();
+            comboBoxS_Load();
             
          
         }
@@ -31,7 +29,7 @@ namespace FrbaCrucero.AbmRecorrido
         {
             SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["GD_CRUCEROS"].ConnectionString);
             cn.Open();
-            SqlCommand sc = new SqlCommand("select IdRecorrido, Codigo_Recorrido from LOS_QUE_VAN_A_APROBAR.Recorrido", cn);
+            SqlCommand sc = new SqlCommand("select r.IdRecorrido, r.Codigo_Recorrido from LOS_QUE_VAN_A_APROBAR.RecorridoPorTramo t join LOS_QUE_VAN_A_APROBAR.Recorrido r ON (r.IdRecorrido = t.CodigoRecorrido)", cn);
             SqlDataReader reader;
             reader = sc.ExecuteReader();
             DataTable dtb = new DataTable();
@@ -56,6 +54,7 @@ namespace FrbaCrucero.AbmRecorrido
             //SqlCommand sc = new SqlCommand("select CodigoTramo, Puertos from LOS_QUE_VAN_A_APROBAR.tramosDeRecorrido(@IdRecorrido)", cn);
             SqlCommand sc = new SqlCommand("select r.CodigoTramo, t.Puerto_Salida ++ ' - ' ++ t.Puerto_Llegada as Puertos from LOS_QUE_VAN_A_APROBAR.Tramo t join LOS_QUE_VAN_A_APROBAR.RecorridoPorTramo r ON (r.CodigoTramo = t.IdTramo) where r.CodigoRecorrido = @IdRecorrido", cn);
             sc.Parameters.AddWithValue("@IdRecorrido", Convert.ToInt32(comboBoxModifReco.SelectedValue.ToString()));
+            MessageBox.Show(comboBoxModifReco.SelectedValue.ToString());
             SqlDataReader reader;
             reader = sc.ExecuteReader();
             DataTable dt = new DataTable();
@@ -66,26 +65,13 @@ namespace FrbaCrucero.AbmRecorrido
             comboBoxTramos.ValueMember = "CodigoTramo";
             comboBoxTramos.DisplayMember = "Puertos";
             comboBoxTramos.DataSource = dt;
-            cn.Close();
-        }
 
-        private void comboBoxPuertoS_Load()
-        {
-            SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["GD_CRUCEROS"].ConnectionString);
-            cn.Open();
-            SqlCommand sc = new SqlCommand("select Nombre from LOS_QUE_VAN_A_APROBAR.Puerto", cn);
-            SqlDataReader reader;
-            reader = sc.ExecuteReader();
-            DataTable dt = new DataTable();
-            dt.Columns.Add("Nombre", typeof(String));
-            dt.Load(reader);
-
-            comboBoxPuertoS.ValueMember = "Nombre";
-            comboBoxPuertoS.DisplayMember = "Nombre";
-            comboBoxPuertoS.DataSource = dt;
+  
 
             cn.Close();
         }
+
+
 
         private void comboBoxPuertoL_Load()
         {
@@ -105,12 +91,30 @@ namespace FrbaCrucero.AbmRecorrido
             cn.Close();
         }
 
+        private void comboBoxS_Load()
+        {
+            SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["GD_CRUCEROS"].ConnectionString);
+            cn.Open();
+            SqlCommand sc = new SqlCommand("select Nombre from LOS_QUE_VAN_A_APROBAR.Puerto", cn);
+            SqlDataReader reader;
+            reader = sc.ExecuteReader();
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Nombre", typeof(String));
+            dt.Load(reader);
+
+            comboBoxS.ValueMember = "Nombre";
+            comboBoxS.DisplayMember = "Nombre";
+            comboBoxS.DataSource = dt;
+
+            cn.Close();
+        }
+
         private void btnCambiarTramo_Click(object sender, EventArgs e)
         {
          
             
            
-            comboBoxTramos_Load();
+            
         
 
         }
@@ -121,19 +125,25 @@ namespace FrbaCrucero.AbmRecorrido
             {
                 using (SqlCommand cmd = new SqlCommand("LOS_QUE_VAN_A_APROBAR.modificarTramoDeRecorrido", cn))
                 {
-                    cn.Open();
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@IdRecorrido", Convert.ToInt32(comboBoxModifReco.SelectedValue.ToString()));
-                    cmd.Parameters.AddWithValue("@TramoViejo", Convert.ToInt32(comboBoxTramos.SelectedValue.ToString()));
-                    cmd.Parameters.AddWithValue("@Puerto_Salida", comboBoxPuertoS.Text);
-                    cmd.Parameters.AddWithValue("@Puerto_Llegada", comboBoxPuertoL.Text);
+                    try
+                    {
+                        cn.Open();
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@CodigoRecorrido", Convert.ToInt32(comboBoxModifReco.SelectedValue.ToString()));
+                        cmd.Parameters.AddWithValue("@IdTramo", Convert.ToInt32(comboBoxTramos.SelectedValue.ToString()));
+                        cmd.Parameters.AddWithValue("@PuertoSalida", comboBoxS.Text);
+                        cmd.Parameters.AddWithValue("@PuertoLlegada", comboBoxPuertoL.Text);
 
-                    
 
-                    cmd.ExecuteNonQuery();
-                    MessageBox.Show("Tramo de recorrido modificado exitosamente");
-                    cn.Close();
-                    cn.Dispose();
+
+                        cmd.ExecuteNonQuery();
+                        MessageBox.Show("Tramo de recorrido modificado exitosamente");
+                        cn.Close();
+                        cn.Dispose();
+                    }
+                    catch {
+                        MessageBox.Show("INGRESE EL MISMO PUERTO DE SALIDA");
+                    }
                 }
             }
         }
@@ -144,6 +154,32 @@ namespace FrbaCrucero.AbmRecorrido
             form.StartPosition = FormStartPosition.CenterScreen;
             form.Show();
             this.Dispose();
+        }
+
+        private void comboBoxPuertoS_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBoxModifReco_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            comboBoxTramos_Load();
+        }
+
+        private void comboBoxTramos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            
         }
 
 

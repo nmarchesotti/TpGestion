@@ -33,12 +33,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.comboBoxTramos = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.comboBoxPuertoS = new System.Windows.Forms.ComboBox();
             this.comboBoxPuertoL = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.comboBoxS = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label5
@@ -58,6 +59,7 @@
             this.comboBoxModifReco.Name = "comboBoxModifReco";
             this.comboBoxModifReco.Size = new System.Drawing.Size(212, 21);
             this.comboBoxModifReco.TabIndex = 24;
+            this.comboBoxModifReco.SelectedIndexChanged += new System.EventHandler(this.comboBoxModifReco_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -77,6 +79,7 @@
             this.comboBoxTramos.Size = new System.Drawing.Size(212, 21);
             this.comboBoxTramos.TabIndex = 26;
             this.comboBoxTramos.Text = "Puerto salida - Puerto llegada";
+            this.comboBoxTramos.SelectedIndexChanged += new System.EventHandler(this.comboBoxTramos_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -87,14 +90,6 @@
             this.label2.Size = new System.Drawing.Size(184, 25);
             this.label2.TabIndex = 25;
             this.label2.Text = "Tramo a modificar";
-            // 
-            // comboBoxPuertoS
-            // 
-            this.comboBoxPuertoS.FormattingEnabled = true;
-            this.comboBoxPuertoS.Location = new System.Drawing.Point(58, 284);
-            this.comboBoxPuertoS.Name = "comboBoxPuertoS";
-            this.comboBoxPuertoS.Size = new System.Drawing.Size(128, 21);
-            this.comboBoxPuertoS.TabIndex = 28;
             // 
             // comboBoxPuertoL
             // 
@@ -146,17 +141,38 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
+            // button2
+            // 
+            this.button2.AccessibleRole = System.Windows.Forms.AccessibleRole.TitleBar;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(229, 133);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(135, 36);
+            this.button2.TabIndex = 35;
+            this.button2.Text = "Listar tramos";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // comboBoxS
+            // 
+            this.comboBoxS.FormattingEnabled = true;
+            this.comboBoxS.Location = new System.Drawing.Point(58, 284);
+            this.comboBoxS.Name = "comboBoxS";
+            this.comboBoxS.Size = new System.Drawing.Size(128, 21);
+            this.comboBoxS.TabIndex = 36;
+            // 
             // ModificarRecorrido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(701, 431);
+            this.Controls.Add(this.comboBoxS);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.comboBoxPuertoL);
-            this.Controls.Add(this.comboBoxPuertoS);
             this.Controls.Add(this.comboBoxTramos);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.comboBoxModifReco);
@@ -176,11 +192,12 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboBoxTramos;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBoxPuertoS;
         private System.Windows.Forms.ComboBox comboBoxPuertoL;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ComboBox comboBoxS;
     }
 }
