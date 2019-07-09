@@ -16,12 +16,12 @@ namespace FrbaCrucero.CompraReservaPasaje
     {
         int Cantidad;
         int IdViaje;
-        string FechaSalida;
+        DateTime FechaSalida;
         string TipoCabina;
         SqlDataAdapter adp;
         DataTable dataset;
 
-        public FormularioCliente(int viaj, int cant, string fs, string tc)
+        public FormularioCliente(int viaj, int cant, DateTime fs, string tc)
         {
             FechaSalida = fs;
             TipoCabina = tc;

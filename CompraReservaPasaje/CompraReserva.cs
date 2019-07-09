@@ -17,39 +17,12 @@ namespace FrbaCrucero.CompraReservaPasaje
         public CompraReserva()
         {
             InitializeComponent();
-            inicializarGrid();
             comboBoxPuertoL_Load();
             comboBoxPuertoS_Load();
-            llenarTipoCabina();
+            comboBoxTipo_Load();
+
         }
 
-        private void llenarTipoCabina()
-        {
-            var dataSource = new List<String>();
-            dataSource.Add("Suite");
-            dataSource.Add("Cabina Balcón");
-            dataSource.Add("Cabina estandar");
-            dataSource.Add("Ejecutivo");
-            dataSource.Add("Cabina Exterior");
-
-            this.comboBoxTipo.DataSource = dataSource;
-            this.comboBoxTipo.DisplayMember = "Name";
-
-            this.comboBoxTipo.DropDownStyle = ComboBoxStyle.DropDownList;
-        }
-
-        private void inicializarGrid()
-        {
-            var select = "select * from LOS_QUE_VAN_A_APROBAR.ListarViajesConInfo";
-            var c = new SqlConnection(ConfigurationManager.ConnectionStrings["GD_CRUCEROS"].ConnectionString);
-            var dataAdapter = new SqlDataAdapter(select, c);
-
-            var commandBuilder = new SqlCommandBuilder(dataAdapter);
-            var ds = new DataSet();
-            dataAdapter.Fill(ds);
-            dataGridView1.ReadOnly = true;
-            dataGridView1.DataSource = ds.Tables[0];
-        }
 
 
         private void comboBoxPuertoL_Load()
@@ -111,8 +84,7 @@ namespace FrbaCrucero.CompraReservaPasaje
             dataGridView1.DataSource = bsource;
             adp.Update(dataset);
 
-            comboBoxTipo_Load();
-
+            
         }
 
         private void CompraReserva_Load(object sender, EventArgs e)
@@ -122,7 +94,9 @@ namespace FrbaCrucero.CompraReservaPasaje
 
         private void button1_Click(object sender, EventArgs e)
         {
-     
+            int selec = dataGridView1.CurrentCell.RowIndex;
+            FormularioCliente f = new FormularioCliente((int)dataGridView1.Rows[selec].Cells[0].Value, Convert.ToInt32(textBoxCantidad.Text), Convert.ToDateTime(dateTimePicker1.Text), comboBoxTipo.SelectedValue.ToString());
+            f.Show();
         }
 
 

@@ -16,11 +16,11 @@ namespace FrbaCrucero.CompraReservaPasaje
     {
         int idcliente;
         int idviaje;
-        string fecha_salida;
+        DateTime fecha_salida;
         string tipocabina;
         int cantidad;
         
-        public Pago(int c, int v, string tc, string fs, int cant)
+        public Pago(int c, int v, string tc, DateTime fs, int cant)
         {
             InitializeComponent();
             idcliente = c;
