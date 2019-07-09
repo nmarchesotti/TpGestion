@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -17,6 +19,7 @@ namespace FrbaCrucero.LoginYSeguridad
         public menuAdmin(List<String> list)
         {
             this.funcionalidades = list;
+            chequearReservas();
             InitializeComponent();
         }
 
@@ -122,6 +125,27 @@ namespace FrbaCrucero.LoginYSeguridad
             form.StartPosition = FormStartPosition.CenterScreen;
             form.Show();
             this.Dispose();
+        }
+
+        private void menuAdmin_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void chequearReservas()
+        {
+            using (SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["GD_CRUCEROS"].ConnectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand("LOS_QUE_VAN_A_APROBAR.ChequearReservas", cn))
+                {
+                    cn.Open();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.ExecuteNonQuery();
+                    cn.Close();
+                    cn.Dispose();
+                }
+
+            }
         }
 
 

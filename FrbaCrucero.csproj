@@ -237,6 +237,12 @@
     <Compile Include="CompraReservaPasaje\Pago.Designer.cs">
       <DependentUpon>Pago.cs</DependentUpon>
     </Compile>
+    <Compile Include="PagoReserva\InfoReserva.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PagoReserva\InfoReserva.Designer.cs">
+      <DependentUpon>InfoReserva.cs</DependentUpon>
+    </Compile>
     <Compile Include="GeneracionViaje\AltaViaje.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -291,11 +297,11 @@
     <Compile Include="LoginYSeguridad\menuAdmin.Designer.cs">
       <DependentUpon>menuAdmin.cs</DependentUpon>
     </Compile>
-    <Compile Include="PagoReserva\Form1.cs">
+    <Compile Include="PagoReserva\PagoReserva.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PagoReserva\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="PagoReserva\PagoReserva.Designer.cs">
+      <DependentUpon>PagoReserva.cs</DependentUpon>
     </Compile>
     <Compile Include="PantallaInicial\Inicio.cs">
       <SubType>Form</SubType>
@@ -401,6 +407,9 @@
     <EmbeddedResource Include="CompraReservaPasaje\Pago.resx">
       <DependentUpon>Pago.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PagoReserva\InfoReserva.resx">
+      <DependentUpon>InfoReserva.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GeneracionViaje\AltaViaje.resx">
       <DependentUpon>AltaViaje.cs</DependentUpon>
     </EmbeddedResource>
@@ -428,8 +437,8 @@
     <EmbeddedResource Include="LoginYSeguridad\menuAdmin.resx">
       <DependentUpon>menuAdmin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PagoReserva\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="PagoReserva\PagoReserva.resx">
+      <DependentUpon>PagoReserva.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PantallaInicial\Inicio.resx">
       <DependentUpon>Inicio.cs</DependentUpon>

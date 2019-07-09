@@ -152,6 +152,7 @@
             this.Controls.Add(this.btnEstadistica);
             this.Name = "menuAdmin";
             this.Text = "menuAdmin";
+            this.Load += new System.EventHandler(this.menuAdmin_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
