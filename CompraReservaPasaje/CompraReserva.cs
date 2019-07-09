@@ -17,9 +17,40 @@ namespace FrbaCrucero.CompraReservaPasaje
         public CompraReserva()
         {
             InitializeComponent();
+            inicializarGrid();
             comboBoxPuertoL_Load();
             comboBoxPuertoS_Load();
+            llenarTipoCabina();
         }
+
+        private void llenarTipoCabina()
+        {
+            var dataSource = new List<String>();
+            dataSource.Add("Suite");
+            dataSource.Add("Cabina Balcón");
+            dataSource.Add("Cabina estandar");
+            dataSource.Add("Ejecutivo");
+            dataSource.Add("Cabina Exterior");
+
+            this.comboBoxTipo.DataSource = dataSource;
+            this.comboBoxTipo.DisplayMember = "Name";
+
+            this.comboBoxTipo.DropDownStyle = ComboBoxStyle.DropDownList;
+        }
+
+        private void inicializarGrid()
+        {
+            var select = "select * from LOS_QUE_VAN_A_APROBAR.ListarViajesConInfo";
+            var c = new SqlConnection(ConfigurationManager.ConnectionStrings["GD_CRUCEROS"].ConnectionString);
+            var dataAdapter = new SqlDataAdapter(select, c);
+
+            var commandBuilder = new SqlCommandBuilder(dataAdapter);
+            var ds = new DataSet();
+            dataAdapter.Fill(ds);
+            dataGridView1.ReadOnly = true;
+            dataGridView1.DataSource = ds.Tables[0];
+        }
+
 
         private void comboBoxPuertoL_Load()
         {
@@ -59,32 +90,14 @@ namespace FrbaCrucero.CompraReservaPasaje
         }
 
 
-        private void label1_Click(object sender, EventArgs e)
-        {
 
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
-        {
-
-        }
 
         private void button3_Click(object sender, EventArgs e)
         {
             SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["GD_CRUCEROS"].ConnectionString);
             cn.Open();
             SqlCommand sc = new SqlCommand("select * from LOS_QUE_VAN_A_APROBAR.ListarViajes(@Fecha_Salida, @Puerto_Salida, @Puerto_Llegada)", cn);
-            sc.Parameters.AddWithValue("@Fecha_Salida", monthCalendar1.SelectionRange.Start.ToString());
+            sc.Parameters.AddWithValue("@Fecha_Salida", Convert.ToDateTime(dateTimePicker1.Text));
             sc.Parameters.AddWithValue("@Puerto_Salida", comboBoxPuertoS.Text);
             sc.Parameters.AddWithValue("@Puerto_Llegada", comboBoxPuertoL.Text);
             SqlDataAdapter adp= new SqlDataAdapter();
@@ -109,15 +122,10 @@ namespace FrbaCrucero.CompraReservaPasaje
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int selec = dataGridView1.CurrentCell.RowIndex;
-            FormularioCliente f = new FormularioCliente((int)dataGridView1.Rows[selec].Cells[0].Value, Convert.ToInt32(textBoxCantidad.Text), monthCalendar1.SelectionRange.Start.ToString(), comboBoxTipo.SelectedValue.ToString());
-            f.Show();
+     
         }
 
-        private void comboBoxTipo_SelectedIndexChanged(object sender, EventArgs e)
-        {
 
-        }
 
         private void comboBoxTipo_Load() {
             SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["GD_CRUCEROS"].ConnectionString);
@@ -132,6 +140,14 @@ namespace FrbaCrucero.CompraReservaPasaje
             comboBoxTipo.ValueMember = "TipoServicio";
             comboBoxTipo.DisplayMember = "TipoServicio";
             comboBoxTipo.DataSource = dt;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            PantallaInicial.Inicio form = new PantallaInicial.Inicio();
+            form.StartPosition = FormStartPosition.CenterScreen;
+            form.Show();
+            this.Dispose();
         }
 
 

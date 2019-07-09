@@ -32,7 +32,10 @@ namespace FrbaCrucero.GeneracionViaje
 
         private void button3_Click(object sender, EventArgs e)
         {
-
+            ListadoViajes form = new ListadoViajes();
+            form.StartPosition = FormStartPosition.CenterScreen;
+            form.Show();
+            this.Dispose();
         }
     }
 }
