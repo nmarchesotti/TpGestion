@@ -116,6 +116,14 @@ namespace FrbaCrucero.LoginYSeguridad
             }
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            PantallaInicial.Inicio form = new PantallaInicial.Inicio();
+            form.StartPosition = FormStartPosition.CenterScreen;
+            form.Show();
+            this.Dispose();
+        }
+
 
 
 

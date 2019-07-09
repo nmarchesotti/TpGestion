@@ -81,10 +81,7 @@ namespace FrbaCrucero
             
             form.StartPosition = FormStartPosition.CenterScreen;
             form.Show();
-            while (true)
-            {
-                Application.Run();
-            }
+            Application.Run();
             
             
             

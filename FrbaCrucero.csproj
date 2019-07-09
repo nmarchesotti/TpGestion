@@ -237,6 +237,12 @@
     <Compile Include="GeneracionViaje\AltaViaje.Designer.cs">
       <DependentUpon>AltaViaje.cs</DependentUpon>
     </Compile>
+    <Compile Include="GeneracionViaje\ListadoViajes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GeneracionViaje\ListadoViajes.Designer.cs">
+      <DependentUpon>ListadoViajes.cs</DependentUpon>
+    </Compile>
     <Compile Include="GeneracionViaje\MenuViaje.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -388,6 +394,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GeneracionViaje\AltaViaje.resx">
       <DependentUpon>AltaViaje.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GeneracionViaje\ListadoViajes.resx">
+      <DependentUpon>ListadoViajes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GeneracionViaje\MenuViaje.resx">
       <DependentUpon>MenuViaje.cs</DependentUpon>
