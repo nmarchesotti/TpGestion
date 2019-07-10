@@ -88,44 +88,52 @@ namespace FrbaCrucero.CompraReservaPasaje
 
         private void buttonReservar_Click(object sender, EventArgs e)
         {
-          int f = dataGridView1.CurrentCell.RowIndex;
-          int idcli = (int) dataGridView1.Rows[f].Cells[0].Value;
-          
-            for (int i = 0; i < Cantidad; i++)
+            try
             {
-                using (SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["GD_CRUCEROS"].ConnectionString))
+                int f = dataGridView1.CurrentCell.RowIndex;
+                int idcli = (int)dataGridView1.Rows[f].Cells[0].Value;
+
+                for (int i = 0; i < Cantidad; i++)
                 {
-
-
-                    using (SqlCommand cmd = new SqlCommand("LOS_QUE_VAN_A_APROBAR.GenerarReserva", cn))
+                    using (SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["GD_CRUCEROS"].ConnectionString))
                     {
-                        cn.Open();
-                        cmd.CommandType = CommandType.StoredProcedure;
-                        
 
 
-                        cmd.Parameters.AddWithValue("@IdCliente", idcli);
+                        using (SqlCommand cmd = new SqlCommand("LOS_QUE_VAN_A_APROBAR.GenerarReserva", cn))
+                        {
+                            cn.Open();
+                            cmd.CommandType = CommandType.StoredProcedure;
 
 
-                        cmd.Parameters.AddWithValue("@IdViaje", IdViaje);
+
+                            cmd.Parameters.AddWithValue("@IdCliente", idcli);
 
 
-                        cmd.Parameters.AddWithValue("@TipoServicio", TipoCabina);
+                            cmd.Parameters.AddWithValue("@IdViaje", IdViaje);
 
 
-                        cmd.Parameters.AddWithValue("@Fecha_Salida", FechaSalida);
+                            cmd.Parameters.AddWithValue("@TipoServicio", TipoCabina);
 
 
-                        cmd.ExecuteNonQuery();
-                        cn.Close();
-                        cn.Dispose();
+                            cmd.Parameters.AddWithValue("@Fecha_Salida", FechaSalida);
+
+
+                            cmd.ExecuteNonQuery();
+                            cn.Close();
+                            cn.Dispose();
+                        }
+
                     }
-
                 }
+                InformacionReserva form = new InformacionReserva(idcli, IdViaje);
+                form.Show();
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("El dni debe ser un numero entero sin puntos ni comas");
             }
 
-            InformacionReserva form = new InformacionReserva(idcli, IdViaje);
-            form.Show();
+           
         }
         
     }
