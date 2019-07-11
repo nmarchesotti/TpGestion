@@ -32,8 +32,8 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtNombreCrucero = new System.Windows.Forms.TextBox();
-            this.comboBoxMarca = new System.Windows.Forms.ComboBox();
+            this.txtAnio = new System.Windows.Forms.TextBox();
+            this.comboBoxSemestre = new System.Windows.Forms.ComboBox();
             this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -47,6 +47,7 @@
             this.button1.TabIndex = 34;
             this.button1.Text = "Mostrar";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // dataGridView1
             // 
@@ -78,20 +79,22 @@
             this.label1.TabIndex = 31;
             this.label1.Text = "Semestre";
             // 
-            // txtNombreCrucero
+            // txtAnio
             // 
-            this.txtNombreCrucero.Location = new System.Drawing.Point(337, 84);
-            this.txtNombreCrucero.Name = "txtNombreCrucero";
-            this.txtNombreCrucero.Size = new System.Drawing.Size(179, 20);
-            this.txtNombreCrucero.TabIndex = 30;
+            this.txtAnio.Location = new System.Drawing.Point(337, 84);
+            this.txtAnio.Name = "txtAnio";
+            this.txtAnio.Size = new System.Drawing.Size(179, 20);
+            this.txtAnio.TabIndex = 30;
+            this.txtAnio.TextChanged += new System.EventHandler(this.txtAnio_TextChanged);
             // 
-            // comboBoxMarca
+            // comboBoxSemestre
             // 
-            this.comboBoxMarca.FormattingEnabled = true;
-            this.comboBoxMarca.Location = new System.Drawing.Point(341, 17);
-            this.comboBoxMarca.Name = "comboBoxMarca";
-            this.comboBoxMarca.Size = new System.Drawing.Size(175, 21);
-            this.comboBoxMarca.TabIndex = 29;
+            this.comboBoxSemestre.FormattingEnabled = true;
+            this.comboBoxSemestre.Location = new System.Drawing.Point(341, 17);
+            this.comboBoxSemestre.Name = "comboBoxSemestre";
+            this.comboBoxSemestre.Size = new System.Drawing.Size(175, 21);
+            this.comboBoxSemestre.TabIndex = 29;
+            this.comboBoxSemestre.SelectedIndexChanged += new System.EventHandler(this.comboBoxSemestre_SelectedIndexChanged);
             // 
             // button2
             // 
@@ -113,8 +116,8 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtNombreCrucero);
-            this.Controls.Add(this.comboBoxMarca);
+            this.Controls.Add(this.txtAnio);
+            this.Controls.Add(this.comboBoxSemestre);
             this.Name = "RecorridosConMasPasajes";
             this.Text = "RecorridosConMasPasajes";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -129,8 +132,8 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtNombreCrucero;
-        private System.Windows.Forms.ComboBox comboBoxMarca;
+        private System.Windows.Forms.TextBox txtAnio;
+        private System.Windows.Forms.ComboBox comboBoxSemestre;
         private System.Windows.Forms.Button button2;
     }
 }
