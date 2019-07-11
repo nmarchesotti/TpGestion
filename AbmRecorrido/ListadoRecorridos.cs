@@ -46,55 +46,67 @@ namespace FrbaCrucero.AbmRecorrido
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Boolean stringModificado = false;
-            using (SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["GD_CRUCEROS"].ConnectionString))
+            if (checkBox1.Checked || checkBox2.Checked || checkBox3.Checked)
             {
-                string query = "SELECT PuertoSalida, PuertoLlegada, CantidadDeTramos, PrecioDeRecorrido FROM LOS_QUE_VAN_A_APROBAR.ListarRecorridos where ";
 
-                if (checkBox1.Checked)
+                Boolean stringModificado = false;
+                using (SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["GD_CRUCEROS"].ConnectionString))
                 {
-                    query = query + " (PuertoSalida like '%" + txtPuerto.Text + "%' or  PuertoLlegada like '%" + txtPuerto.Text + "%')";
-                    stringModificado = true;
-                }
-                if (checkBox2.Checked)
-                {
-                    if (stringModificado)
+                    try
                     {
-                        query = query + " and PrecioDeRecorrido < " + Convert.ToDecimal(txtPrecio.Text);
+                        string query = "SELECT CodigoRecorrido, PuertoSalida, PuertoLlegada, CantidadDeTramos, PrecioDeRecorrido FROM LOS_QUE_VAN_A_APROBAR.ListarRecorridos where ";
+
+                        if (checkBox1.Checked)
+                        {
+                            query = query + " (PuertoSalida like '%" + txtPuerto.Text + "%' or  PuertoLlegada like '%" + txtPuerto.Text + "%')";
+                            stringModificado = true;
+                        }
+                        if (checkBox2.Checked)
+                        {
+                            if (stringModificado)
+                            {
+                                query = query + " and PrecioDeRecorrido < " + Convert.ToDecimal(txtPrecio.Text);
+                            }
+                            else
+                            {
+                                query = query + "PrecioDeRecorrido < " + Convert.ToDecimal(txtPrecio.Text);
+                            }
+                            stringModificado = true;
+                        }
+
+                        if (checkBox3.Checked)
+                        {
+                            if (stringModificado)
+                            {
+                                query = query + " and CantidadDeTramos >= " + Convert.ToInt32(txtCantidadPuertos.Text);
+                            }
+                            else
+                            {
+                                query = query + "CantidadDeTramos >= " + Convert.ToInt32(txtCantidadPuertos.Text);
+                            }
+                            stringModificado = true;
+                        }
+
+                        if (!stringModificado)
+                        {
+                            query = "SELECT PuertoSalida, PuertoLlegada, CantidadDeTramos, PrecioDeRecorrido FROM LOS_QUE_VAN_A_APROBAR.ListarRecorridos";
+                        }
+
+                        var dataAdapter = new SqlDataAdapter(query, cn);
+
+                        var commandBuilder = new SqlCommandBuilder(dataAdapter);
+                        var ds = new DataSet();
+                        dataAdapter.Fill(ds);
+                        dataGridView1.ReadOnly = true;
+                        dataGridView1.DataSource = ds.Tables[0];
                     }
-                    else
+                    catch (FormatException)
                     {
-                        query = query + "PrecioDeRecorrido < " + Convert.ToDecimal(txtPrecio.Text);
+                        MessageBox.Show("El precio debe ser un numero positivo y la cantidad de puertos un numero positivo y entero");
                     }
-                    stringModificado = true;
                 }
-
-                if (checkBox3.Checked)
-                {
-                    if (stringModificado)
-                    {
-                        query = query + " and CantidadDeTramos >= " + txtCantidadPuertos.Text;
-                    }
-                    else
-                    {
-                        query = query + "CantidadDeTramos >= " + txtCantidadPuertos.Text;
-                    }
-                    stringModificado = true;
-                }
-
-                if (!stringModificado)
-                {
-                    query = "SELECT PuertoSalida, PuertoLlegada, CantidadDeTramos, PrecioDeRecorrido FROM LOS_QUE_VAN_A_APROBAR.ListarRecorridos";
-                }
-
-                var dataAdapter = new SqlDataAdapter(query, cn);
-
-                var commandBuilder = new SqlCommandBuilder(dataAdapter);
-                var ds = new DataSet();
-                dataAdapter.Fill(ds);
-                dataGridView1.ReadOnly = true;
-                dataGridView1.DataSource = ds.Tables[0];
             }
+
         }
 
         private void button2_Click(object sender, EventArgs e)

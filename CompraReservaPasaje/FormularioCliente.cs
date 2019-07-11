@@ -63,26 +63,31 @@ namespace FrbaCrucero.CompraReservaPasaje
 
         private void textBox5_TextChanged(object sender, EventArgs e)
         {
-            SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["GD_CRUCEROS"].ConnectionString);
-            cn.Open();
-            SqlCommand sc = new SqlCommand("select Nombre, Apellido, DNI, Direccion, Telefono, Mail, FechaNacimiento from LOS_QUE_VAN_A_APROBAR.Cliente where DNI = @dni", cn);
-            if (string.IsNullOrEmpty(textBoxDni.Text))
+            try
             {
-                textBoxDni.Text = "0";
+                SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["GD_CRUCEROS"].ConnectionString);
+                cn.Open();
+                SqlCommand sc = new SqlCommand("select Nombre, Apellido, DNI, Direccion, Telefono, Mail, FechaNacimiento from LOS_QUE_VAN_A_APROBAR.Cliente where DNI = @dni", cn);
+
+                sc.Parameters.Add("@dni", SqlDbType.Decimal).Value = Decimal.Parse(textBoxDni.Text);
+                sc.Parameters["@dni"].Precision = 18;
+                sc.Parameters["@dni"].Scale = 0;
+                adp = new SqlDataAdapter();
+                adp.SelectCommand = sc;
+                dataset = new DataTable();
+                adp.Fill(dataset);
+                BindingSource bsource = new BindingSource();
+
+
+                bsource.DataSource = dataset;
+                dataGridView1.DataSource = bsource;
             }
-            sc.Parameters.Add("@dni", SqlDbType.Decimal).Value = Decimal.Parse(textBoxDni.Text);
-            sc.Parameters["@dni"].Precision = 18;
-            sc.Parameters["@dni"].Scale = 0;
-            adp = new SqlDataAdapter();
-            adp.SelectCommand = sc;
-            dataset = new DataTable();
-            adp.Fill(dataset);
-            BindingSource bsource = new BindingSource();
+            catch (FormatException)
+            {
+                MessageBox.Show("El dni debe ser un numero entero sin puntos ni comas");
+            }
 
-
-            bsource.DataSource = dataset;
-            dataGridView1.DataSource = bsource;
-            
+           
 
         }
 
@@ -90,43 +95,46 @@ namespace FrbaCrucero.CompraReservaPasaje
         {
 
             confirmarDatos();
-          
+ 
+
             for (int i = 0; i < Cantidad; i++)
-            {
-                using (SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["GD_CRUCEROS"].ConnectionString))
+
                 {
-
-
-                    using (SqlCommand cmd = new SqlCommand("LOS_QUE_VAN_A_APROBAR.GenerarReserva", cn))
+                    using (SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["GD_CRUCEROS"].ConnectionString))
                     {
-                        cn.Open();
-                        cmd.CommandType = CommandType.StoredProcedure;
-                        
 
 
-                        cmd.Parameters.AddWithValue("@IdCliente", idcli);
+                        using (SqlCommand cmd = new SqlCommand("LOS_QUE_VAN_A_APROBAR.GenerarReserva", cn))
+                        {
+                            cn.Open();
+                            cmd.CommandType = CommandType.StoredProcedure;
 
 
-                        cmd.Parameters.AddWithValue("@IdViaje", IdViaje);
+
+                            cmd.Parameters.AddWithValue("@IdCliente", idcli);
 
 
-                        cmd.Parameters.AddWithValue("@TipoServicio", TipoCabina);
+                            cmd.Parameters.AddWithValue("@IdViaje", IdViaje);
 
 
-                        cmd.Parameters.AddWithValue("@Fecha_Salida", FechaSalida);
+                            cmd.Parameters.AddWithValue("@TipoServicio", TipoCabina);
 
 
-                        cmd.ExecuteNonQuery();
-                        cn.Close();
-                        cn.Dispose();
+                            cmd.Parameters.AddWithValue("@Fecha_Salida", FechaSalida);
+
+
+                            cmd.ExecuteNonQuery();
+                            cn.Close();
+                            cn.Dispose();
+                        }
+
                     }
-
                 }
+                InformacionReserva form = new InformacionReserva(idcli, IdViaje);
+                form.Show();
             }
-
-            InformacionReserva form = new InformacionReserva(idcli, IdViaje);
-            form.Show();
-        }
+           
+        
 
         private void confirmarDatos() {
             using (SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["GD_CRUCEROS"].ConnectionString))

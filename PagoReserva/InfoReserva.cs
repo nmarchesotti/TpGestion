@@ -46,35 +46,38 @@ namespace FrbaCrucero.PagoReserva
 
         }
 
-        private void textBoxDni_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
-             using (SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["GD_CRUCEROS"].ConnectionString))
+            try
             {
-                using (SqlCommand cmd = new SqlCommand("select LOS_QUE_VAN_A_APROBAR.ValidarReserva(@IdReserva)", cn))
+
+                using (SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["GD_CRUCEROS"].ConnectionString))
                 {
-                    cn.Open();
-                    cmd.CommandType = CommandType.Text;
-                    cmd.Parameters.Add("@IdReserva", SqlDbType.Int, 100).Value = Convert.ToInt32(textBoxRes.Text);
-                    int resultado = Convert.ToInt32(cmd.ExecuteScalar());
-
-                    if (resultado == 1)
+                    using (SqlCommand cmd = new SqlCommand("select LOS_QUE_VAN_A_APROBAR.ValidarReserva(@IdReserva)", cn))
                     {
-                       grid_load();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Reserva expirada o número invalido");
+                        cn.Open();
+                        cmd.CommandType = CommandType.Text;
+                        cmd.Parameters.Add("@IdReserva", SqlDbType.Int, 100).Value = Convert.ToInt32(textBoxRes.Text);
+                        int resultado = Convert.ToInt32(cmd.ExecuteScalar());
+
+                        if (resultado == 1)
+                        {
+                            grid_load();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Reserva expirada o número invalido");
+                        }
+
+                        cn.Close();
                     }
 
-                    cn.Close();
+
                 }
-
-
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("El codigo de reserva es un numero entero y positivo");
             }
         }
 

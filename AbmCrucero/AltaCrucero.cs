@@ -72,6 +72,8 @@ namespace FrbaCrucero.AbmCrucero
             {
                 using (SqlCommand cmd = new SqlCommand("LOS_QUE_VAN_A_APROBAR.AltaCrucero", cn))
                 {
+                    try
+                    {
                     cn.Open();
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.Add("@IdCrucero", SqlDbType.NVarChar, 50).Value = txtNombreCrucero.Text;
@@ -79,12 +81,10 @@ namespace FrbaCrucero.AbmCrucero
                     DataRowView drv = (DataRowView) comboBoxMarca.SelectedItem;
                     int marca = Convert.ToInt32(drv["IdMarca"]);
                     cmd.Parameters.Add("@IdMarca", SqlDbType.Int).Value = marca;
-                    MessageBox.Show(Convert.ToString(marca));
 
                     DataRowView drv2 = (DataRowView) comboBoxModelo.SelectedItem;
                     int modelo = Convert.ToInt32(drv2["IdModelo"]);
                     cmd.Parameters.Add("@IdModelo", SqlDbType.Int).Value = modelo;
-                    MessageBox.Show(Convert.ToString(modelo));
 
                     cmd.Parameters.Add("@CantidadCabinas", SqlDbType.Int).Value = txtCantidadCabinas.Text;
 
@@ -92,6 +92,13 @@ namespace FrbaCrucero.AbmCrucero
                     MessageBox.Show("Crucero creado correctamente");
                     cn.Close();
                     cn.Dispose();
+                    }
+                    catch (FormatException)
+                    {
+                        MessageBox.Show("La cantidad de cabinas debe ser un numero entero positivo");
+                    }
+                    
+                   
                 }
 
             }

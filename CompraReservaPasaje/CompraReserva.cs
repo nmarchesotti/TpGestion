@@ -67,6 +67,7 @@ namespace FrbaCrucero.CompraReservaPasaje
 
         private void button3_Click(object sender, EventArgs e)
         {
+
             SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["GD_CRUCEROS"].ConnectionString);
             cn.Open();
             SqlCommand sc = new SqlCommand("select * from LOS_QUE_VAN_A_APROBAR.ListarViajes(@Fecha_Salida, @Puerto_Salida, @Puerto_Llegada)", cn);
@@ -94,9 +95,17 @@ namespace FrbaCrucero.CompraReservaPasaje
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int selec = dataGridView1.CurrentCell.RowIndex;
-            FormularioCliente f = new FormularioCliente((int)dataGridView1.Rows[selec].Cells[0].Value, Convert.ToInt32(textBoxCantidad.Text), Convert.ToDateTime(dateTimePicker1.Text), comboBoxTipo.SelectedValue.ToString());
-            f.Show();
+            try
+            {
+
+                int selec = dataGridView1.CurrentCell.RowIndex;
+                FormularioCliente f = new FormularioCliente((int)dataGridView1.Rows[selec].Cells[0].Value, Convert.ToInt32(textBoxCantidad.Text), Convert.ToDateTime(dateTimePicker1.Text), comboBoxTipo.SelectedValue.ToString());
+                f.Show();
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("La cantidad de cabinas debe ser un numero positivo y entero mayor a cero");
+            }
         }
 
 
