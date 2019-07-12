@@ -25,14 +25,15 @@ namespace FrbaCrucero.AbmRol
 
             SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["GD_CRUCEROS"].ConnectionString);
             cn.Open();
-            SqlCommand sc = new SqlCommand("select Nombre from LOS_QUE_VAN_A_APROBAR.Rol where Estado = 'Inhabilitado'", cn);
+            SqlCommand sc = new SqlCommand("select IdRol, Nombre from LOS_QUE_VAN_A_APROBAR.Rol where Estado = 'Inhabilitado'", cn);
             SqlDataReader reader;
             reader = sc.ExecuteReader();
             DataTable dt = new DataTable();
             dt.Columns.Add("Nombre", typeof(string));
+            dt.Columns.Add("IdRol", typeof(int));
             dt.Load(reader);
 
-            comboBox1.ValueMember = "Nombre";
+            comboBox1.ValueMember = "IdRol";
             comboBox1.DisplayMember = "Nombre";
             comboBox1.DataSource = dt;
             cn.Close();
@@ -47,7 +48,7 @@ namespace FrbaCrucero.AbmRol
                     cn.Open();
                     cmd.CommandType = CommandType.StoredProcedure;
                     DataRowView drv = (DataRowView)comboBox1.SelectedItem;
-                    String valueOfItem = drv["Nombre"].ToString();
+                    String valueOfItem = drv["IdRol"].ToString();
                     cmd.Parameters.Add("@IdRol", SqlDbType.NVarChar, 20).Value = valueOfItem;
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Rol activado exitosamente");

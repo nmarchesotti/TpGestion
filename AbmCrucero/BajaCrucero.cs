@@ -71,8 +71,20 @@ namespace FrbaCrucero.AbmCrucero
                         cmd.ExecuteNonQuery();
                         MessageBox.Show("Crucero dado de baja satisfactoriamente");
                         cn.Close();
+                        switch (MessageBox.Show("¿Queres buscar otro crucero para reprogramar viajes?",
+                          "WonderWord",
+                            MessageBoxButtons.YesNo,
+                                MessageBoxIcon.Question))
+                        {
+                            case DialogResult.Yes:
 
+                                break;
 
+                            case DialogResult.No:
+                                // "No" processing
+                                break;
+
+                        }
                     }
                 }
                 else
@@ -98,6 +110,7 @@ namespace FrbaCrucero.AbmCrucero
                         MessageBox.Show("Crucero en reparación satisfactorio");
                         cn.Close();
                         cn.Dispose();
+
                     }
 
                 }
