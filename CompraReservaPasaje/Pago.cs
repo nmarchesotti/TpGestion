@@ -76,18 +76,20 @@ namespace FrbaCrucero.CompraReservaPasaje
 
         private void Pago_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (comboBox1.SelectedText == "Tarjeta de crédito")
+            MessageBox.Show(comboBox1.SelectedIndex.ToString());
+            if (Convert.ToInt32(comboBox1.SelectedIndex) == 0) { 
+                Mercadopago fo = new Mercadopago();
+                fo.Show();
+            }
+            if (Convert.ToInt32(comboBox1.SelectedIndex) == 1)
             {
                 TarjetaDeCredito f = new TarjetaDeCredito();
-            }
-
-            if(comboBox1.SelectedText == "Mercadopago"){
-                Mercadopago m = new Mercadopago();
+                f.Show();
             }
         }
 
