@@ -46,9 +46,17 @@ namespace FrbaCrucero.CompraReservaPasaje
             sc.Parameters.Add("@IdViaje", SqlDbType.Int).Value = this.IdViaje;
             sc.CommandType = CommandType.Text;
             int result = Convert.ToInt32(sc.ExecuteScalar());
+
+            SqlCommand sc1 = new SqlCommand("select LOS_QUE_VAN_A_APROBAR.ClienteNoPuedeReservar(@IdCliente, @FechaSalida, @IdViaje)", cn1);
+            sc1.Parameters.Add("@IdCliente", SqlDbType.Int).Value = this.idcli;
+            sc1.Parameters.Add("@FechaSalida", SqlDbType.DateTime2, 3).Value = this.FechaSalida;
+            sc1.Parameters.Add("@IdViaje", SqlDbType.Int).Value = this.IdViaje;
+            sc1.CommandType = CommandType.Text;
+            int result1 = Convert.ToInt32(sc1.ExecuteScalar());
             cn1.Close();
             cn1.Dispose();
-            if (result == 0)
+
+            if (result == 0 || result1 == 0)
             {
                 MessageBox.Show("Usted ya tiene un viaje pendiente en esa fecha");
             }
@@ -107,9 +115,17 @@ namespace FrbaCrucero.CompraReservaPasaje
             sc.Parameters.Add("@IdViaje", SqlDbType.Int).Value = this.IdViaje;
             sc.CommandType = CommandType.Text;
             int result = Convert.ToInt32(sc.ExecuteScalar());
+
+            SqlCommand sc1 = new SqlCommand("select LOS_QUE_VAN_A_APROBAR.ClienteNoPuedeReservar(@IdCliente, @FechaSalida, @IdViaje)", cn1);
+            sc1.Parameters.Add("@IdCliente", SqlDbType.Int).Value = this.idcli;
+            sc1.Parameters.Add("@FechaSalida", SqlDbType.DateTime2, 3).Value = this.FechaSalida;
+            sc1.Parameters.Add("@IdViaje", SqlDbType.Int).Value = this.IdViaje;
+            sc1.CommandType = CommandType.Text;
+            int result1 = Convert.ToInt32(sc1.ExecuteScalar());
+
             cn1.Close();
             cn1.Dispose();
-            if (result == 0)
+            if (result == 0 || result1 == 0)
             {
                 MessageBox.Show("Usted ya tiene un viaje pendiente en esa fecha");
             }
@@ -148,6 +164,7 @@ namespace FrbaCrucero.CompraReservaPasaje
                     }
                 }
                 InformacionReserva form = new InformacionReserva(idcli, IdViaje);
+                form.StartPosition = FormStartPosition.CenterScreen;
                 form.Show();
                 this.Dispose();
             }

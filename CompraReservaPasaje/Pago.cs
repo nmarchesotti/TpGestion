@@ -65,7 +65,9 @@ namespace FrbaCrucero.CompraReservaPasaje
             }
 
             InformacionPago form = new InformacionPago(idcliente, idviaje);
+            form.StartPosition = FormStartPosition.CenterScreen;
             form.Show();
+            this.Dispose();
         }
     }
 }

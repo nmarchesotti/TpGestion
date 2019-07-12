@@ -23,8 +23,6 @@ namespace FrbaCrucero.CompraReservaPasaje
             idviaje = v;
 
             InitializeComponent();
-            MessageBox.Show(idcliente.ToString());
-            MessageBox.Show(idviaje.ToString());
             grid_load();
         }
 
@@ -57,6 +55,14 @@ namespace FrbaCrucero.CompraReservaPasaje
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            PantallaInicial.Inicio form = new PantallaInicial.Inicio();
+            form.StartPosition = FormStartPosition.CenterScreen;
+            form.Show();
+            this.Dispose();
         }
     }
 }
