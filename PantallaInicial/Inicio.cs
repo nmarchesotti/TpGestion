@@ -17,6 +17,7 @@ namespace FrbaCrucero.PantallaInicial
         public Inicio()
         {
             InitializeComponent();
+
         }
 
         private void btnClie_Click(object sender, EventArgs e)
