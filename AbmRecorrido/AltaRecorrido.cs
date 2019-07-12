@@ -56,7 +56,7 @@ namespace FrbaCrucero.AbmRecorrido
                         }
                         catch (FormatException)
                         {
-                            MessageBox.Show("El codigo de recorrido y el precio deben ser numeros enteros positivos");
+                            MessageBox.Show("El codigo de recorrido debe ser numeros enteros positivos");
                         }
 
                     }
