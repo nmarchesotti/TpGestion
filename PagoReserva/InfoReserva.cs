@@ -82,16 +82,14 @@ namespace FrbaCrucero.PagoReserva
         }
 
 
-        private void InfoReserva_Load(object sender, EventArgs e)
-        {
-
-        }
 
         private void button2_Click(object sender, EventArgs e)
         {
             PagoReserva f = new PagoReserva(Convert.ToInt32(textBoxRes.Text));
             f.Show();
         }
+
+        
 
 
     }

@@ -33,6 +33,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.textBoxRes = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -75,9 +77,9 @@
             this.label7.ImageAlign = System.Drawing.ContentAlignment.TopRight;
             this.label7.Location = new System.Drawing.Point(11, 49);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(195, 25);
+            this.label7.Size = new System.Drawing.Size(217, 25);
             this.label7.TabIndex = 36;
-            this.label7.Text = "Número de reserva";
+            this.label7.Text = "(*)Número de reserva";
             // 
             // textBoxRes
             // 
@@ -86,11 +88,35 @@
             this.textBoxRes.Size = new System.Drawing.Size(179, 20);
             this.textBoxRes.TabIndex = 35;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+            this.label1.Location = new System.Drawing.Point(159, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(148, 25);
+            this.label1.TabIndex = 40;
+            this.label1.Text = "Pago Reserva";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+            this.label6.Location = new System.Drawing.Point(320, 350);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(148, 16);
+            this.label6.TabIndex = 41;
+            this.label6.Text = "(*)Campos Obligatorios";
+            // 
             // InfoReserva
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(480, 397);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button1);
@@ -98,7 +124,6 @@
             this.Controls.Add(this.textBoxRes);
             this.Name = "InfoReserva";
             this.Text = "InfoReserva";
-            this.Load += new System.EventHandler(this.InfoReserva_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -112,5 +137,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox textBoxRes;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label6;
     }
 }
