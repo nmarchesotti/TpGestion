@@ -33,8 +33,6 @@
             this.CodigoRecorrido = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.PrecioRecorrido = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.btnAltaRecorrido = new System.Windows.Forms.Button();
             this.btnMenuRecorrido = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
@@ -84,27 +82,10 @@
             this.label1.TabIndex = 9;
             this.label1.Text = "(*)Código del recorrido";
             // 
-            // PrecioRecorrido
-            // 
-            this.PrecioRecorrido.Location = new System.Drawing.Point(402, 302);
-            this.PrecioRecorrido.Name = "PrecioRecorrido";
-            this.PrecioRecorrido.Size = new System.Drawing.Size(237, 20);
-            this.PrecioRecorrido.TabIndex = 14;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(131, 302);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(95, 25);
-            this.label4.TabIndex = 13;
-            this.label4.Text = "(*)Precio";
-            // 
             // btnAltaRecorrido
             // 
             this.btnAltaRecorrido.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAltaRecorrido.Location = new System.Drawing.Point(311, 366);
+            this.btnAltaRecorrido.Location = new System.Drawing.Point(300, 338);
             this.btnAltaRecorrido.Name = "btnAltaRecorrido";
             this.btnAltaRecorrido.Size = new System.Drawing.Size(151, 72);
             this.btnAltaRecorrido.TabIndex = 15;
@@ -127,7 +108,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.label6.Location = new System.Drawing.Point(491, 338);
+            this.label6.Location = new System.Drawing.Point(491, 300);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(148, 16);
             this.label6.TabIndex = 26;
@@ -141,8 +122,6 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.btnMenuRecorrido);
             this.Controls.Add(this.btnAltaRecorrido);
-            this.Controls.Add(this.PrecioRecorrido);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.DescripcionRecorrido);
             this.Controls.Add(this.CodigoRecorrido);
             this.Controls.Add(this.label2);
@@ -162,8 +141,6 @@
         private System.Windows.Forms.TextBox CodigoRecorrido;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox PrecioRecorrido;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnAltaRecorrido;
         private System.Windows.Forms.Button btnMenuRecorrido;
         private System.Windows.Forms.Label label6;

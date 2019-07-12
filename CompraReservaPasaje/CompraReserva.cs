@@ -99,14 +99,60 @@ namespace FrbaCrucero.CompraReservaPasaje
 
             try
             {
-
+               
                 int selec = dataGridView1.CurrentCell.RowIndex;
+
+                if(comboBoxTipo.Text == "Suite"){
+                    int cabinas = (int)dataGridView1.Rows[selec].Cells[4].Value;
+                    
+
+                    if (Convert.ToInt32(textBoxCantidad.Text) > cabinas)
+                    {
+
+                        MessageBox.Show("Tire excepcion");
+                        throw new Exception();
+                    }
+                }
+                if (comboBoxTipo.Text == "Cabina Balcón")
+                {
+                    int cabinas = (int)dataGridView1.Rows[selec].Cells[5].Value;
+                    if (Convert.ToInt32(textBoxCantidad.Text) > cabinas)
+                    {
+                        throw new Exception();
+                    }
+                }
+                if (comboBoxTipo.Text == "Cabina estandar")
+                {
+                    int cabinas = (int)dataGridView1.Rows[selec].Cells[6].Value;
+                    if (Convert.ToInt32(textBoxCantidad.Text) > cabinas)
+                    {
+                        throw new Exception();
+                    }
+                }
+                if (comboBoxTipo.Text == "Ejecutivo")
+                {
+                    int cabinas = (int)dataGridView1.Rows[selec].Cells[7].Value;
+                    if (Convert.ToInt32(textBoxCantidad.Text) > cabinas)
+                    {
+                        throw new Exception();
+                    }
+                }
+                if (comboBoxTipo.Text == "Cabina Exterior")
+                {
+                    int cabinas = (int)dataGridView1.Rows[selec].Cells[8].Value;
+                    if (Convert.ToInt32(textBoxCantidad.Text) > cabinas)
+                    {
+                        throw new Exception();
+                    }
+                }
+
+
                 FormularioCliente f = new FormularioCliente((int)dataGridView1.Rows[selec].Cells[0].Value, Convert.ToInt32(textBoxCantidad.Text), Convert.ToDateTime(dateTimePicker1.Text), comboBoxTipo.SelectedValue.ToString());
                 f.Show();
             }
-            catch (FormatException)
+            catch (Exception)
             {
-                MessageBox.Show("La cantidad de cabinas debe ser un numero positivo y entero mayor a cero");
+                MessageBox.Show("La cantidad de cabinas debe ser un numero menor o igual a las disponibles");
             }
         }
 

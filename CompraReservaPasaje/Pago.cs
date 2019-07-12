@@ -19,8 +19,9 @@ namespace FrbaCrucero.CompraReservaPasaje
         DateTime fecha_salida;
         string tipocabina;
         int cantidad;
+        decimal precio;
         
-        public Pago(int c, int v, string tc, DateTime fs, int cant)
+        public Pago(int c, int v, string tc, DateTime fs, int cant, decimal prec)
         {
             InitializeComponent();
             idcliente = c;
@@ -28,6 +29,7 @@ namespace FrbaCrucero.CompraReservaPasaje
             fecha_salida = fs;
             tipocabina = tc;
             cantidad = cant;
+            precio = prec;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -57,6 +59,8 @@ namespace FrbaCrucero.CompraReservaPasaje
 
 
                         cmd.ExecuteNonQuery();
+
+                        MessageBox.Show("Pago realizado con éxito");
                         cn.Close();
                         cn.Dispose();
                     }
@@ -66,6 +70,28 @@ namespace FrbaCrucero.CompraReservaPasaje
 
             InformacionPago form = new InformacionPago(idcliente, idviaje);
             form.Show();
+        }
+
+        private void Pago_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBox1.SelectedText == "Tarjeta de crédito")
+            {
+                TarjetaDeCredito f = new TarjetaDeCredito();
+            }
+
+            if(comboBox1.SelectedText == "Mercadopago"){
+                Mercadopago m = new Mercadopago();
+            }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

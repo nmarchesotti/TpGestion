@@ -61,7 +61,7 @@ namespace FrbaCrucero.GeneracionViaje
                 dt.Columns.Add("Informacion", typeof(string));
                 dt.Load(reader);
 
-                comboBoxRecorrido.ValueMember = "IdCrucero";
+                comboBoxRecorrido.ValueMember = "CodigoRecorrido";
                 comboBoxRecorrido.DisplayMember = "Informacion";
                 comboBoxRecorrido.DataSource = dt;
                 cn.Close();
@@ -72,40 +72,48 @@ namespace FrbaCrucero.GeneracionViaje
 
         private void button1_Click(object sender, EventArgs e)
         {
-            using (SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["GD_CRUCEROS"].ConnectionString))
+            try
             {
-                cn.Open();
-
-
-                using (SqlCommand cmd = new SqlCommand("LOS_QUE_VAN_A_APROBAR.GenerarViaje", cn))
+                using (SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["GD_CRUCEROS"].ConnectionString))
                 {
-                    cmd.CommandType = CommandType.StoredProcedure;
+                    cn.Open();
 
-                    DataRowView drv = (DataRowView)comboBoxCruceros.SelectedItem;
-                    string IdCrucero = Convert.ToString(drv["IdCrucero"]);
-                    cmd.Parameters.Add("@IdCrucero", SqlDbType.NVarChar, 50).Value = IdCrucero;
 
-                    DataRowView drv2 = (DataRowView)comboBoxRecorrido.SelectedItem;
-                    int IdRecorrido = Convert.ToInt32(drv2["CodigoRecorrido"]);
-                    cmd.Parameters.Add("@IdRecorrido", SqlDbType.Int).Value = IdRecorrido;
+                    using (SqlCommand cmd = new SqlCommand("LOS_QUE_VAN_A_APROBAR.GenerarViaje", cn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
 
-                    DateTime fechaS = Convert.ToDateTime(fechaSalida.Text);
-                    cmd.Parameters.Add("@Fecha_Salida", SqlDbType.DateTime2, 3).Value = fechaS;
+                        DataRowView drv = (DataRowView)comboBoxCruceros.SelectedItem;
+                        string IdCrucero = Convert.ToString(drv["IdCrucero"]);
+                        cmd.Parameters.Add("@IdCrucero", SqlDbType.NVarChar, 50).Value = IdCrucero;
 
-                    DateTime fechaL = Convert.ToDateTime(fechaLlegada.Text);
-                    cmd.Parameters.Add("@Fecha_Llegada", SqlDbType.DateTime2, 3).Value = fechaL;
+                        DataRowView drv2 = (DataRowView)comboBoxRecorrido.SelectedItem;
+                        int IdRecorrido = Convert.ToInt32(drv2["CodigoRecorrido"]);
+                        MessageBox.Show(IdRecorrido.ToString());
+                        cmd.Parameters.Add("@IdRecorrido", SqlDbType.Int).Value = IdRecorrido;
 
-                    cmd.ExecuteNonQuery();
-                    MessageBox.Show("Viaje creado satisfactoriamente");
-                    cn.Close();
-                    cn.Dispose();
-                    MenuViaje form = new MenuViaje();
-                    form.StartPosition = FormStartPosition.CenterScreen;
-                    form.Show();
-                    this.Dispose();
-                    
+                        DateTime fechaS = Convert.ToDateTime(fechaSalida.Text);
+                        cmd.Parameters.Add("@Fecha_Salida", SqlDbType.DateTime2, 3).Value = fechaS;
 
+                        DateTime fechaL = Convert.ToDateTime(fechaLlegada.Text);
+                        cmd.Parameters.Add("@Fecha_Llegada", SqlDbType.DateTime2, 3).Value = fechaL;
+
+                        cmd.ExecuteNonQuery();
+                        MessageBox.Show("Viaje creado satisfactoriamente");
+                        cn.Close();
+                        cn.Dispose();
+                        MenuViaje form = new MenuViaje();
+                        form.StartPosition = FormStartPosition.CenterScreen;
+                        form.Show();
+                        this.Dispose();
+
+
+                    }
                 }
+            }
+            catch
+            {
+                MessageBox.Show("La fecha de salida debe ser mayor a la actual");
             }
         }
 

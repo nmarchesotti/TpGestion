@@ -17,10 +17,12 @@ namespace FrbaCrucero.CompraReservaPasaje
         int idcli;
         int Cantidad;
         int IdViaje;
+        decimal porcentaje;
         DateTime FechaSalida;
         string TipoCabina;
         SqlDataAdapter adp;
         DataTable dataset;
+        decimal resultado;
 
         public FormularioCliente(int viaj, int cant, DateTime fs, string tc)
         {
@@ -55,7 +57,7 @@ namespace FrbaCrucero.CompraReservaPasaje
             else
             {
 
-                Pago f = new Pago(idcli, IdViaje, TipoCabina, FechaSalida, Cantidad);
+                Pago f = new Pago(idcli, IdViaje, TipoCabina, FechaSalida, Cantidad, resultado);
                 f.StartPosition = FormStartPosition.CenterScreen;
                 f.Show();
                 this.Dispose();
@@ -190,6 +192,39 @@ namespace FrbaCrucero.CompraReservaPasaje
                     {
                         idcli = resultado;                    }
 
+                    cn.Close();
+                }
+
+
+            }
+        }
+
+        private void FormularioCliente_Load(object sender, EventArgs e)
+        {
+            using (SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["GD_CRUCEROS"].ConnectionString))
+            {
+                cn.Open();
+
+                SqlCommand cm2 = new SqlCommand("Select Porcentaje from LOS_QUE_VAN_A_APROBAR.Servicio where TipoServicio = @TipoServicio", cn);
+                cm2.CommandType = CommandType.Text;
+                cm2.Parameters.AddWithValue("@TipoServicio", TipoCabina);
+
+                porcentaje = Convert.ToDecimal(cm2.ExecuteScalar());
+
+
+                using (SqlCommand cmd = new SqlCommand("select LOS_QUE_VAN_A_APROBAR.PrecioViaje(@IdViaje)", cn))
+                {
+                    
+
+
+                    cmd.CommandType = CommandType.Text;
+
+                    cmd.Parameters.AddWithValue("@IdViaje", IdViaje);
+
+                    resultado = Convert.ToDecimal(cmd.ExecuteScalar()) * Cantidad * porcentaje;
+
+                    textBox1.Text = resultado.ToString();
+                    
                     cn.Close();
                 }
 
