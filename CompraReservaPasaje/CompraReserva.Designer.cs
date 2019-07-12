@@ -98,9 +98,9 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(341, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(280, 31);
+            this.label1.Size = new System.Drawing.Size(254, 31);
             this.label1.TabIndex = 16;
-            this.label1.Text = "Comprar/Reserervar";
+            this.label1.Text = "Comprar/Reservar";
             // 
             // dataGridView1
             // 
