@@ -22,23 +22,33 @@ namespace FrbaCrucero.AbmRol
 
         private void button1_Click(object sender, EventArgs e)
         {
-            using (SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["GD_CRUCEROS"].ConnectionString))
+            if (textBox1.Text == "")
             {
-                SqlCommand cmd = new SqlCommand("LOS_QUE_VAN_A_APROBAR.NuevoRol", cn);
-                cn.Open();
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.Add("@NuevoNombre", SqlDbType.NVarChar, 255).Value = textBox1.Text;
-                cmd.ExecuteNonQuery();
+                MessageBox.Show("Debe especificar un nombre");
+            }
+            else if (checkedListBox1.CheckedItems.Count == 0)
+            {
+                MessageBox.Show("Debe al menos seleccionar una funcionalidad para su rol");
+            }
+            else
+            {
+                using (SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["GD_CRUCEROS"].ConnectionString))
+                {
+                    SqlCommand cmd = new SqlCommand("LOS_QUE_VAN_A_APROBAR.NuevoRol", cn);
+                    cn.Open();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@NuevoNombre", SqlDbType.NVarChar, 255).Value = textBox1.Text;
+                    cmd.ExecuteNonQuery();
 
-                SqlCommand cmd2 = new SqlCommand("select LOS_QUE_VAN_A_APROBAR.ObtenerNuevoRolInsertado()", cn);
-                cmd2.CommandType = CommandType.Text;
-                int IdRolNuevo = Convert.ToInt32(cmd2.ExecuteScalar());
+                    SqlCommand cmd2 = new SqlCommand("select LOS_QUE_VAN_A_APROBAR.ObtenerNuevoRolInsertado()", cn);
+                    cmd2.CommandType = CommandType.Text;
+                    int IdRolNuevo = Convert.ToInt32(cmd2.ExecuteScalar());
 
-                SqlCommand cmd3 = new SqlCommand("LOS_QUE_VAN_A_APROBAR.FuncionalidadParaRol", cn);
-                cmd3.CommandType = CommandType.StoredProcedure;
-                cmd3.Parameters.Add("@IdRol", SqlDbType.Int).Value = IdRolNuevo;
-                cmd3.Parameters.Add("@IdFuncionalidad", SqlDbType.Int);
-                DataRow row;
+                    SqlCommand cmd3 = new SqlCommand("LOS_QUE_VAN_A_APROBAR.FuncionalidadParaRol", cn);
+                    cmd3.CommandType = CommandType.StoredProcedure;
+                    cmd3.Parameters.Add("@IdRol", SqlDbType.Int).Value = IdRolNuevo;
+                    cmd3.Parameters.Add("@IdFuncionalidad", SqlDbType.Int);
+                    DataRow row;
 
                     for (int i = 0; i < checkedListBox1.CheckedItems.Count; i++)
                     {
@@ -46,16 +56,18 @@ namespace FrbaCrucero.AbmRol
                         int valor = Convert.ToInt32(row[checkedListBox1.ValueMember]);
                         cmd3.Parameters["@IdFuncionalidad"].Value = valor;
                         cmd3.ExecuteNonQuery();
-                        
+
                     }
 
                     MessageBox.Show("Rol creado exitosamente");
                     cn.Close();
                     this.Dispose();
-                
 
 
+
+                }
             }
+            
         }
 
         private void button2_Click(object sender, EventArgs e)

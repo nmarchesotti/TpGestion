@@ -56,6 +56,8 @@ namespace FrbaCrucero.AbmPuerto
             comboBoxPuertos.SelectedValue = "Nombre";
             comboBoxPuertos.DisplayMember = "Nombre";
             comboBoxPuertos.DataSource = dt;
+            comboBoxPuertos.DropDownStyle = ComboBoxStyle.DropDown;
+            comboBoxPuertos.SelectedIndex = 0;
             cn.Close();
         }
 

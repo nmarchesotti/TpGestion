@@ -51,22 +51,30 @@ namespace FrbaCrucero.AbmRol
 
         private void button2_Click(object sender, EventArgs e)
         {
-            using (SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["GD_CRUCEROS"].ConnectionString))
+            if (textBox1.Text == "")
             {
-                using (SqlCommand cmd = new SqlCommand("LOS_QUE_VAN_A_APROBAR.ModificarRol", cn))
+                MessageBox.Show("Debe ingresar un nombre");
+            }
+            else
+            {
+
+                using (SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["GD_CRUCEROS"].ConnectionString))
                 {
-                    cn.Open();
-                    cmd.CommandType = CommandType.StoredProcedure;
+                    using (SqlCommand cmd = new SqlCommand("LOS_QUE_VAN_A_APROBAR.ModificarRol", cn))
+                    {
+                        cn.Open();
+                        cmd.CommandType = CommandType.StoredProcedure;
 
-                    DataRowView drv = (DataRowView)comboBox1.SelectedItem;
-                    int idRol = Convert.ToInt32(drv["IdRol"]);
-                    cmd.Parameters.Add("@IdRol", SqlDbType.Int).Value = idRol;
-                    cmd.Parameters.Add("@Nombre", SqlDbType.NVarChar, 20).Value = textBox1.Text;
+                        DataRowView drv = (DataRowView)comboBox1.SelectedItem;
+                        int idRol = Convert.ToInt32(drv["IdRol"]);
+                        cmd.Parameters.Add("@IdRol", SqlDbType.Int).Value = idRol;
+                        cmd.Parameters.Add("@Nombre", SqlDbType.NVarChar, 20).Value = textBox1.Text;
 
-                    cmd.ExecuteNonQuery();
-                    MessageBox.Show("Nombre de rol modificado");
-                    cn.Close();
-                    cn.Dispose();
+                        cmd.ExecuteNonQuery();
+                        MessageBox.Show("Nombre de rol modificado");
+                        cn.Close();
+                        cn.Dispose();
+                    }
                 }
             }
         }

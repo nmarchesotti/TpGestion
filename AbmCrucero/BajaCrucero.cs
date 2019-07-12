@@ -14,6 +14,7 @@ namespace FrbaCrucero.AbmCrucero
 {
     public partial class BajaCrucero : Form
     {
+        string IdCrucero;
         public BajaCrucero()
         {
             InitializeComponent();
@@ -25,7 +26,7 @@ namespace FrbaCrucero.AbmCrucero
         {
             SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["GD_CRUCEROS"].ConnectionString);
             cn.Open();
-            SqlCommand sc = new SqlCommand("select IdCrucero from LOS_QUE_VAN_A_APROBAR.Crucero", cn);
+            SqlCommand sc = new SqlCommand("select IdCrucero from LOS_QUE_VAN_A_APROBAR.ListarCrucerosHabilitados", cn);
             SqlDataReader reader;
             reader = sc.ExecuteReader();
             DataTable dt = new DataTable();
@@ -63,13 +64,29 @@ namespace FrbaCrucero.AbmCrucero
 
                         DataRowView drv2 = (DataRowView)comboBox1.SelectedItem;
                         string crucero = Convert.ToString(drv2["IdCrucero"]);
-                        cmd.Parameters.Add("@IdCrucero", SqlDbType.NVarChar,50).Value = crucero;
+                        this.IdCrucero = crucero;
+                        cmd.Parameters.Add("@IdCrucero", SqlDbType.NVarChar, 50).Value = crucero;
                         MessageBox.Show(crucero);
 
                         cmd.ExecuteNonQuery();
                         MessageBox.Show("Crucero dado de baja satisfactoriamente");
                         cn.Close();
+                    }
+
+                    using (SqlCommand cmd2 = new SqlCommand("LOS_QUE_VAN_A_APROBAR.CambiarViajesDeCrucero", cn))
+                    {
+
+                        cn.Open();
+                        cmd2.CommandType = CommandType.StoredProcedure;
+
+                        DataRowView drv2 = (DataRowView)comboBox1.SelectedItem;
+                        string crucero = Convert.ToString(drv2["IdCrucero"]);
+                        cmd2.Parameters.Add("@IdCrucero", SqlDbType.NVarChar, 50).Value = crucero;
+                        cmd2.ExecuteNonQuery();
+                        MessageBox.Show("Reemplazo realizado");
+                        cn.Close();
                         cn.Dispose();
+
                     }
                 }
                 else
@@ -82,13 +99,14 @@ namespace FrbaCrucero.AbmCrucero
 
                         DataRowView drv2 = (DataRowView)comboBox1.SelectedItem;
                         string crucero = Convert.ToString(drv2["IdCrucero"]);
+                        this.IdCrucero = crucero;
                         cmd.Parameters.Add("@IdCrucero", SqlDbType.NVarChar, 50).Value = crucero;
                         MessageBox.Show(crucero);
 
                         string fecha = calendarioBajaCrucero.Text;
                         cmd.Parameters.Add("@FechaDeAlta", SqlDbType.DateTime2, 3).Value = fecha;
 
-                      
+
 
                         cmd.ExecuteNonQuery();
                         MessageBox.Show("Crucero en reparación satisfactorio");
@@ -99,6 +117,11 @@ namespace FrbaCrucero.AbmCrucero
                 }
 
             }
+
+            EleccionBaja form = new EleccionBaja(this.IdCrucero);
+            form.StartPosition = FormStartPosition.CenterScreen;
+            form.Show();
+            this.Dispose();
         }
 
         private void button2_Click(object sender, EventArgs e)

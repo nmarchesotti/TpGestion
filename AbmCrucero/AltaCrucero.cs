@@ -68,39 +68,47 @@ namespace FrbaCrucero.AbmCrucero
 
         private void button1_Click(object sender, EventArgs e)
         {
-            using (SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["GD_CRUCEROS"].ConnectionString))
+            if (txtCantidadCabinas.Text == "" || txtNombreCrucero.Text == "")
             {
-                using (SqlCommand cmd = new SqlCommand("LOS_QUE_VAN_A_APROBAR.AltaCrucero", cn))
+                MessageBox.Show("Debe ingresar los valores obligatorios");
+            }
+            else
+            {
+
+                using (SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["GD_CRUCEROS"].ConnectionString))
                 {
-                    try
+                    using (SqlCommand cmd = new SqlCommand("LOS_QUE_VAN_A_APROBAR.AltaCrucero", cn))
                     {
-                    cn.Open();
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.Add("@IdCrucero", SqlDbType.NVarChar, 50).Value = txtNombreCrucero.Text;
+                        try
+                        {
+                            cn.Open();
+                            cmd.CommandType = CommandType.StoredProcedure;
+                            cmd.Parameters.Add("@IdCrucero", SqlDbType.NVarChar, 50).Value = txtNombreCrucero.Text;
 
-                    DataRowView drv = (DataRowView) comboBoxMarca.SelectedItem;
-                    int marca = Convert.ToInt32(drv["IdMarca"]);
-                    cmd.Parameters.Add("@IdMarca", SqlDbType.Int).Value = marca;
+                            DataRowView drv = (DataRowView)comboBoxMarca.SelectedItem;
+                            int marca = Convert.ToInt32(drv["IdMarca"]);
+                            cmd.Parameters.Add("@IdMarca", SqlDbType.Int).Value = marca;
 
-                    DataRowView drv2 = (DataRowView) comboBoxModelo.SelectedItem;
-                    int modelo = Convert.ToInt32(drv2["IdModelo"]);
-                    cmd.Parameters.Add("@IdModelo", SqlDbType.Int).Value = modelo;
+                            DataRowView drv2 = (DataRowView)comboBoxModelo.SelectedItem;
+                            int modelo = Convert.ToInt32(drv2["IdModelo"]);
+                            cmd.Parameters.Add("@IdModelo", SqlDbType.Int).Value = modelo;
 
-                    cmd.Parameters.Add("@CantidadCabinas", SqlDbType.Int).Value = txtCantidadCabinas.Text;
+                            cmd.Parameters.Add("@CantidadCabinas", SqlDbType.Int).Value = txtCantidadCabinas.Text;
 
-                    cmd.ExecuteNonQuery();
-                    MessageBox.Show("Crucero creado correctamente");
-                    cn.Close();
-                    cn.Dispose();
+                            cmd.ExecuteNonQuery();
+                            MessageBox.Show("Crucero creado correctamente");
+                            cn.Close();
+                            cn.Dispose();
+                        }
+                        catch (FormatException)
+                        {
+                            MessageBox.Show("La cantidad de cabinas debe ser un numero entero positivo");
+                        }
+
+
                     }
-                    catch (FormatException)
-                    {
-                        MessageBox.Show("La cantidad de cabinas debe ser un numero entero positivo");
-                    }
-                    
-                   
+
                 }
-
             }
         }
 

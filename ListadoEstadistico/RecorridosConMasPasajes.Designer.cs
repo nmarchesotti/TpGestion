@@ -95,7 +95,6 @@
             this.txtAnio.Name = "txtAnio";
             this.txtAnio.Size = new System.Drawing.Size(179, 20);
             this.txtAnio.TabIndex = 30;
-            this.txtAnio.TextChanged += new System.EventHandler(this.txtAnio_TextChanged);
             // 
             // comboBoxSemestre
             // 
@@ -104,7 +103,6 @@
             this.comboBoxSemestre.Name = "comboBoxSemestre";
             this.comboBoxSemestre.Size = new System.Drawing.Size(175, 21);
             this.comboBoxSemestre.TabIndex = 29;
-            this.comboBoxSemestre.SelectedIndexChanged += new System.EventHandler(this.comboBoxSemestre_SelectedIndexChanged);
             // 
             // button2
             // 

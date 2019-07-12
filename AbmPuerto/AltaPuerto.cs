@@ -22,21 +22,28 @@ namespace FrbaCrucero.AbmPuerto
 
         private void btnAltaPuerto_Click(object sender, EventArgs e)
         {
-
-
-            using (SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["GD_CRUCEROS"].ConnectionString))
+            if (NombrePuerto.Text == "")
             {
-                using (SqlCommand cmd = new SqlCommand("LOS_QUE_VAN_A_APROBAR.CrearPuerto", cn))
-                {
-                    cn.Open();
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.Add("@NombrePuerto", SqlDbType.NVarChar, 255).Value = NombrePuerto.Text;
-                    cmd.Parameters.Add("@Descripcion", SqlDbType.VarChar, 50).Value = DescripcionPuerto.Text;
+                MessageBox.Show("El puerto debe tener un nombre");
+            }
 
-                    cmd.ExecuteNonQuery();
-                    MessageBox.Show("Puerto creado satisfactoriamente");
-                    cn.Close();
-                    cn.Dispose();
+            else
+            {
+
+                using (SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["GD_CRUCEROS"].ConnectionString))
+                {
+                    using (SqlCommand cmd = new SqlCommand("LOS_QUE_VAN_A_APROBAR.CrearPuerto", cn))
+                    {
+                        cn.Open();
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.Add("@NombrePuerto", SqlDbType.NVarChar, 255).Value = NombrePuerto.Text;
+                        cmd.Parameters.Add("@Descripcion", SqlDbType.VarChar, 50).Value = DescripcionPuerto.Text;
+
+                        cmd.ExecuteNonQuery();
+                        MessageBox.Show("Puerto creado satisfactoriamente");
+                        cn.Close();
+                        cn.Dispose();
+                    }
                 }
             }
         }

@@ -69,6 +69,12 @@
     <Compile Include="AbmCrucero\DecisionBajaCrucero.Designer.cs">
       <DependentUpon>DecisionBajaCrucero.cs</DependentUpon>
     </Compile>
+    <Compile Include="AbmCrucero\EleccionBaja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AbmCrucero\EleccionBaja.Designer.cs">
+      <DependentUpon>EleccionBaja.cs</DependentUpon>
+    </Compile>
     <Compile Include="AbmCrucero\ListaCruceros.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -346,6 +352,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AbmCrucero\DecisionBajaCrucero.resx">
       <DependentUpon>DecisionBajaCrucero.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AbmCrucero\EleccionBaja.resx">
+      <DependentUpon>EleccionBaja.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AbmCrucero\ListaCruceros.resx">
       <DependentUpon>ListaCruceros.cs</DependentUpon>
