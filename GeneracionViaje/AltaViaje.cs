@@ -33,7 +33,7 @@ namespace FrbaCrucero.GeneracionViaje
             using (SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["GD_CRUCEROS"].ConnectionString))
             {
                 cn.Open();
-                SqlCommand sc = new SqlCommand("select DISTINCT v.IdCrucero from LOS_QUE_VAN_A_APROBAR.Viaje v where '" + Convert.ToDateTime(fechaSalida.Text) + "'  > (select top(1) v1.Fecha_Llegada from LOS_QUE_VAN_A_APROBAR.Viaje v1 where v1.IdCrucero = v.IdCrucero order by Fecha_Llegada DESC)" , cn);
+                SqlCommand sc = new SqlCommand("select DISTINCT v.IdCrucero from LOS_QUE_VAN_A_APROBAR.Viaje v where '" + Convert.ToDateTime(fechaSalida.Text) + "'  > (select top(1) v1.Fecha_Llegada from LOS_QUE_VAN_A_APROBAR.Viaje v1 where v1.IdCrucero = v.IdCrucero order by Fecha_Llegada DESC)", cn);
                 SqlDataReader reader;
                 reader = sc.ExecuteReader();
                 DataTable dt = new DataTable();
@@ -107,6 +107,11 @@ namespace FrbaCrucero.GeneracionViaje
 
                 }
             }
+        }
+
+        private void comboBoxCruceros_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -29,7 +29,7 @@ namespace FrbaCrucero.AbmRecorrido
         {
             SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["GD_CRUCEROS"].ConnectionString);
             cn.Open();
-            SqlCommand sc = new SqlCommand("select r.IdRecorrido, r.Codigo_Recorrido from LOS_QUE_VAN_A_APROBAR.RecorridoPorTramo t join LOS_QUE_VAN_A_APROBAR.Recorrido r ON (r.IdRecorrido = t.CodigoRecorrido)", cn);
+            SqlCommand sc = new SqlCommand("select distinct r.IdRecorrido, r.Codigo_Recorrido from LOS_QUE_VAN_A_APROBAR.RecorridoPorTramo t join LOS_QUE_VAN_A_APROBAR.Recorrido r ON (r.IdRecorrido = t.CodigoRecorrido)", cn);
             SqlDataReader reader;
             reader = sc.ExecuteReader();
             DataTable dtb = new DataTable();
@@ -123,26 +123,48 @@ namespace FrbaCrucero.AbmRecorrido
         {
             using (SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["GD_CRUCEROS"].ConnectionString))
             {
-                using (SqlCommand cmd = new SqlCommand("LOS_QUE_VAN_A_APROBAR.modificarTramoDeRecorrido", cn))
+                cn.Open();
+
+                SqlCommand com = new SqlCommand("select LOS_QUE_VAN_A_APROBAR.ExisteTramo(@PuertoSalida, @PuertoLlegada)", cn);
+                com.CommandType = CommandType.Text;
+
+                com.Parameters.Add("@PuertoSalida", SqlDbType.NVarChar, 255).Value = comboBoxS.Text;
+                com.Parameters.Add("@PuertoLlegada", SqlDbType.NVarChar, 255).Value = comboBoxPuertoL.Text;
+
+                int res = Convert.ToInt32(com.ExecuteScalar());
+
+                if (res == 1)
                 {
-                    try
+
+                    MessageBox.Show("El tramo no existe, por favor ingrese un precio y vuelva a intentarlo");
+                    NuevoTramo n = new NuevoTramo(comboBoxS.Text, comboBoxPuertoL.Text);
+                    n.Show();
+
+                }
+                else
+                {
+                    using (SqlCommand cmd = new SqlCommand("LOS_QUE_VAN_A_APROBAR.modificarTramoDeRecorrido", cn))
                     {
-                        cn.Open();
-                        cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("@CodigoRecorrido", Convert.ToInt32(comboBoxModifReco.SelectedValue.ToString()));
-                        cmd.Parameters.AddWithValue("@IdTramo", Convert.ToInt32(comboBoxTramos.SelectedValue.ToString()));
-                        cmd.Parameters.AddWithValue("@PuertoSalida", comboBoxS.Text);
-                        cmd.Parameters.AddWithValue("@PuertoLlegada", comboBoxPuertoL.Text);
+                        try
+                        {
+
+                            cmd.CommandType = CommandType.StoredProcedure;
+                            cmd.Parameters.AddWithValue("@CodigoRecorrido", Convert.ToInt32(comboBoxModifReco.SelectedValue.ToString()));
+                            cmd.Parameters.AddWithValue("@IdTramo", Convert.ToInt32(comboBoxTramos.SelectedValue.ToString()));
+                            cmd.Parameters.AddWithValue("@PuertoSalida", comboBoxS.Text);
+                            cmd.Parameters.AddWithValue("@PuertoLlegada", comboBoxPuertoL.Text);
 
 
 
-                        cmd.ExecuteNonQuery();
-                        MessageBox.Show("Tramo de recorrido modificado exitosamente");
-                        cn.Close();
-                        cn.Dispose();
-                    }
-                    catch {
-                        MessageBox.Show("INGRESE EL MISMO PUERTO DE SALIDA");
+                            cmd.ExecuteNonQuery();
+                            MessageBox.Show("Tramo de recorrido modificado exitosamente");
+                            cn.Close();
+                            cn.Dispose();
+                        }
+                        catch
+                        {
+                            MessageBox.Show("INGRESE EL MISMO PUERTO DE SALIDA");
+                        }
                     }
                 }
             }

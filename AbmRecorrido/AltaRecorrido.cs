@@ -36,9 +36,6 @@ namespace FrbaCrucero.AbmRecorrido
 
                         cmd.Parameters.Add("@Descripcion", SqlDbType.VarChar, 50).Value = DescripcionRecorrido.Text;
 
-                        cmd.Parameters.Add("@Precio", SqlDbType.Decimal).Value = Decimal.Parse(PrecioRecorrido.Text);
-                        cmd.Parameters["@Precio"].Precision = 18;
-                        cmd.Parameters["@Precio"].Scale = 2;
 
                         cmd.ExecuteNonQuery();
                         MessageBox.Show("Nuevo recorrido satisfactorio");
