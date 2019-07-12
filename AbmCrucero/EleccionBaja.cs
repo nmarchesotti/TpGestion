@@ -41,6 +41,9 @@ namespace FrbaCrucero.AbmCrucero
 
                     using (SqlCommand cmd = new SqlCommand("LOS_QUE_VAN_A_APROBAR.reprogramarViajes", cn))
                     {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.Add("@IdCrucero", SqlDbType.NVarChar, 50).Value = this.IdCrucero;
+                        cmd.Parameters.Add("@FechaReprogramacion", SqlDbType.DateTime2, 3).Value = fechaAReprogramar;
 
                     }
                 }

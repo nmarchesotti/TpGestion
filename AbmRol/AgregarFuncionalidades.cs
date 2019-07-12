@@ -54,17 +54,11 @@ namespace FrbaCrucero.AbmRol
             using (SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["GD_CRUCEROS"].ConnectionString))
             {
                 cn.Open();
-               
-                using (SqlCommand cmd2 = new SqlCommand("LOS_QUE_VAN_A_APROBAR.BajaFuncionalidadesDelRol", cn))
-                {
-                    cmd2.CommandType = CommandType.StoredProcedure;
-                    DataRowView drv = (DataRowView)comboBox1.SelectedItem;
-                    int idRol = Convert.ToInt32(drv["IdRol"]);
-                    cmd2.Parameters.Add("@IdRol", SqlDbType.Int).Value = idRol;
-                    cmd2.ExecuteNonQuery();
 
                     using (SqlCommand cmd3 = new SqlCommand("LOS_QUE_VAN_A_APROBAR.AltaFuncionalidadDelRol", cn))
                     {
+                        DataRowView drv = (DataRowView)comboBox1.SelectedItem;
+                        int idRol = Convert.ToInt32(drv["IdRol"]);
                         cmd3.CommandType = CommandType.StoredProcedure;
                         cmd3.Parameters.Add("@IdRol", SqlDbType.Int).Value = idRol;
                         cmd3.Parameters.Add("@IdFuncionalidad", SqlDbType.Int);
@@ -80,14 +74,11 @@ namespace FrbaCrucero.AbmRol
                         MessageBox.Show("Exitosa");
 
                     }
-
-                }
-
-                MessageBox.Show("Funcionalidades añadidas correctamente");
+                                MessageBox.Show("Funcionalidades añadidas correctamente");
                 cn.Close();
                 cn.Dispose();
 
-            }
+                }
         }
 
 
