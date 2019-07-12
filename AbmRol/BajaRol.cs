@@ -55,6 +55,10 @@ namespace FrbaCrucero.AbmRol
                     MessageBox.Show("Rol dado de baja exitosamente");
                     cn.Close();
                     cn.Dispose();
+                    MenuRol form = new MenuRol();
+                    form.StartPosition = FormStartPosition.CenterScreen;
+                    form.Show();
+                    this.Dispose();
                 }
 
             }

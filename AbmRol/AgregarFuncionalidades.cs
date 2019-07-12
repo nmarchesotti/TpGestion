@@ -83,6 +83,10 @@ namespace FrbaCrucero.AbmRol
                                 MessageBox.Show("Funcionalidades añadidas correctamente");
                 cn.Close();
                 cn.Dispose();
+                EleccionDeModificacion form = new EleccionDeModificacion();
+                form.StartPosition = FormStartPosition.CenterScreen;
+                form.Show();
+                this.Dispose();
 
                 }
             }

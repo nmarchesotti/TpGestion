@@ -74,6 +74,10 @@ namespace FrbaCrucero.AbmRol
                         MessageBox.Show("Nombre de rol modificado");
                         cn.Close();
                         cn.Dispose();
+                        EleccionDeModificacion form = new EleccionDeModificacion();
+                        form.StartPosition = FormStartPosition.CenterScreen;
+                        form.Show();
+                        this.Dispose();
                     }
                 }
             }

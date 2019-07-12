@@ -61,6 +61,9 @@ namespace FrbaCrucero.AbmRol
 
                     MessageBox.Show("Rol creado exitosamente");
                     cn.Close();
+                    MenuRol form = new MenuRol();
+                    form.StartPosition = FormStartPosition.CenterScreen;
+                    form.Show();
                     this.Dispose();
 
 
