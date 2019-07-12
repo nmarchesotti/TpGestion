@@ -44,6 +44,10 @@ namespace FrbaCrucero.AbmPuerto
                         cn.Close();
                         cn.Dispose();
                     }
+                    ABMPuerto form = new ABMPuerto();
+                    form.StartPosition = FormStartPosition.CenterScreen;
+                    form.Show();
+                    this.Dispose();
                 }
             }
         }

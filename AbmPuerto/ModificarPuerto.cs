@@ -22,24 +22,35 @@ namespace FrbaCrucero.AbmPuerto
 
         private void btnModificarPuerto_Click(object sender, EventArgs e)
         {
-
-            using (SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["GD_CRUCEROS"].ConnectionString))
+            if (textBox2.Text == "")
             {
-                using (SqlCommand cmd = new SqlCommand("LOS_QUE_VAN_A_APROBAR.ModificarPuerto", cn))
+                MessageBox.Show("Debe insertar una descripción para realizar el cambio");
+            }
+            else
+            {
+
+                using (SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["GD_CRUCEROS"].ConnectionString))
                 {
-                    cn.Open();
-                    cmd.CommandType = CommandType.StoredProcedure;
+                    using (SqlCommand cmd = new SqlCommand("LOS_QUE_VAN_A_APROBAR.ModificarPuerto", cn))
+                    {
+                        cn.Open();
+                        cmd.CommandType = CommandType.StoredProcedure;
 
-                    DataRowView drv2 = (DataRowView)comboBox1.SelectedItem;
-                    string puerto = Convert.ToString(drv2["Nombre"]);
-                    cmd.Parameters.Add("@NombrePuerto", SqlDbType.NVarChar, 255).Value = puerto;
-                    MessageBox.Show(puerto);
-                    cmd.Parameters.Add("@Descripcion", SqlDbType.VarChar, 50).Value = textBox2.Text;
+                        DataRowView drv2 = (DataRowView)comboBox1.SelectedItem;
+                        string puerto = Convert.ToString(drv2["Nombre"]);
+                        cmd.Parameters.Add("@NombrePuerto", SqlDbType.NVarChar, 255).Value = puerto;
+                        MessageBox.Show(puerto);
+                        cmd.Parameters.Add("@Descripcion", SqlDbType.VarChar, 50).Value = textBox2.Text;
 
-                    cmd.ExecuteNonQuery();
-                    MessageBox.Show("Puerto modificado correctamente");
-                    cn.Close();
-                    cn.Dispose();
+                        cmd.ExecuteNonQuery();
+                        MessageBox.Show("Puerto modificado correctamente");
+                        cn.Close();
+                        cn.Dispose();
+                    }
+                    ABMPuerto form = new ABMPuerto();
+                    form.StartPosition = FormStartPosition.CenterScreen;
+                    form.Show();
+                    this.Dispose();
                 }
             }
 
