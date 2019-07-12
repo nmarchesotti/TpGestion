@@ -34,6 +34,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.buttonReservar = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -73,9 +74,9 @@
             this.label7.ImageAlign = System.Drawing.ContentAlignment.TopRight;
             this.label7.Location = new System.Drawing.Point(103, 50);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(47, 25);
+            this.label7.Size = new System.Drawing.Size(69, 25);
             this.label7.TabIndex = 29;
-            this.label7.Text = "DNI";
+            this.label7.Text = "(*)DNI";
             // 
             // dataGridView1
             // 
@@ -95,11 +96,23 @@
             this.buttonReservar.UseVisualStyleBackColor = true;
             this.buttonReservar.Click += new System.EventHandler(this.buttonReservar_Click);
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+            this.label6.Location = new System.Drawing.Point(387, 78);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(148, 16);
+            this.label6.TabIndex = 35;
+            this.label6.Text = "(*)Campos Obligatorios";
+            // 
             // FormularioCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(547, 338);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.buttonReservar);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.buttonComprar);
@@ -123,5 +136,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button buttonReservar;
+        private System.Windows.Forms.Label label6;
     }
 }
