@@ -60,13 +60,16 @@ namespace FrbaCrucero.CompraReservaPasaje
 
                         cmd.ExecuteNonQuery();
 
-                        MessageBox.Show("Pago realizado con éxito");
+                        
                         cn.Close();
                         cn.Dispose();
                     }
 
                 }
+
             }
+
+            MessageBox.Show("Pago realizado con éxito, se han comprado " + cantidad + " pasajes");
 
             InformacionPago form = new InformacionPago(idcliente, idviaje);
             form.StartPosition = FormStartPosition.CenterScreen;
@@ -76,18 +79,20 @@ namespace FrbaCrucero.CompraReservaPasaje
 
         private void Pago_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (comboBox1.SelectedText == "Tarjeta de crédito")
+            MessageBox.Show(comboBox1.SelectedIndex.ToString());
+            if (Convert.ToInt32(comboBox1.SelectedIndex) == 0) { 
+                Mercadopago fo = new Mercadopago();
+                fo.Show();
+            }
+            if (Convert.ToInt32(comboBox1.SelectedIndex) == 1)
             {
                 TarjetaDeCredito f = new TarjetaDeCredito();
-            }
-
-            if(comboBox1.SelectedText == "Mercadopago"){
-                Mercadopago m = new Mercadopago();
+                f.Show();
             }
         }
 
