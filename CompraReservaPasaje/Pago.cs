@@ -60,13 +60,16 @@ namespace FrbaCrucero.CompraReservaPasaje
 
                         cmd.ExecuteNonQuery();
 
-                        MessageBox.Show("Pago realizado con éxito");
+                        
                         cn.Close();
                         cn.Dispose();
                     }
 
                 }
+
             }
+
+            MessageBox.Show("Pago realizado con éxito, se han comprado " + cantidad + " pasajes");
 
             InformacionPago form = new InformacionPago(idcliente, idviaje);
             form.StartPosition = FormStartPosition.CenterScreen;
