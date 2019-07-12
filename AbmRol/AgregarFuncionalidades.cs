@@ -54,6 +54,12 @@ namespace FrbaCrucero.AbmRol
             using (SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["GD_CRUCEROS"].ConnectionString))
             {
                 cn.Open();
+                if (checkedListBox1.CheckedItems.Count == 0)
+                {
+                    MessageBox.Show("Debe seleccionar al menos una funcionalidad");
+                }
+                else{
+
 
                     using (SqlCommand cmd3 = new SqlCommand("LOS_QUE_VAN_A_APROBAR.AltaFuncionalidadDelRol", cn))
                     {
@@ -79,6 +85,7 @@ namespace FrbaCrucero.AbmRol
                 cn.Dispose();
 
                 }
+            }
         }
 
 

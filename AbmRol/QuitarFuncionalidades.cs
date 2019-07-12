@@ -30,32 +30,40 @@ namespace FrbaCrucero.AbmRol
 
         private void button2_Click(object sender, EventArgs e)
         {
-            using (SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["GD_CRUCEROS"].ConnectionString))
+            if (checkedListBox1.CheckedItems.Count == 0)
             {
-                cn.Open();
-                DataRowView drv = (DataRowView)comboBox1.SelectedItem;
-                int idRol = Convert.ToInt32(drv["IdRol"]);
-                MessageBox.Show(idRol.ToString());
+                MessageBox.Show("Debe seleccionar al menos una funcionalidad");
+            }
+            else
+            {
 
-                using (SqlCommand cmd = new SqlCommand("LOS_QUE_VAN_A_APROBAR.BajaFuncionalidadDeRol", cn))
+                using (SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["GD_CRUCEROS"].ConnectionString))
                 {
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.Add("@IdRol", SqlDbType.Int).Value = idRol;
-                    cmd.Parameters.Add("@IdFuncionalidad", SqlDbType.Int);
-                    DataRow row;
+                    cn.Open();
+                    DataRowView drv = (DataRowView)comboBox1.SelectedItem;
+                    int idRol = Convert.ToInt32(drv["IdRol"]);
 
-                    for (int i = 0; i< checkedListBox1.CheckedItems.Count;i++){
+                    using (SqlCommand cmd = new SqlCommand("LOS_QUE_VAN_A_APROBAR.BajaFuncionalidadDeRol", cn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.Add("@IdRol", SqlDbType.Int).Value = idRol;
+                        cmd.Parameters.Add("@IdFuncionalidad", SqlDbType.Int);
+                        DataRow row;
 
-                        row = ((((DataRowView)checkedListBox1.CheckedItems[i]))).Row;
-                        int valor = Convert.ToInt32(row[checkedListBox1.ValueMember]);
-                        cmd.Parameters["@IdFuncionalidad"].Value = valor;
-                        cmd.ExecuteNonQuery();
+                        for (int i = 0; i < checkedListBox1.CheckedItems.Count; i++)
+                        {
+
+                            row = ((((DataRowView)checkedListBox1.CheckedItems[i]))).Row;
+                            int valor = Convert.ToInt32(row[checkedListBox1.ValueMember]);
+                            cmd.Parameters["@IdFuncionalidad"].Value = valor;
+                            cmd.ExecuteNonQuery();
+                        }
+                        MessageBox.Show("Funcionalidades removidas");
                     }
-                    MessageBox.Show("Funcionalidades removidas");
-                }
-                cn.Close();
-                cn.Dispose();
+                    cn.Close();
+                    cn.Dispose();
 
+                }
             }
         }
 

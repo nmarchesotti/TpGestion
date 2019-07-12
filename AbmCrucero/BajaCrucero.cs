@@ -71,21 +71,7 @@ namespace FrbaCrucero.AbmCrucero
                         cmd.ExecuteNonQuery();
                         MessageBox.Show("Crucero dado de baja satisfactoriamente");
                         cn.Close();
-                    }
 
-                    using (SqlCommand cmd2 = new SqlCommand("LOS_QUE_VAN_A_APROBAR.CambiarViajesDeCrucero", cn))
-                    {
-
-                        cn.Open();
-                        cmd2.CommandType = CommandType.StoredProcedure;
-
-                        DataRowView drv2 = (DataRowView)comboBox1.SelectedItem;
-                        string crucero = Convert.ToString(drv2["IdCrucero"]);
-                        cmd2.Parameters.Add("@IdCrucero", SqlDbType.NVarChar, 50).Value = crucero;
-                        cmd2.ExecuteNonQuery();
-                        MessageBox.Show("Reemplazo realizado");
-                        cn.Close();
-                        cn.Dispose();
 
                     }
                 }

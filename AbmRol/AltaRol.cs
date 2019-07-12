@@ -48,7 +48,7 @@ namespace FrbaCrucero.AbmRol
                     cmd.CommandType = CommandType.StoredProcedure;
                     DataRowView drv = (DataRowView)comboBox1.SelectedItem;
                     String valueOfItem = drv["Nombre"].ToString();
-                    cmd.Parameters.Add("@NombreRol", SqlDbType.NVarChar, 20).Value = valueOfItem;
+                    cmd.Parameters.Add("@IdRol", SqlDbType.NVarChar, 20).Value = valueOfItem;
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Rol activado exitosamente");
                     cn.Close();

@@ -21,16 +21,6 @@ namespace FrbaCrucero.AbmCrucero
             this.IdCrucero = IdCrucero;
         }
 
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-            checkBox2.Checked = false;
-        }
-
-        private void checkBox2_CheckedChanged(object sender, EventArgs e)
-        {
-            checkBox2.Checked = false;
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             using (SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["GD_CRUCEROS"].ConnectionString))
@@ -41,11 +31,17 @@ namespace FrbaCrucero.AbmCrucero
 
                     using (SqlCommand cmd = new SqlCommand("LOS_QUE_VAN_A_APROBAR.reprogramarViajes", cn))
                     {
+                        cn.Open();
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.Add("@IdCrucero", SqlDbType.NVarChar, 50).Value = this.IdCrucero;
                         cmd.Parameters.Add("@FechaReprogramacion", SqlDbType.DateTime2, 3).Value = fechaAReprogramar;
-
+                        cmd.ExecuteNonQuery();
+                        MessageBox.Show("Cambio realizado correctamente");
                     }
+                }
+                else if (checkBox2.Checked)
+                {
+
                 }
             }
         }
