@@ -41,7 +41,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(536, 190);
+            this.button1.Location = new System.Drawing.Point(615, 187);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(127, 42);
             this.button1.TabIndex = 28;
@@ -52,9 +52,9 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(91, 143);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 143);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(407, 152);
+            this.dataGridView1.Size = new System.Drawing.Size(597, 166);
             this.dataGridView1.TabIndex = 27;
             // 
             // label2
@@ -109,7 +109,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(754, 332);
+            this.ClientSize = new System.Drawing.Size(754, 351);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dataGridView1);
