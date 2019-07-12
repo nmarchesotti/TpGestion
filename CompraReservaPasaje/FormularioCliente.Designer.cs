@@ -46,7 +46,7 @@
             this.label5.Size = new System.Drawing.Size(214, 29);
             this.label5.TabIndex = 19;
             this.label5.Text = "Datos del Cliente";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
+
             // 
             // buttonComprar
             // 
@@ -108,7 +108,6 @@
             this.Controls.Add(this.label5);
             this.Name = "FormularioCliente";
             this.Text = "FormularioCliente";
-            this.Load += new System.EventHandler(this.FormularioCliente_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

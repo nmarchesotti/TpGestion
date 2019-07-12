@@ -31,20 +31,6 @@ namespace FrbaCrucero.CompraReservaPasaje
             InitializeComponent();
         }
 
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtNombreCrucero_TextChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -52,14 +38,31 @@ namespace FrbaCrucero.CompraReservaPasaje
             SqlCommandBuilder cb = new SqlCommandBuilder(adp);
             adp.Update(dataset);
             confirmarDatos();
-            Pago f = new Pago(idcli, IdViaje, TipoCabina, FechaSalida, Cantidad);
-            f.Show();
+            SqlConnection cn1 = new SqlConnection(ConfigurationManager.ConnectionStrings["GD_CRUCEROS"].ConnectionString);
+            cn1.Open();
+            SqlCommand sc = new SqlCommand("select LOS_QUE_VAN_A_APROBAR.ClienteNoPuedeComprar(@IdCliente, @FechaSalida, @IdViaje)", cn1);
+            sc.Parameters.Add("@IdCliente", SqlDbType.Int).Value = this.idcli;
+            sc.Parameters.Add("@FechaSalida", SqlDbType.DateTime2, 3).Value = this.FechaSalida;
+            sc.Parameters.Add("@IdViaje", SqlDbType.Int).Value = this.IdViaje;
+            sc.CommandType = CommandType.Text;
+            int result = Convert.ToInt32(sc.ExecuteScalar());
+            cn1.Close();
+            cn1.Dispose();
+            if (result == 0)
+            {
+                MessageBox.Show("Usted ya tiene un viaje pendiente en esa fecha");
+            }
+            else
+            {
+
+                Pago f = new Pago(idcli, IdViaje, TipoCabina, FechaSalida, Cantidad);
+                f.StartPosition = FormStartPosition.CenterScreen;
+                f.Show();
+                this.Dispose();
+            }
         }
 
-        private void FormularioCliente_Load(object sender, EventArgs e)
-        {
-            
-        }
+
 
         private void textBox5_TextChanged(object sender, EventArgs e)
         {
@@ -95,10 +98,24 @@ namespace FrbaCrucero.CompraReservaPasaje
         {
 
             confirmarDatos();
- 
 
-            for (int i = 0; i < Cantidad; i++)
-
+            SqlConnection cn1 = new SqlConnection(ConfigurationManager.ConnectionStrings["GD_CRUCEROS"].ConnectionString);
+            cn1.Open();
+            SqlCommand sc = new SqlCommand("select LOS_QUE_VAN_A_APROBAR.ClienteNoPuedeComprar(@IdCliente, @FechaSalida, @IdViaje)", cn1);
+            sc.Parameters.Add("@IdCliente", SqlDbType.Int).Value = this.idcli;
+            sc.Parameters.Add("@FechaSalida", SqlDbType.DateTime2, 3).Value = this.FechaSalida;
+            sc.Parameters.Add("@IdViaje", SqlDbType.Int).Value = this.IdViaje;
+            sc.CommandType = CommandType.Text;
+            int result = Convert.ToInt32(sc.ExecuteScalar());
+            cn1.Close();
+            cn1.Dispose();
+            if (result == 0)
+            {
+                MessageBox.Show("Usted ya tiene un viaje pendiente en esa fecha");
+            }
+            else
+            {
+                for (int i = 0; i < Cantidad; i++)
                 {
                     using (SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["GD_CRUCEROS"].ConnectionString))
                     {
@@ -132,7 +149,9 @@ namespace FrbaCrucero.CompraReservaPasaje
                 }
                 InformacionReserva form = new InformacionReserva(idcli, IdViaje);
                 form.Show();
+                this.Dispose();
             }
+        }
            
         
 
@@ -178,15 +197,6 @@ namespace FrbaCrucero.CompraReservaPasaje
             }
         }
         
-            private void button1_Click(object sender, EventArgs e)
-        {
-             
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-        
-        }
 
         
         
