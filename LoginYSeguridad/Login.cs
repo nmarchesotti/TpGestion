@@ -14,6 +14,7 @@ namespace FrbaCrucero.LoginYSeguridad
 {
     public partial class Login : Form
     {
+        short intentos = 0;
         public Login()
         {
             InitializeComponent();
@@ -25,8 +26,10 @@ namespace FrbaCrucero.LoginYSeguridad
         {
             using (SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["GD_CRUCEROS"].ConnectionString))
             {
+                
                 using (SqlCommand cmd = new SqlCommand("select LOS_QUE_VAN_A_APROBAR.ValidarUsuario(@Username,@Password)", cn))
                 {
+                    
                     cn.Open();
                     cmd.CommandType = CommandType.Text;
                     cmd.Parameters.Add("@Username", SqlDbType.NVarChar, 100).Value = txtusuario.Text;
@@ -60,11 +63,33 @@ namespace FrbaCrucero.LoginYSeguridad
                         form.Show();
                         this.Dispose();
                     }
-                    else
+                    else if(resultado ==0)
                     {
                         MessageBox.Show("Credenciales inválidas");
+                        intentos++;
+                        if (intentos == 3)
+                        {
+                            SqlCommand cmd2 = new SqlCommand("LOS_QUE_VAN_A_APROBAR.InhabilitarAdmin", cn);
+                            cmd2.CommandType = CommandType.StoredProcedure;
+                            cmd2.Parameters.Add("@Username", SqlDbType.NVarChar, 100).Value = txtusuario.Text;
+                            cmd2.Parameters.Add("@Password", SqlDbType.NVarChar, 255).Value = txtcontraseña.Text;
+                            cmd2.ExecuteNonQuery();
+                            MessageBox.Show("Administrador inhabilitado");
+                            PantallaInicial.Inicio form = new PantallaInicial.Inicio();
+                            form.StartPosition = FormStartPosition.CenterScreen;
+                            form.Show();
+                            this.Dispose();
+                            
+                        }
 
                     }
+
+                    else if (resultado == 2)
+                    {
+                        MessageBox.Show("Su administrador fue bloqueado por reiterados intentos");
+                    }
+
+
 
                     cn.Close();
                 }
