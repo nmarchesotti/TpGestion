@@ -58,6 +58,9 @@ namespace FrbaCrucero.ListadoEstadistico
                 adaptador.Fill(tabla);
                 dataGridView1.DataSource = tabla;
 
+                DataGridViewColumn column = dataGridView1.Columns[5];
+                column.Width = 200;
+
             }
             else if (comboBoxSemestre.SelectedItem == "Segundo Semestre")
             {
@@ -70,6 +73,9 @@ namespace FrbaCrucero.ListadoEstadistico
                 DataTable tabla = new DataTable();
                 adaptador.Fill(tabla);
                 dataGridView1.DataSource = tabla;
+
+                DataGridViewColumn column = dataGridView1.Columns[5];
+                column.Width = 200;
             }
         }
     }
