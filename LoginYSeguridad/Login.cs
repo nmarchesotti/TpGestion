@@ -25,7 +25,7 @@ namespace FrbaCrucero.LoginYSeguridad
         {
             using (SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["GD_CRUCEROS"].ConnectionString))
             {
-                using (SqlCommand cmd = new SqlCommand("select LOS_QUE_VAN_A_APROBAR.ValidarAdministrador(@Username,@Password)", cn))
+                using (SqlCommand cmd = new SqlCommand("select LOS_QUE_VAN_A_APROBAR.ValidarUsuario(@Username,@Password)", cn))
                 {
                     cn.Open();
                     cmd.CommandType = CommandType.Text;
