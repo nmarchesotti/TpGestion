@@ -34,8 +34,13 @@ namespace FrbaCrucero.AbmRol
             {
                 using (SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["GD_CRUCEROS"].ConnectionString))
                 {
-                    SqlCommand cmd = new SqlCommand("LOS_QUE_VAN_A_APROBAR.NuevoRol", cn);
                     cn.Open();
+                    SqlCommand cmdc = new SqlCommand("select count(*) as Total from LOS_QUE_VAN_A_APROBAR.Rol where IdRol = " + textBox1.Text,cn);
+                    cmdc.CommandType = CommandType.Text;
+                    int pruebita =  Convert.ToInt32(cmdc.ExecuteScalar());
+                    MessageBox.Show(pruebita.ToString());
+                    SqlCommand cmd = new SqlCommand("LOS_QUE_VAN_A_APROBAR.NuevoRol", cn);
+                    
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.Add("@NuevoNombre", SqlDbType.NVarChar, 255).Value = textBox1.Text;
                     cmd.ExecuteNonQuery();
@@ -75,7 +80,10 @@ namespace FrbaCrucero.AbmRol
 
         private void button2_Click(object sender, EventArgs e)
         {
-            this.Dispose();
+            MenuRol form = new MenuRol();
+                    form.StartPosition = FormStartPosition.CenterScreen;
+                    form.Show();
+                    this.Dispose();
         }
 
         private void checkedListBox1_Load()

@@ -39,10 +39,7 @@ namespace FrbaCrucero.AbmCrucero
                         MessageBox.Show("Cambio realizado correctamente");
                     }
                 }
-                else if (checkBox2.Checked)
-                {
 
-                }
             }
         }
     }
