@@ -165,7 +165,7 @@ namespace FrbaCrucero.CompraReservaPasaje
         private void comboBoxTipo_Load() {
             SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["GD_CRUCEROS"].ConnectionString);
             cn.Open();
-            SqlCommand sc = new SqlCommand("select TipoServicio from LOS_QUE_VAN_A_APROBAR.Servicio", cn);
+            SqlCommand sc = new SqlCommand("select TipoServicio from LOS_QUE_VAN_A_APROBAR.Servicio order by Porcentaje", cn);
             SqlDataReader reader;
             reader = sc.ExecuteReader();
             DataTable dt = new DataTable();

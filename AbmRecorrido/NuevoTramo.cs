@@ -30,38 +30,46 @@ namespace FrbaCrucero.AbmRecorrido
             textBoxPuertoS.Text = PuertoSalida;
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
 
-        }
 
         private void button1_Click(object sender, EventArgs e)
         {
-
-            using (SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["GD_CRUCEROS"].ConnectionString))
+            if (textBoxPrecio.Text == "")
             {
+                MessageBox.Show("Debe ingresar un precio");
+            }
+                    using (SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["GD_CRUCEROS"].ConnectionString))
+                    {
 
-                using (SqlCommand cmd = new SqlCommand("LOS_QUE_VAN_A_APROBAR.InsertarTramo", cn))
-                {
-                    cn.Open();
+                        using (SqlCommand cmd = new SqlCommand("LOS_QUE_VAN_A_APROBAR.InsertarTramo", cn))
+                        {
+                            try{
 
-                    cmd.CommandType = CommandType.StoredProcedure;
+                            cn.Open();
 
-                    cmd.Parameters.Add("@PuertoSalida", SqlDbType.NVarChar, 255).Value = PuertoSalida;
-                    cmd.Parameters.Add("@PuertoLlegada", SqlDbType.NVarChar, 255).Value = PuertoLlegada;
-                    cmd.Parameters.Add("@Precio", SqlDbType.Decimal).Value = Convert.ToDecimal(textBoxPrecio.Text);
+                            cmd.CommandType = CommandType.StoredProcedure;
 
-                    cmd.ExecuteNonQuery();
+                            cmd.Parameters.Add("@PuertoSalida", SqlDbType.NVarChar, 255).Value = PuertoSalida;
+                            cmd.Parameters.Add("@PuertoLlegada", SqlDbType.NVarChar, 255).Value = PuertoLlegada;
+                            cmd.Parameters.Add("@Precio", SqlDbType.Decimal).Value = Convert.ToDecimal(textBoxPrecio.Text);
 
-                    MessageBox.Show("Tramo agregado satisfactoriamente");
+                            cmd.ExecuteNonQuery();
 
-                    cn.Close();
-                    cn.Dispose();
+                            MessageBox.Show("Tramo agregado satisfactoriamente");
+
+                            cn.Close();
+                            cn.Dispose();
+                            }
+                            catch(FormatException){
+                                MessageBox.Show("El precio debe ser un valor numérico");
+                        }
+                    }
+            this.Dispose();
                 }
+                
+                
             }
 
-            this.Dispose();
         }
 
     }
-}

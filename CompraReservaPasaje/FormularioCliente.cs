@@ -181,35 +181,45 @@ namespace FrbaCrucero.CompraReservaPasaje
                 {
                     cn.Open();
                     cmd.CommandType = CommandType.Text;
-                    
-                    
+
+
                     int fila = dataGridView1.CurrentCell.RowIndex;
-                    
-                    string nombre = (string) dataGridView1.Rows[fila].Cells[0].Value;
-                    string apellido = (string) dataGridView1.Rows[fila].Cells[1].Value;
-                    decimal dni = (decimal) dataGridView1.Rows[fila].Cells[2].Value;
-                    string direccion = (string) dataGridView1.Rows[fila].Cells[3].Value;
-                    
 
-                    cmd.Parameters.AddWithValue("@DNI", dni);
-                    
-                    cmd.Parameters.AddWithValue("@Nombre", nombre);
-                    
-                    cmd.Parameters.AddWithValue("@Apellido", apellido);
-                    
-                    cmd.Parameters.AddWithValue("@Direccion", direccion);
+                    string nombre = (string)dataGridView1.Rows[fila].Cells[0].Value;
+                    string apellido = (string)dataGridView1.Rows[fila].Cells[1].Value;
+                    decimal dni = (decimal)dataGridView1.Rows[fila].Cells[2].Value;
+                    string direccion = (string)dataGridView1.Rows[fila].Cells[3].Value;
 
-                    int resultado = Convert.ToInt32(cmd.ExecuteScalar());
-
-                    if (resultado < 0)
+                    if (String.IsNullOrEmpty(nombre) || String.IsNullOrEmpty(apellido) || String.IsNullOrEmpty(dni.ToString()) || String.IsNullOrEmpty(direccion))
                     {
-                        MessageBox.Show("Cliente no encontrado");
+                        MessageBox.Show("Por favor complete todos los campos requeridos");
                     }
                     else
                     {
-                        idcli = resultado;                    }
 
-                    cn.Close();
+
+
+                        cmd.Parameters.AddWithValue("@DNI", dni);
+
+                        cmd.Parameters.AddWithValue("@Nombre", nombre);
+
+                        cmd.Parameters.AddWithValue("@Apellido", apellido);
+
+                        cmd.Parameters.AddWithValue("@Direccion", direccion);
+
+                        int resultado = Convert.ToInt32(cmd.ExecuteScalar());
+
+                        if (resultado < 0)
+                        {
+                            MessageBox.Show("Cliente no encontrado");
+                        }
+                        else
+                        {
+                            idcli = resultado;
+                        }
+
+                        cn.Close();
+                    }
                 }
 
 

@@ -62,7 +62,6 @@
             this.textBoxPuertoS.ReadOnly = true;
             this.textBoxPuertoS.Size = new System.Drawing.Size(100, 20);
             this.textBoxPuertoS.TabIndex = 2;
-            this.textBoxPuertoS.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // textBoxPuertoL
             // 
