@@ -95,8 +95,15 @@ namespace FrbaCrucero.AbmCrucero
 
                             cmd.Parameters.Add("@CantidadCabinas", SqlDbType.Int).Value = txtCantidadCabinas.Text;
 
-                            cmd.ExecuteNonQuery();
-                            MessageBox.Show("Crucero creado correctamente");
+
+                            int resultado = cmd.ExecuteNonQuery();
+                            if (resultado != 1) { MessageBox.Show("Ya existe crucero"); }
+                            else
+                            {
+                                cmd.ExecuteNonQuery();
+                                MessageBox.Show("Crucero creado correctamente");
+
+                            }
                             cn.Close();
                             cn.Dispose();
                             this.Dispose();
