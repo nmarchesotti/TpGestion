@@ -112,7 +112,7 @@ namespace FrbaCrucero.AbmCrucero
                     MessageBox.Show("Crucero modificado correctamente");
                     cn.Close();
                     cn.Dispose();
-                    this.Dipose();
+                    this.Dispose();
                 }
             }
 
