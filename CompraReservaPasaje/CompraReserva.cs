@@ -152,14 +152,18 @@ namespace FrbaCrucero.CompraReservaPasaje
                         }
                     }
 
-                    this.Dispose();
+
+
                     FormularioCliente f = new FormularioCliente((int)dataGridView1.Rows[selec].Cells[0].Value, Convert.ToInt32(textBoxCantidad.Text), Convert.ToDateTime(dateTimePicker1.Text), comboBoxTipo.SelectedValue.ToString());
                     f.StartPosition = FormStartPosition.CenterScreen;
                     f.Show();
+
+
+                    this.Dispose();
                 }
-                catch (Exception)
+               catch 
                 {
-                    MessageBox.Show("La cantidad de cabinas debe ser un numero menor o igual a las disponibles");
+                   MessageBox.Show("La cantidad de cabinas debe ser un numero menor o igual a las disponibles");
                 }
             }
             
