@@ -33,12 +33,13 @@ namespace FrbaCrucero.AbmRecorrido
             reader = sc.ExecuteReader();
             DataTable dtb = new DataTable();
             dtb.Columns.Add("IdRecorrido", typeof(int));
+            dtb.Columns.Add("Codigo_Recorrido", typeof(decimal));
             dtb.Load(reader);
 
 
             
             comboBoxModifReco.ValueMember = "IdRecorrido";
-            comboBoxModifReco.DisplayMember = "IdRecorrido";
+            comboBoxModifReco.DisplayMember = "Codigo_Recorrido";
             comboBoxModifReco.DataSource = dtb;
             cn.Close();
         }
