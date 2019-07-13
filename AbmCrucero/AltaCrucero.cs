@@ -99,6 +99,7 @@ namespace FrbaCrucero.AbmCrucero
                             MessageBox.Show("Crucero creado correctamente");
                             cn.Close();
                             cn.Dispose();
+                            this.Dispose();
                         }
                         catch (FormatException)
                         {

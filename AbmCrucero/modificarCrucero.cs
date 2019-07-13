@@ -35,13 +35,11 @@ namespace FrbaCrucero.AbmCrucero
         {
             SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["GD_CRUCEROS"].ConnectionString);
             cn.Open();
-            SqlCommand sc = new SqlCommand("select IdCrucero, IdMarca, IdModelo from LOS_QUE_VAN_A_APROBAR.Crucero", cn);
+            SqlCommand sc = new SqlCommand("select IdCrucero from LOS_QUE_VAN_A_APROBAR.ListarCrucerosHabilitados", cn);
             SqlDataReader reader;
             reader = sc.ExecuteReader();
             DataTable dt = new DataTable();
             dt.Columns.Add("IdCrucero", typeof(string));
-            dt.Columns.Add("IdMarca", typeof(int));
-            dt.Columns.Add("IdModelo", typeof(int));
             dt.Load(reader);
 
             comboBoxIdCrucero.SelectedValue = "IdCrucero";
@@ -114,6 +112,7 @@ namespace FrbaCrucero.AbmCrucero
                     MessageBox.Show("Crucero modificado correctamente");
                     cn.Close();
                     cn.Dispose();
+                    this.Dipose();
                 }
             }
 
