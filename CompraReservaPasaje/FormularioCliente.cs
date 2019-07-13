@@ -36,39 +36,44 @@ namespace FrbaCrucero.CompraReservaPasaje
 
         private void button2_Click(object sender, EventArgs e)
         {
-
-            SqlCommandBuilder cb = new SqlCommandBuilder(adp);
-            adp.Update(dataset);
-            confirmarDatos();
-            SqlConnection cn1 = new SqlConnection(ConfigurationManager.ConnectionStrings["GD_CRUCEROS"].ConnectionString);
-            cn1.Open();
-            SqlCommand sc = new SqlCommand("select LOS_QUE_VAN_A_APROBAR.ClienteNoPuedeComprar(@IdCliente, @FechaSalida, @IdViaje)", cn1);
-            sc.Parameters.Add("@IdCliente", SqlDbType.Int).Value = this.idcli;
-            sc.Parameters.Add("@FechaSalida", SqlDbType.DateTime2, 3).Value = this.FechaSalida;
-            sc.Parameters.Add("@IdViaje", SqlDbType.Int).Value = this.IdViaje;
-            sc.CommandType = CommandType.Text;
-            int result = Convert.ToInt32(sc.ExecuteScalar());
-
-            SqlCommand sc1 = new SqlCommand("select LOS_QUE_VAN_A_APROBAR.ClienteNoPuedeReservar(@IdCliente, @FechaSalida, @IdViaje)", cn1);
-            sc1.Parameters.Add("@IdCliente", SqlDbType.Int).Value = this.idcli;
-            sc1.Parameters.Add("@FechaSalida", SqlDbType.DateTime2, 3).Value = this.FechaSalida;
-            sc1.Parameters.Add("@IdViaje", SqlDbType.Int).Value = this.IdViaje;
-            sc1.CommandType = CommandType.Text;
-            int result1 = Convert.ToInt32(sc1.ExecuteScalar());
-            cn1.Close();
-            cn1.Dispose();
-
-            if (result == 0 || result1 == 0)
+            try
             {
-                MessageBox.Show("Usted ya tiene un viaje pendiente en esa fecha");
+                SqlCommandBuilder cb = new SqlCommandBuilder(adp);
+                adp.Update(dataset);
+                confirmarDatos();
+                SqlConnection cn1 = new SqlConnection(ConfigurationManager.ConnectionStrings["GD_CRUCEROS"].ConnectionString);
+                cn1.Open();
+                SqlCommand sc = new SqlCommand("select LOS_QUE_VAN_A_APROBAR.ClienteNoPuedeComprar(@IdCliente, @FechaSalida, @IdViaje)", cn1);
+                sc.Parameters.Add("@IdCliente", SqlDbType.Int).Value = this.idcli;
+                sc.Parameters.Add("@FechaSalida", SqlDbType.DateTime2, 3).Value = this.FechaSalida;
+                sc.Parameters.Add("@IdViaje", SqlDbType.Int).Value = this.IdViaje;
+                sc.CommandType = CommandType.Text;
+                int result = Convert.ToInt32(sc.ExecuteScalar());
+
+                SqlCommand sc1 = new SqlCommand("select LOS_QUE_VAN_A_APROBAR.ClienteNoPuedeReservar(@IdCliente, @FechaSalida, @IdViaje)", cn1);
+                sc1.Parameters.Add("@IdCliente", SqlDbType.Int).Value = this.idcli;
+                sc1.Parameters.Add("@FechaSalida", SqlDbType.DateTime2, 3).Value = this.FechaSalida;
+                sc1.Parameters.Add("@IdViaje", SqlDbType.Int).Value = this.IdViaje;
+                sc1.CommandType = CommandType.Text;
+                int result1 = Convert.ToInt32(sc1.ExecuteScalar());
+                cn1.Close();
+                cn1.Dispose();
+
+                if (result == 0 || result1 == 0)
+                {
+                    MessageBox.Show("Usted ya tiene un viaje pendiente en esa fecha");
+                }
+                else
+                {
+
+                    Pago f = new Pago(idcli, IdViaje, TipoCabina, FechaSalida, Cantidad, resultado);
+                    f.StartPosition = FormStartPosition.CenterScreen;
+                    f.Show();
+                    this.Dispose();
+                }
             }
-            else
-            {
-
-                Pago f = new Pago(idcli, IdViaje, TipoCabina, FechaSalida, Cantidad, resultado);
-                f.StartPosition = FormStartPosition.CenterScreen;
-                f.Show();
-                this.Dispose();
+            catch {
+                MessageBox.Show("El dni debe coincidir y debe completar todos los campos");
             }
         }
 
@@ -106,70 +111,76 @@ namespace FrbaCrucero.CompraReservaPasaje
 
         private void buttonReservar_Click(object sender, EventArgs e)
         {
-            SqlCommandBuilder cb = new SqlCommandBuilder(adp);
-            adp.Update(dataset);
-            confirmarDatos();
-
-            SqlConnection cn1 = new SqlConnection(ConfigurationManager.ConnectionStrings["GD_CRUCEROS"].ConnectionString);
-            cn1.Open();
-            SqlCommand sc = new SqlCommand("select LOS_QUE_VAN_A_APROBAR.ClienteNoPuedeComprar(@IdCliente, @FechaSalida, @IdViaje)", cn1);
-            sc.Parameters.Add("@IdCliente", SqlDbType.Int).Value = this.idcli;
-            sc.Parameters.Add("@FechaSalida", SqlDbType.DateTime2, 3).Value = this.FechaSalida;
-            sc.Parameters.Add("@IdViaje", SqlDbType.Int).Value = this.IdViaje;
-            sc.CommandType = CommandType.Text;
-            int result = Convert.ToInt32(sc.ExecuteScalar());
-
-            SqlCommand sc1 = new SqlCommand("select LOS_QUE_VAN_A_APROBAR.ClienteNoPuedeReservar(@IdCliente, @FechaSalida, @IdViaje)", cn1);
-            sc1.Parameters.Add("@IdCliente", SqlDbType.Int).Value = this.idcli;
-            sc1.Parameters.Add("@FechaSalida", SqlDbType.DateTime2, 3).Value = this.FechaSalida;
-            sc1.Parameters.Add("@IdViaje", SqlDbType.Int).Value = this.IdViaje;
-            sc1.CommandType = CommandType.Text;
-            int result1 = Convert.ToInt32(sc1.ExecuteScalar());
-
-            cn1.Close();
-            cn1.Dispose();
-            if (result == 0 || result1 == 0)
+            try
             {
-                MessageBox.Show("Usted ya tiene un viaje pendiente en esa fecha");
-            }
-            else
-            {
-                for (int i = 0; i < Cantidad; i++)
+                SqlCommandBuilder cb = new SqlCommandBuilder(adp);
+                adp.Update(dataset);
+                confirmarDatos();
+
+                SqlConnection cn1 = new SqlConnection(ConfigurationManager.ConnectionStrings["GD_CRUCEROS"].ConnectionString);
+                cn1.Open();
+                SqlCommand sc = new SqlCommand("select LOS_QUE_VAN_A_APROBAR.ClienteNoPuedeComprar(@IdCliente, @FechaSalida, @IdViaje)", cn1);
+                sc.Parameters.Add("@IdCliente", SqlDbType.Int).Value = this.idcli;
+                sc.Parameters.Add("@FechaSalida", SqlDbType.DateTime2, 3).Value = this.FechaSalida;
+                sc.Parameters.Add("@IdViaje", SqlDbType.Int).Value = this.IdViaje;
+                sc.CommandType = CommandType.Text;
+                int result = Convert.ToInt32(sc.ExecuteScalar());
+
+                SqlCommand sc1 = new SqlCommand("select LOS_QUE_VAN_A_APROBAR.ClienteNoPuedeReservar(@IdCliente, @FechaSalida, @IdViaje)", cn1);
+                sc1.Parameters.Add("@IdCliente", SqlDbType.Int).Value = this.idcli;
+                sc1.Parameters.Add("@FechaSalida", SqlDbType.DateTime2, 3).Value = this.FechaSalida;
+                sc1.Parameters.Add("@IdViaje", SqlDbType.Int).Value = this.IdViaje;
+                sc1.CommandType = CommandType.Text;
+                int result1 = Convert.ToInt32(sc1.ExecuteScalar());
+
+                cn1.Close();
+                cn1.Dispose();
+                if (result == 0 || result1 == 0)
                 {
-                    using (SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["GD_CRUCEROS"].ConnectionString))
-                    {
-
-
-                        using (SqlCommand cmd = new SqlCommand("LOS_QUE_VAN_A_APROBAR.GenerarReserva", cn))
-                        {
-                            cn.Open();
-                            cmd.CommandType = CommandType.StoredProcedure;
-
-
-
-                            cmd.Parameters.AddWithValue("@IdCliente", idcli);
-
-
-                            cmd.Parameters.AddWithValue("@IdViaje", IdViaje);
-
-
-                            cmd.Parameters.AddWithValue("@TipoServicio", TipoCabina);
-
-
-                            cmd.Parameters.AddWithValue("@Fecha_Salida", FechaSalida);
-
-
-                            cmd.ExecuteNonQuery();
-                            cn.Close();
-                            cn.Dispose();
-                        }
-
-                    }
+                    MessageBox.Show("Usted ya tiene un viaje pendiente en esa fecha");
                 }
-                InformacionReserva form = new InformacionReserva(idcli, IdViaje);
-                form.StartPosition = FormStartPosition.CenterScreen;
-                form.Show();
-                this.Dispose();
+                else
+                {
+                    for (int i = 0; i < Cantidad; i++)
+                    {
+                        using (SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["GD_CRUCEROS"].ConnectionString))
+                        {
+
+
+                            using (SqlCommand cmd = new SqlCommand("LOS_QUE_VAN_A_APROBAR.GenerarReserva", cn))
+                            {
+                                cn.Open();
+                                cmd.CommandType = CommandType.StoredProcedure;
+
+
+
+                                cmd.Parameters.AddWithValue("@IdCliente", idcli);
+
+
+                                cmd.Parameters.AddWithValue("@IdViaje", IdViaje);
+
+
+                                cmd.Parameters.AddWithValue("@TipoServicio", TipoCabina);
+
+
+                                cmd.Parameters.AddWithValue("@Fecha_Salida", FechaSalida);
+
+
+                                cmd.ExecuteNonQuery();
+                                cn.Close();
+                                cn.Dispose();
+                            }
+
+                        }
+                    }
+                    InformacionReserva form = new InformacionReserva(idcli, IdViaje);
+                    form.StartPosition = FormStartPosition.CenterScreen;
+                    form.Show();
+                    this.Dispose();
+                }
+            }
+            catch {
+                MessageBox.Show("El dni debe coincidir y debe completar todos los campos.");
             }
         }
            
@@ -195,6 +206,11 @@ namespace FrbaCrucero.CompraReservaPasaje
                     {
                         MessageBox.Show("Por favor complete todos los campos requeridos");
                     }
+
+                    if (Convert.ToDecimal(textBoxDni.Text) != dni)
+                    {
+                        throw new Exception();
+                    }
                     else
                     {
 
@@ -204,7 +220,7 @@ namespace FrbaCrucero.CompraReservaPasaje
                         cmd.Parameters.AddWithValue("@Nombre", nombre);
                         cmd.Parameters.AddWithValue("@Apellido", apellido);
                         cmd.Parameters.AddWithValue("@Direccion", direccion);
-                        
+
                         int resultado = Convert.ToInt32(cmd.ExecuteScalar());
 
                         if (resultado < 0)

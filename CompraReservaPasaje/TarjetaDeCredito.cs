@@ -15,7 +15,6 @@ namespace FrbaCrucero.CompraReservaPasaje
         public TarjetaDeCredito()
         {
             InitializeComponent();
-            textBox4.PasswordChar = '*';
         }
 
         private void TarjetaDeCredito_Load(object sender, EventArgs e)
@@ -33,5 +32,58 @@ namespace FrbaCrucero.CompraReservaPasaje
             MessageBox.Show("Datos correctos, confirme el pago");
             this.Dispose();
         }
+
+        private void textBox4_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                int temp = Convert.ToInt32(textBox4.Text);
+            }
+            catch (Exception h)
+            {
+                MessageBox.Show("Solo pueden ir números");
+                if (textBox4.TextLength > 0)
+                {
+                    textBox4.Text = textBox4.Text.Substring(0, textBox4.Text.Length - 1);
+                }
+            }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!System.Text.RegularExpressions.Regex.IsMatch(textBox1.Text, "^[a-zA-Z ]"))
+                {
+                    MessageBox.Show("Solo pueden ir caracteres alfabéticos");
+                    textBox1.Text = "";
+                }
+
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("El dni debe ser un numero entero sin puntos ni comas");
+            }
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                int temp = Convert.ToInt32(textBox2.Text);
+            }
+            catch (Exception h)
+            {
+                MessageBox.Show("Solo pueden ir números");
+                if (textBox2.TextLength > 0)
+                {
+                    textBox2.Text = textBox2.Text.Substring(0, textBox2.Text.Length - 1);
+                }
+            }
+        }
+
+      
+
     }
 }

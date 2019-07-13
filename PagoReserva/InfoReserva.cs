@@ -85,8 +85,35 @@ namespace FrbaCrucero.PagoReserva
 
         private void button2_Click(object sender, EventArgs e)
         {
-            PagoReserva f = new PagoReserva(Convert.ToInt32(textBoxRes.Text));
-            f.Show();
+            try
+            {
+                using (SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["GD_CRUCEROS"].ConnectionString))
+                {
+                    using (SqlCommand cmd = new SqlCommand("select LOS_QUE_VAN_A_APROBAR.ValidarReserva(@IdReserva)", cn))
+                    {
+                        cn.Open();
+                        cmd.CommandType = CommandType.Text;
+                        cmd.Parameters.Add("@IdReserva", SqlDbType.Int, 100).Value = Convert.ToInt32(textBoxRes.Text);
+                        int resultado = Convert.ToInt32(cmd.ExecuteScalar());
+
+
+
+                        cn.Close();
+                    }
+
+
+                    int res = (int)dataGridView1.Rows[0].Cells[0].Value;
+                    PagoReserva f = new PagoReserva(res);
+                    f.Show();
+                }
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("El código de reserva es un número entero y positivo");
+            }
+            catch {
+                MessageBox.Show("Primero debe buscar la reserva");
+            }
         }
 
         
