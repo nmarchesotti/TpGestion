@@ -64,6 +64,10 @@ namespace FrbaCrucero.AbmRecorrido
             catch {
                 MessageBox.Show("Hay pasajes vendidos con ese recorrido");
             }
+            ABMRecorrido form = new ABMRecorrido();
+            form.StartPosition = FormStartPosition.CenterScreen;
+            form.Show();
+            this.Dispose();
         }
 
         private void button3_Click(object sender, EventArgs e)

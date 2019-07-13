@@ -50,8 +50,8 @@ namespace FrbaCrucero.AbmRecorrido
                             cn.Dispose();
 
                             AgregarTramo form = new AgregarTramo();
-                            form.Show();
                             form.StartPosition = FormStartPosition.CenterScreen;
+                            form.Show();             
                             this.Dispose();
                         }
                         catch (FormatException)

@@ -59,7 +59,6 @@
             this.comboBoxModifReco.Name = "comboBoxModifReco";
             this.comboBoxModifReco.Size = new System.Drawing.Size(212, 21);
             this.comboBoxModifReco.TabIndex = 24;
-            this.comboBoxModifReco.SelectedIndexChanged += new System.EventHandler(this.comboBoxModifReco_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -79,7 +78,6 @@
             this.comboBoxTramos.Size = new System.Drawing.Size(212, 21);
             this.comboBoxTramos.TabIndex = 26;
             this.comboBoxTramos.Text = "Puerto salida - Puerto llegada";
-            this.comboBoxTramos.SelectedIndexChanged += new System.EventHandler(this.comboBoxTramos_SelectedIndexChanged);
             // 
             // label2
             // 
