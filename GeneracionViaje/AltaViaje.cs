@@ -89,7 +89,6 @@ namespace FrbaCrucero.GeneracionViaje
 
                         DataRowView drv2 = (DataRowView)comboBoxRecorrido.SelectedItem;
                         int IdRecorrido = Convert.ToInt32(drv2["CodigoRecorrido"]);
-                        MessageBox.Show(IdRecorrido.ToString());
                         cmd.Parameters.Add("@IdRecorrido", SqlDbType.Int).Value = IdRecorrido;
 
                         DateTime fechaS = Convert.ToDateTime(fechaSalida.Text);
