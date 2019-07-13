@@ -33,7 +33,12 @@ namespace FrbaCrucero.GeneracionViaje
             using (SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["GD_CRUCEROS"].ConnectionString))
             {
                 cn.Open();
-                SqlCommand sc = new SqlCommand("select DISTINCT v.IdCrucero from LOS_QUE_VAN_A_APROBAR.Viaje v join LOS_QUE_VAN_A_APROBAR.Crucero c on v.IdCrucero = c.IdCrucero where FechaAlta < (select TOP(1) Fecha from LOS_QUE_VAN_A_APROBAR.TablaFecha) and '" + Convert.ToDateTime(fechaSalida.Text) + "'  > (select top(1) v1.Fecha_Llegada from LOS_QUE_VAN_A_APROBAR.Viaje v1 where v1.IdCrucero = v.IdCrucero order by Fecha_Llegada DESC)", cn);
+                SqlCommand sc = new SqlCommand("select * from LOS_QUE_VAN_A_APROBAR.crucerosParaViaje(@Fecha_SalidaNueva, @Fecha_LlegadaNueva)", cn);
+
+                sc.Parameters.AddWithValue("@Fecha_SalidaNueva", Convert.ToDateTime(fechaSalida.Text));
+
+                sc.Parameters.AddWithValue("@Fecha_LlegadaNueva", Convert.ToDateTime(fechaLlegada.Text));
+                
                 SqlDataReader reader;
                 reader = sc.ExecuteReader();
                 DataTable dt = new DataTable();
