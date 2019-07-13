@@ -19,8 +19,7 @@ namespace FrbaCrucero.AbmRecorrido
             
             InitializeComponent();
             comboBoxReco_Load();
-            comboBoxPuertoL_Load();
-            comboBoxS_Load();
+            
             
          
         }
@@ -71,42 +70,9 @@ namespace FrbaCrucero.AbmRecorrido
 
 
 
-        private void comboBoxPuertoL_Load()
-        {
-            SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["GD_CRUCEROS"].ConnectionString);
-            cn.Open();
-            SqlCommand sc = new SqlCommand("select Nombre from LOS_QUE_VAN_A_APROBAR.Puerto", cn);
-            SqlDataReader reader;
-            reader = sc.ExecuteReader();
-            DataTable dt = new DataTable();
-            dt.Columns.Add("Nombre", typeof(String));
-            dt.Load(reader);
+        
 
-            comboBoxPuertoL.ValueMember = "Nombre";
-            comboBoxPuertoL.DisplayMember = "Nombre";
-            comboBoxPuertoL.DataSource = dt;
-
-            cn.Close();
-        }
-
-        private void comboBoxS_Load()
-        {
-            SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["GD_CRUCEROS"].ConnectionString);
-            cn.Open();
-            SqlCommand sc = new SqlCommand("select Nombre from LOS_QUE_VAN_A_APROBAR.Puerto", cn);
-            SqlDataReader reader;
-            reader = sc.ExecuteReader();
-            DataTable dt = new DataTable();
-            dt.Columns.Add("Nombre", typeof(String));
-            dt.Load(reader);
-
-            comboBoxS.ValueMember = "Nombre";
-            comboBoxS.DisplayMember = "Nombre";
-            comboBoxS.DataSource = dt;
-
-            cn.Close();
-        }
-
+        
         private void btnCambiarTramo_Click(object sender, EventArgs e)
         {
          
@@ -115,70 +81,6 @@ namespace FrbaCrucero.AbmRecorrido
             
         
 
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            if (comboBoxS.Text == "" || comboBoxPuertoL.Text == "")
-            {
-                MessageBox.Show("Debe especificar ambos puertos");
-            }
-            else if (comboBoxS.Text == comboBoxPuertoL.Text)
-            {
-                MessageBox.Show("El puerto de salida y de llegada debe ser distinto");
-            }
-            else
-            {
-
-                using (SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["GD_CRUCEROS"].ConnectionString))
-                {
-                    cn.Open();
-
-                    SqlCommand com = new SqlCommand("select LOS_QUE_VAN_A_APROBAR.ExisteTramo(@PuertoSalida, @PuertoLlegada)", cn);
-                    com.CommandType = CommandType.Text;
-
-                    com.Parameters.Add("@PuertoSalida", SqlDbType.NVarChar, 255).Value = comboBoxS.Text;
-                    com.Parameters.Add("@PuertoLlegada", SqlDbType.NVarChar, 255).Value = comboBoxPuertoL.Text;
-
-                    int res = Convert.ToInt32(com.ExecuteScalar());
-
-                    if (res == 1)
-                    {
-
-                        MessageBox.Show("El tramo no existe, por favor ingrese un precio y vuelva a intentarlo");
-                        NuevoTramo n = new NuevoTramo(comboBoxS.Text, comboBoxPuertoL.Text);
-                        n.StartPosition = FormStartPosition.CenterScreen;
-                        n.Show();
-
-                    }
-                    else
-                    {
-                        using (SqlCommand cmd = new SqlCommand("LOS_QUE_VAN_A_APROBAR.modificarTramoDeRecorrido", cn))
-                        {
-                            try
-                            {
-
-                                cmd.CommandType = CommandType.StoredProcedure;
-                                cmd.Parameters.AddWithValue("@CodigoRecorrido", Convert.ToInt32(comboBoxModifReco.SelectedValue.ToString()));
-                                cmd.Parameters.AddWithValue("@IdTramo", Convert.ToInt32(comboBoxTramos.SelectedValue.ToString()));
-                                cmd.Parameters.AddWithValue("@PuertoSalida", comboBoxS.Text);
-                                cmd.Parameters.AddWithValue("@PuertoLlegada", comboBoxPuertoL.Text);
-
-
-
-                                cmd.ExecuteNonQuery();
-                                MessageBox.Show("Tramo de recorrido modificado exitosamente");
-                                cn.Close();
-                                cn.Dispose();
-                            }
-                            catch
-                            {
-                                MessageBox.Show("INGRESE EL MISMO PUERTO DE SALIDA");
-                            }
-                        }
-                    }
-                }
-            }
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -193,6 +95,62 @@ namespace FrbaCrucero.AbmRecorrido
 
         private void button2_Click(object sender, EventArgs e)
         {
+        }
+
+        private void comboBoxTramos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+            comboBoxTramos_Load();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["GD_CRUCEROS"].ConnectionString);
+            cn.Open();
+            SqlCommand sc = new SqlCommand("select top 1 Puerto_Llegada from LOS_QUE_VAN_A_APROBAR.RecorridoPorTramo join LOS_QUE_VAN_A_APROBAR.Tramo on (IdTramo = CodigoTramo) where CodigoRecorrido = @IdRecorrido order by orden desc ", cn);
+
+            sc.CommandType = CommandType.Text;
+            
+            sc.Parameters.AddWithValue("@IdRecorrido", Convert.ToInt32(comboBoxModifReco.SelectedValue.ToString()));
+
+            string PuertoS =sc.ExecuteScalar().ToString();
+
+
+
+            cn.Close();
+
+            AgregarTramo fo = new AgregarTramo(Convert.ToInt32(comboBoxModifReco.SelectedValue.ToString()), PuertoS);
+            fo.Show();
+        }
+
+        private void button2_Click_2(object sender, EventArgs e)
+        {
+            SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["GD_CRUCEROS"].ConnectionString);
+            cn.Open();
+            SqlCommand sc = new SqlCommand("LOS_QUE_VAN_A_APROBAR.EliminarUltimoTramo", cn);
+
+            sc.CommandType = CommandType.StoredProcedure;
+
+            sc.Parameters.AddWithValue("@IdRecorrido", Convert.ToInt32(comboBoxModifReco.SelectedValue.ToString()));
+
+            sc.ExecuteNonQuery();
+
+            MessageBox.Show("Ultimo tramo del recorrido eliminado con éxito");
+            
+
+            cn.Close();
+            cn.Dispose();
+
             comboBoxTramos_Load();
         }
 
