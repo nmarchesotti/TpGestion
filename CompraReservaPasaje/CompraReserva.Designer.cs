@@ -152,6 +152,7 @@
             this.textBoxCantidad.Name = "textBoxCantidad";
             this.textBoxCantidad.Size = new System.Drawing.Size(130, 20);
             this.textBoxCantidad.TabIndex = 31;
+            this.textBoxCantidad.TextChanged += new System.EventHandler(this.textBoxCantidad_TextChanged);
             // 
             // dateTimePicker1
             // 

@@ -50,6 +50,7 @@ namespace FrbaCrucero.PantallaInicial
 
             } 
             PagoReserva.InfoReserva f = new PagoReserva.InfoReserva();
+            f.StartPosition = FormStartPosition.CenterScreen;
             f.Show();
         }
     }

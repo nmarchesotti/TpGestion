@@ -34,47 +34,52 @@ namespace FrbaCrucero.CompraReservaPasaje
 
         private void button1_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < cantidad; i++)
+            if (comboBox1.SelectedItem != null)
             {
-                using (SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["GD_CRUCEROS"].ConnectionString))
+                for (int i = 0; i < cantidad; i++)
                 {
-
-
-                    using (SqlCommand cmd = new SqlCommand("LOS_QUE_VAN_A_APROBAR.GenerarPasaje", cn))
+                    using (SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["GD_CRUCEROS"].ConnectionString))
                     {
-                        cn.Open();
-                        cmd.CommandType = CommandType.StoredProcedure;
-                        
-
-                        cmd.Parameters.AddWithValue("@IdCliente", idcliente);
 
 
-                        cmd.Parameters.AddWithValue("@IdViaje", idviaje);
+                        using (SqlCommand cmd = new SqlCommand("LOS_QUE_VAN_A_APROBAR.GenerarPasaje", cn))
+                        {
+                            cn.Open();
+                            cmd.CommandType = CommandType.StoredProcedure;
 
 
-                        cmd.Parameters.AddWithValue("@TipoServicio", tipocabina);
+                            cmd.Parameters.AddWithValue("@IdCliente", idcliente);
 
 
-                        cmd.Parameters.AddWithValue("@Fecha_Salida", fecha_salida);
+                            cmd.Parameters.AddWithValue("@IdViaje", idviaje);
 
 
-                        cmd.ExecuteNonQuery();
+                            cmd.Parameters.AddWithValue("@TipoServicio", tipocabina);
 
-                        
-                        cn.Close();
-                        cn.Dispose();
+
+                            cmd.Parameters.AddWithValue("@Fecha_Salida", fecha_salida);
+
+
+                            cmd.ExecuteNonQuery();
+
+
+                            cn.Close();
+                            cn.Dispose();
+                        }
+
                     }
-
                 }
 
+
+
+                MessageBox.Show("Pago realizado con éxito, se han comprado " + cantidad + " pasajes");
+
+                InformacionPago form = new InformacionPago(idcliente, idviaje);
+                form.StartPosition = FormStartPosition.CenterScreen;
+                form.Show();
+                this.Dispose();
             }
-
-            MessageBox.Show("Pago realizado con éxito, se han comprado " + cantidad + " pasajes");
-
-            InformacionPago form = new InformacionPago(idcliente, idviaje);
-            form.StartPosition = FormStartPosition.CenterScreen;
-            form.Show();
-            this.Dispose();
+            else { MessageBox.Show("Debe seleccionar una opcion"); }
         }
 
         private void Pago_Load(object sender, EventArgs e)
@@ -84,14 +89,15 @@ namespace FrbaCrucero.CompraReservaPasaje
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            MessageBox.Show(comboBox1.SelectedIndex.ToString());
             if (Convert.ToInt32(comboBox1.SelectedIndex) == 0) { 
                 Mercadopago fo = new Mercadopago();
+                fo.StartPosition = FormStartPosition.CenterScreen;
                 fo.Show();
             }
             if (Convert.ToInt32(comboBox1.SelectedIndex) == 1)
             {
                 TarjetaDeCredito f = new TarjetaDeCredito();
+                f.StartPosition = FormStartPosition.CenterScreen;
                 f.Show();
             }
         }

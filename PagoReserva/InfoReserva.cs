@@ -85,8 +85,11 @@ namespace FrbaCrucero.PagoReserva
 
         private void button2_Click(object sender, EventArgs e)
         {
-            PagoReserva f = new PagoReserva(Convert.ToInt32(textBoxRes.Text));
-            f.Show();
+            
+                PagoReserva f = new PagoReserva(Convert.ToInt32(textBoxRes.Text));
+                f.StartPosition = FormStartPosition.CenterScreen;
+                f.Show();
+            
         }
 
         
