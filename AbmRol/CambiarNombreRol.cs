@@ -70,10 +70,18 @@ namespace FrbaCrucero.AbmRol
                         cmd.Parameters.Add("@IdRol", SqlDbType.Int).Value = idRol;
                         cmd.Parameters.Add("@Nombre", SqlDbType.NVarChar, 20).Value = textBox1.Text;
 
-                        cmd.ExecuteNonQuery();
-                        MessageBox.Show("Nombre de rol modificado");
+                        int resultado = cmd.ExecuteNonQuery();
+                        if (resultado != 1) { MessageBox.Show("Ya existe nombre rol"); }
+                        else
+                        {
+                            cmd.ExecuteNonQuery();
+                            MessageBox.Show("Nombre de rol modificado");
+
+                        }
                         cn.Close();
                         cn.Dispose();
+                       
+                        
                         EleccionDeModificacion form = new EleccionDeModificacion();
                         form.StartPosition = FormStartPosition.CenterScreen;
                         form.Show();
