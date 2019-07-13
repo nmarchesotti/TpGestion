@@ -106,7 +106,8 @@ namespace FrbaCrucero.CompraReservaPasaje
 
         private void buttonReservar_Click(object sender, EventArgs e)
         {
-
+            SqlCommandBuilder cb = new SqlCommandBuilder(adp);
+            adp.Update(dataset);
             confirmarDatos();
 
             SqlConnection cn1 = new SqlConnection(ConfigurationManager.ConnectionStrings["GD_CRUCEROS"].ConnectionString);
@@ -200,13 +201,10 @@ namespace FrbaCrucero.CompraReservaPasaje
 
 
                         cmd.Parameters.AddWithValue("@DNI", dni);
-
                         cmd.Parameters.AddWithValue("@Nombre", nombre);
-
                         cmd.Parameters.AddWithValue("@Apellido", apellido);
-
                         cmd.Parameters.AddWithValue("@Direccion", direccion);
-
+                        
                         int resultado = Convert.ToInt32(cmd.ExecuteScalar());
 
                         if (resultado < 0)
