@@ -131,6 +131,7 @@ namespace FrbaCrucero.AbmRecorrido
             cn.Close();
 
             AgregarTramo fo = new AgregarTramo(Convert.ToInt32(comboBoxModifReco.SelectedValue.ToString()), PuertoS);
+            fo.StartPosition = FormStartPosition.CenterScreen;
             fo.Show();
         }
 
