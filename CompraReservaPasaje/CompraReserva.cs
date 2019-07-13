@@ -101,7 +101,10 @@ namespace FrbaCrucero.CompraReservaPasaje
 
                 try
                 {
-
+                    if (Convert.ToInt32(textBoxCantidad.Text) == 0)
+                    {
+                        throw new Exception();
+                    }
                     int selec = dataGridView1.CurrentCell.RowIndex;
 
                     if (comboBoxTipo.Text == "Suite")
@@ -112,7 +115,7 @@ namespace FrbaCrucero.CompraReservaPasaje
                         if (Convert.ToInt32(textBoxCantidad.Text) > cabinas)
                         {
 
-                            MessageBox.Show("Tire excepcion");
+                            
                             throw new Exception();
                         }
                     }
@@ -151,6 +154,7 @@ namespace FrbaCrucero.CompraReservaPasaje
 
 
                     FormularioCliente f = new FormularioCliente((int)dataGridView1.Rows[selec].Cells[0].Value, Convert.ToInt32(textBoxCantidad.Text), Convert.ToDateTime(dateTimePicker1.Text), comboBoxTipo.SelectedValue.ToString());
+                    f.StartPosition = FormStartPosition.CenterScreen;
                     f.Show();
                 }
                 catch (Exception)
