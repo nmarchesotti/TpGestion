@@ -16,12 +16,24 @@ namespace FrbaCrucero.AbmRecorrido
     {
         string puerto_llegada;
         public Decimal Precio;
+        int IdRecorrido = 0;
+
         public AgregarTramo()
         {
             InitializeComponent();
             comboBoxPuertoS_Load();
             comboBoxPuertoL_Load();
             
+        }
+
+        public AgregarTramo(int idreco, string puertoS)
+        {
+            InitializeComponent();
+            comboBoxPuertoL_Load();
+            comboBoxPuertoS.Text = puertoS;
+            IdRecorrido = idreco;
+            comboBoxPuertoS.Enabled = false;
+
         }
 
         private void AgregarTramo_Load(object sender, EventArgs e)
@@ -67,8 +79,7 @@ namespace FrbaCrucero.AbmRecorrido
         {
             
             
-            DataRowView drv2 = (DataRowView)comboBoxPuertoS.SelectedItem;
-            string PuertoSalida = Convert.ToString(drv2["Nombre"]);
+            string PuertoSalida = comboBoxPuertoS.Text;
                     
             DataRowView drv3 = (DataRowView)comboBoxPuertoL.SelectedItem;
             string PuertoLlegada = Convert.ToString(drv3["Nombre"]);
@@ -106,10 +117,12 @@ namespace FrbaCrucero.AbmRecorrido
 
                         using (SqlCommand cmd = new SqlCommand("LOS_QUE_VAN_A_APROBAR.InsertarTramoDeRecorrido", cn))
                         {
-                            SqlCommand cmd2 = new SqlCommand("select top 1 IdRecorrido from LOS_QUE_VAN_A_APROBAR.Recorrido ORDER BY IdRecorrido Desc", cn);
-                            cmd2.CommandType = CommandType.Text;
-                            int IdRecorrido = Convert.ToInt32(cmd2.ExecuteScalar());
-
+                            if (IdRecorrido == 0)
+                            {
+                                SqlCommand cmd2 = new SqlCommand("select top 1 IdRecorrido from LOS_QUE_VAN_A_APROBAR.Recorrido ORDER BY IdRecorrido Desc", cn);
+                                cmd2.CommandType = CommandType.Text;
+                                IdRecorrido = Convert.ToInt32(cmd2.ExecuteScalar());
+                            }
 
                             cmd.CommandType = CommandType.StoredProcedure;
 
@@ -137,9 +150,7 @@ namespace FrbaCrucero.AbmRecorrido
 
         private void button2_Click(object sender, EventArgs e)
         {
-            ABMRecorrido form = new ABMRecorrido();
-            form.StartPosition = FormStartPosition.CenterScreen;
-            form.Show();
+            
             this.Dispose();
         }
         }
