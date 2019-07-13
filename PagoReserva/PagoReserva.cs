@@ -58,6 +58,7 @@ namespace FrbaCrucero.PagoReserva
                     cn.Dispose();
                 }
             }
+            this.Dispose();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)

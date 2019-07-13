@@ -85,6 +85,7 @@ namespace FrbaCrucero.PagoReserva
 
         private void button2_Click(object sender, EventArgs e)
         {
+
             try
             {
                 using (SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["GD_CRUCEROS"].ConnectionString))
@@ -114,6 +115,7 @@ namespace FrbaCrucero.PagoReserva
             catch {
                 MessageBox.Show("Primero debe buscar la reserva");
             }
+
         }
 
         

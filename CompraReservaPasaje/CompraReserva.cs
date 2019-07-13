@@ -152,7 +152,7 @@ namespace FrbaCrucero.CompraReservaPasaje
                         }
                     }
 
-
+                    this.Dispose();
                     FormularioCliente f = new FormularioCliente((int)dataGridView1.Rows[selec].Cells[0].Value, Convert.ToInt32(textBoxCantidad.Text), Convert.ToDateTime(dateTimePicker1.Text), comboBoxTipo.SelectedValue.ToString());
                     f.StartPosition = FormStartPosition.CenterScreen;
                     f.Show();
@@ -162,6 +162,7 @@ namespace FrbaCrucero.CompraReservaPasaje
                     MessageBox.Show("La cantidad de cabinas debe ser un numero menor o igual a las disponibles");
                 }
             }
+            
         }
 
 
@@ -187,6 +188,11 @@ namespace FrbaCrucero.CompraReservaPasaje
             form.StartPosition = FormStartPosition.CenterScreen;
             form.Show();
             this.Dispose();
+        }
+
+        private void textBoxCantidad_TextChanged(object sender, EventArgs e)
+        {
+
         }
 
 
