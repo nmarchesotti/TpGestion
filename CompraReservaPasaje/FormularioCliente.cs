@@ -180,7 +180,7 @@ namespace FrbaCrucero.CompraReservaPasaje
                 }
             }
             catch {
-                MessageBox.Show("El dni debe coincidir y debe completar todos los campos.");
+               MessageBox.Show("El dni debe coincidir y debe completar todos los campos.");
             }
         }
            

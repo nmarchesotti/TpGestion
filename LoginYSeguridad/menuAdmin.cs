@@ -27,7 +27,7 @@ namespace FrbaCrucero.LoginYSeguridad
         {
             if (funcionalidades.Contains("Menu CyR"))
             {
-                CompraReservaPasaje.CompraReservaAdmin form = new CompraReservaPasaje.CompraReservaAdmin();
+                CompraReservaPasaje.CompraReserva form = new CompraReservaPasaje.CompraReserva();
                 form.StartPosition = FormStartPosition.CenterScreen;
                 form.Show();
             }
