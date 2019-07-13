@@ -35,10 +35,10 @@ namespace FrbaCrucero.AbmRol
                 using (SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["GD_CRUCEROS"].ConnectionString))
                 {
                     cn.Open();
-                    SqlCommand cmdc = new SqlCommand("select count(*) as Total from LOS_QUE_VAN_A_APROBAR.Rol where IdRol = " + textBox1.Text,cn);
+                    /*+SqlCommand cmdc = new SqlCommand("select count(*) as Total from LOS_QUE_VAN_A_APROBAR.Rol where IdRol = " + textBox1.Text,cn);
                     cmdc.CommandType = CommandType.Text;
                     int pruebita =  Convert.ToInt32(cmdc.ExecuteScalar());
-                    MessageBox.Show(pruebita.ToString());
+                    MessageBox.Show(pruebita.ToString());*/
                     SqlCommand cmd = new SqlCommand("LOS_QUE_VAN_A_APROBAR.NuevoRol", cn);
                     
                     cmd.CommandType = CommandType.StoredProcedure;
