@@ -46,6 +46,7 @@ namespace FrbaCrucero.CompraReservaPasaje
                 int fila = dataGridView1.CurrentCell.RowIndex;
                 decimal dni = Convert.ToDecimal(dataGridView1.Rows[fila].Cells[3].Value);
 
+
                 if (Convert.ToDecimal(textBoxDni.Text) != dni)
                 {
                     throw new Exception();
@@ -142,6 +143,7 @@ namespace FrbaCrucero.CompraReservaPasaje
                 adp.Update(dataset);
 
                 int fila = dataGridView1.CurrentCell.RowIndex;
+
                 decimal dni = Convert.ToDecimal(dataGridView1.Rows[fila].Cells[3].Value);
 
                 if (Convert.ToDecimal(textBoxDni.Text) != dni)
@@ -185,9 +187,11 @@ namespace FrbaCrucero.CompraReservaPasaje
                                 cn.Open();
                                 cmd.CommandType = CommandType.StoredProcedure;
 
+                                idcli = (int)dataGridView1.Rows[fila].Cells[0].Value;
 
 
                                 cmd.Parameters.AddWithValue("@IdCliente", idcli);
+
 
 
                                 cmd.Parameters.AddWithValue("@IdViaje", IdViaje);
@@ -213,8 +217,8 @@ namespace FrbaCrucero.CompraReservaPasaje
                 }
             }
             catch {
-               MessageBox.Show("El dni debe coincidir y debe completar todos los campos.");
-               if (this.dataGridView1.DataSource != null)
+              MessageBox.Show("El dni debe coincidir y debe completar todos los campos.");
+              if (this.dataGridView1.DataSource != null)
                {
                    this.dataGridView1.DataSource = null;
                }
