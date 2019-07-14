@@ -105,6 +105,7 @@ namespace FrbaCrucero.PagoReserva
 
                     int res = (int)dataGridView1.Rows[0].Cells[0].Value;
                     PagoReserva f = new PagoReserva(res);
+                    f.StartPosition = FormStartPosition.CenterScreen;
                     f.Show();
                 }
             }

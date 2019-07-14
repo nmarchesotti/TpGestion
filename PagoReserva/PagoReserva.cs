@@ -43,22 +43,26 @@ namespace FrbaCrucero.PagoReserva
 
         private void button1_Click(object sender, EventArgs e)
         {
-            using (SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["GD_CRUCEROS"].ConnectionString))
+            if (comboBox1.SelectedItem != null)
             {
-                using (SqlCommand cmd = new SqlCommand("LOS_QUE_VAN_A_APROBAR.PagarReserva", cn))
+                using (SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["GD_CRUCEROS"].ConnectionString))
                 {
-                    cn.Open();
-                    cmd.CommandType = CommandType.StoredProcedure;
+                    using (SqlCommand cmd = new SqlCommand("LOS_QUE_VAN_A_APROBAR.PagarReserva", cn))
+                    {
+                        cn.Open();
+                        cmd.CommandType = CommandType.StoredProcedure;
 
-                    cmd.Parameters.AddWithValue("@IdReserva", IdReserva);
-                    cmd.ExecuteNonQuery();
-                    MessageBox.Show("Reserva pagada exitosamente");
+                        cmd.Parameters.AddWithValue("@IdReserva", IdReserva);
+                        cmd.ExecuteNonQuery();
+                        MessageBox.Show("Reserva pagada exitosamente");
 
-                    cn.Close();
-                    cn.Dispose();
+                        cn.Close();
+                        cn.Dispose();
+                    }
                 }
+                this.Dispose();
             }
-            this.Dispose();
+            else { MessageBox.Show("Debe seleccionar una opcion"); }
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -71,11 +75,13 @@ namespace FrbaCrucero.PagoReserva
             if (Convert.ToInt32(comboBox1.SelectedIndex) == 1)
             {
                 CompraReservaPasaje.Mercadopago fo = new CompraReservaPasaje.Mercadopago();
+                fo.StartPosition = FormStartPosition.CenterScreen;
                 fo.Show();
             }
             if (Convert.ToInt32(comboBox1.SelectedIndex) == 0)
             {
                 CompraReservaPasaje.TarjetaDeCredito f = new CompraReservaPasaje.TarjetaDeCredito();
+                f.StartPosition = FormStartPosition.CenterScreen;
                 f.Show();
             }
         }

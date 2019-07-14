@@ -29,13 +29,16 @@ namespace FrbaCrucero.CompraReservaPasaje
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (textBox4.Text != null && textBox1.Text != null && textBox2.Text != null)
+
+            if ((textBox4.Text != null) && (textBox1.Text != null) && (textBox2.Text != null))
             {
                 MessageBox.Show("Datos correctos, confirme el pago");
                 this.Dispose();
             }
             else { MessageBox.Show("Completar campos"); }
         }
+
+        
 
         private void textBox4_TextChanged(object sender, EventArgs e)
         {
