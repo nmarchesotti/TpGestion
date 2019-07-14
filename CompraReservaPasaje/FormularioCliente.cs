@@ -42,7 +42,17 @@ namespace FrbaCrucero.CompraReservaPasaje
                 SqlCommandBuilder cb = new SqlCommandBuilder(adp);
                 adp.Update(dataset);
 
-                confirmarDatos();
+
+                int fila = dataGridView1.CurrentCell.RowIndex;
+                decimal dni = Convert.ToDecimal(dataGridView1.Rows[fila].Cells[3].Value);
+
+                if (Convert.ToDecimal(textBoxDni.Text) != dni)
+                {
+                    throw new Exception();
+                }
+
+                     
+
                 SqlConnection cn1 = new SqlConnection(ConfigurationManager.ConnectionStrings["GD_CRUCEROS"].ConnectionString);
                 cn1.Open();
                 SqlCommand sc = new SqlCommand("select LOS_QUE_VAN_A_APROBAR.ClienteNoPuedeComprar(@IdCliente, @FechaSalida, @IdViaje)", cn1);
@@ -61,6 +71,7 @@ namespace FrbaCrucero.CompraReservaPasaje
                 cn1.Close();
                 cn1.Dispose();
 
+                
                 if (result == 0 || result1 == 0)
                 {
                     MessageBox.Show("Usted ya tiene un viaje pendiente en esa fecha");
@@ -96,7 +107,7 @@ namespace FrbaCrucero.CompraReservaPasaje
             {
                 SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["GD_CRUCEROS"].ConnectionString);
                 cn.Open();
-                SqlCommand sc = new SqlCommand("select Nombre, Apellido, DNI, Direccion, Telefono, Mail, FechaNacimiento from LOS_QUE_VAN_A_APROBAR.Cliente where DNI = @dni", cn);
+                SqlCommand sc = new SqlCommand("select  IdCliente, Nombre, Apellido, DNI, Direccion, Telefono, Mail, FechaNacimiento from LOS_QUE_VAN_A_APROBAR.Cliente where DNI = @dni", cn);
 
                 sc.Parameters.Add("@dni", SqlDbType.Decimal).Value = Decimal.Parse(textBoxDni.Text);
                 sc.Parameters["@dni"].Precision = 18;
@@ -110,6 +121,7 @@ namespace FrbaCrucero.CompraReservaPasaje
 
                 bsource.DataSource = dataset;
                 dataGridView1.DataSource = bsource;
+                dataGridView1.Columns["IdCliente"].ReadOnly = true;
             }
             catch (FormatException)
             {
@@ -129,7 +141,14 @@ namespace FrbaCrucero.CompraReservaPasaje
                 SqlCommandBuilder cb = new SqlCommandBuilder(adp);
                 adp.Update(dataset);
 
-                confirmarDatos();
+                int fila = dataGridView1.CurrentCell.RowIndex;
+                decimal dni = Convert.ToDecimal(dataGridView1.Rows[fila].Cells[3].Value);
+
+                if (Convert.ToDecimal(textBoxDni.Text) != dni)
+                {
+                    throw new Exception();
+                }
+
 
                 SqlConnection cn1 = new SqlConnection(ConfigurationManager.ConnectionStrings["GD_CRUCEROS"].ConnectionString);
                 cn1.Open();
@@ -207,60 +226,6 @@ namespace FrbaCrucero.CompraReservaPasaje
         }
            
         
-
-        private void confirmarDatos() {
-            using (SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["GD_CRUCEROS"].ConnectionString))
-            {
-                using (SqlCommand cmd = new SqlCommand("select LOS_QUE_VAN_A_APROBAR.clienteSeleccionado(@DNI, @Nombre, @Apellido, @Direccion)", cn))
-                {
-                    cn.Open();
-                    cmd.CommandType = CommandType.Text;
-
-
-                    int fila = dataGridView1.CurrentCell.RowIndex;
-
-                    string nombre = (string)dataGridView1.Rows[fila].Cells[0].Value;
-                    string apellido = (string)dataGridView1.Rows[fila].Cells[1].Value;
-                    decimal dni = (decimal)dataGridView1.Rows[fila].Cells[2].Value;
-                    string direccion = (string)dataGridView1.Rows[fila].Cells[3].Value;
-
-                    if (String.IsNullOrEmpty(nombre) || String.IsNullOrEmpty(apellido) || String.IsNullOrEmpty(dni.ToString()) || String.IsNullOrEmpty(direccion))
-                    {
-                        MessageBox.Show("Por favor complete todos los campos requeridos");
-                    }
-
-                    if (Convert.ToDecimal(textBoxDni.Text) != dni)
-                    {
-                        throw new Exception();
-                    }
-                    else
-                    {
-
-
-
-                        cmd.Parameters.AddWithValue("@DNI", dni);
-                        cmd.Parameters.AddWithValue("@Nombre", nombre);
-                        cmd.Parameters.AddWithValue("@Apellido", apellido);
-                        cmd.Parameters.AddWithValue("@Direccion", direccion);
-
-                        int resultado = Convert.ToInt32(cmd.ExecuteScalar());
-
-                        if (resultado < 0)
-                        {
-                            MessageBox.Show("Cliente no encontrado");
-                        }
-                        else
-                        {
-                            idcli = resultado;
-                        }
-
-                        cn.Close();
-                    }
-                }
-
-
-            }
-        }
 
         private void FormularioCliente_Load(object sender, EventArgs e)
         {
