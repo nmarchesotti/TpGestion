@@ -38,8 +38,10 @@ namespace FrbaCrucero.CompraReservaPasaje
         {
             try
             {
+
                 SqlCommandBuilder cb = new SqlCommandBuilder(adp);
                 adp.Update(dataset);
+
                 confirmarDatos();
                 SqlConnection cn1 = new SqlConnection(ConfigurationManager.ConnectionStrings["GD_CRUCEROS"].ConnectionString);
                 cn1.Open();
@@ -74,6 +76,15 @@ namespace FrbaCrucero.CompraReservaPasaje
             }
             catch {
                 MessageBox.Show("El dni debe coincidir y debe completar todos los campos");
+                if (this.dataGridView1.DataSource != null)
+                {
+                    this.dataGridView1.DataSource = null;
+                }
+                else
+                {
+                    this.dataGridView1.Rows.Clear();
+                }
+ 
             }
         }
 
@@ -103,6 +114,7 @@ namespace FrbaCrucero.CompraReservaPasaje
             catch (FormatException)
             {
                 MessageBox.Show("El dni debe ser un numero entero sin puntos ni comas");
+
             }
 
            
@@ -113,8 +125,10 @@ namespace FrbaCrucero.CompraReservaPasaje
         {
             try
             {
+
                 SqlCommandBuilder cb = new SqlCommandBuilder(adp);
                 adp.Update(dataset);
+
                 confirmarDatos();
 
                 SqlConnection cn1 = new SqlConnection(ConfigurationManager.ConnectionStrings["GD_CRUCEROS"].ConnectionString);
@@ -181,6 +195,14 @@ namespace FrbaCrucero.CompraReservaPasaje
             }
             catch {
                MessageBox.Show("El dni debe coincidir y debe completar todos los campos.");
+               if (this.dataGridView1.DataSource != null)
+               {
+                   this.dataGridView1.DataSource = null;
+               }
+               else
+               {
+                   this.dataGridView1.Rows.Clear();
+               }
             }
         }
            

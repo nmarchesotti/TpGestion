@@ -14,6 +14,7 @@ namespace FrbaCrucero.CompraReservaPasaje
 {
     public partial class CompraReserva : Form
     {
+       
         public CompraReserva()
         {
             InitializeComponent();
@@ -22,6 +23,7 @@ namespace FrbaCrucero.CompraReservaPasaje
             comboBoxTipo_Load();
 
         }
+ 
 
 
 
@@ -188,10 +190,11 @@ namespace FrbaCrucero.CompraReservaPasaje
 
         private void button2_Click(object sender, EventArgs e)
         {
-            PantallaInicial.Inicio form = new PantallaInicial.Inicio();
-            form.StartPosition = FormStartPosition.CenterScreen;
-            form.Show();
-            this.Dispose();
+                PantallaInicial.Inicio form = new PantallaInicial.Inicio();
+                form.StartPosition = FormStartPosition.CenterScreen;
+                form.Show();
+                this.Dispose();
+          
         }
 
         private void textBoxCantidad_TextChanged(object sender, EventArgs e)
