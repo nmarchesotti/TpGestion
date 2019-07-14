@@ -77,7 +77,10 @@ namespace FrbaCrucero.AbmCrucero
                                 MessageBoxIcon.Question))
                         {
                             case DialogResult.Yes:
-
+                                EleccionBaja form = new EleccionBaja(this.IdCrucero);
+                                form.StartPosition = FormStartPosition.CenterScreen;
+                                form.Show();
+                                this.Dispose();
                                 break;
 
                             case DialogResult.No:
@@ -117,10 +120,10 @@ namespace FrbaCrucero.AbmCrucero
 
             }
 
-            EleccionBaja form = new EleccionBaja(this.IdCrucero);
+            /*EleccionBaja form = new EleccionBaja(this.IdCrucero);
             form.StartPosition = FormStartPosition.CenterScreen;
             form.Show();
-            this.Dispose();
+            this.Dispose();*/
         }
 
         private void button2_Click(object sender, EventArgs e)

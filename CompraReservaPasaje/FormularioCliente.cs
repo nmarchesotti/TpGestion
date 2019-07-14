@@ -46,6 +46,8 @@ namespace FrbaCrucero.CompraReservaPasaje
                 int fila = dataGridView1.CurrentCell.RowIndex;
                 decimal dni = Convert.ToDecimal(dataGridView1.Rows[fila].Cells[3].Value);
 
+                this.idcli = Convert.ToInt32(dataGridView1.Rows[fila].Cells[0].Value);
+
 
                 if (Convert.ToDecimal(textBoxDni.Text) != dni)
                 {

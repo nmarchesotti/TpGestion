@@ -34,6 +34,7 @@ namespace FrbaCrucero.CompraReservaPasaje
 
         private void button1_Click(object sender, EventArgs e)
         {
+            MessageBox.Show(Convert.ToString(this.idcliente));
             if (comboBox1.SelectedItem != null)
             {
                 for (int i = 0; i < cantidad; i++)

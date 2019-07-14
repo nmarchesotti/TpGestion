@@ -21,26 +21,32 @@ namespace FrbaCrucero.AbmCrucero
             this.IdCrucero = IdCrucero;
         }
 
+
         private void button1_Click(object sender, EventArgs e)
         {
-            using (SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["GD_CRUCEROS"].ConnectionString))
+            try
             {
-                if (checkBox1.Checked)
+                using (SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["GD_CRUCEROS"].ConnectionString))
                 {
-                    DateTime fechaAReprogramar = Convert.ToDateTime(dateTimePicker1.Text);
-
-                    using (SqlCommand cmd = new SqlCommand("LOS_QUE_VAN_A_APROBAR.reprogramarViajes", cn))
+                    if (checkBox1.Checked)
                     {
-                        cn.Open();
-                        cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.Add("@IdCrucero", SqlDbType.NVarChar, 50).Value = this.IdCrucero;
-                        cmd.Parameters.Add("@FechaReprogramacion", SqlDbType.DateTime2, 3).Value = fechaAReprogramar;
-                        cmd.ExecuteNonQuery();
-                        MessageBox.Show("Cambio realizado correctamente");
-                    }
-                }
+                        DateTime fechaAReprogramar = Convert.ToDateTime(dateTimePicker1.Text);
 
+                        using (SqlCommand cmd = new SqlCommand("LOS_QUE_VAN_A_APROBAR.cambioCrucero", cn))
+                        {
+                            cn.Open();
+                            cmd.CommandType = CommandType.StoredProcedure;
+                            cmd.Parameters.Add("@tiempo", SqlDbType.Int).Value = Convert.ToInt32(textBox1.Text);
+                            cmd.Parameters.Add("@IdCruceroViejo", SqlDbType.NVarChar, 50).Value = this.IdCrucero;
+
+                            cmd.ExecuteNonQuery();
+                            MessageBox.Show("Cambio realizado correctamente");
+                        }
+                    }
+
+                }
             }
+            catch (SqlException) { MessageBox.Show("No hay cruceros disponibles"); }
         }
     }
 }
